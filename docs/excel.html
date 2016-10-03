@@ -1,0 +1,2197 @@
+<!DOCTYPE html>
+<html lang="it">
+   <head>
+      <!-- <meta charset="utf-8"> -->
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>EXCEL API User Guide</title>
+      <!-- Bootstrap -->
+      <link href="css/bootstrap.css" rel="stylesheet">
+      <!--<link href="css/extra.css" rel="stylesheet">-->
+      <link href="css/doc.min.css" rel="stylesheet">
+      <link rel="icon" href="img/d_directa_small.png" />
+      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+      <style>
+         body {
+         position: relative;
+         }
+         hr.style-one {
+         border: 0;
+         height: 1px;
+         background: #333;
+         background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc);
+         background-image:    -moz-linear-gradient(left, #ccc, #333, #ccc);
+         background-image:     -ms-linear-gradient(left, #ccc, #333, #ccc);
+         background-image:      -o-linear-gradient(left, #ccc, #333, #ccc);
+         }
+         hr.style-two {
+         border: 0;
+         height: 1px;
+         background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+         background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+         background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+         background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+         }
+         hr.style-eight {
+         padding: 0;
+         border: none;
+         border-top: medium double #333;
+         color: #333;
+         text-align: center;
+         }
+         hr.style-eight:after {
+         content: "|||";
+         display: inline-block;
+         position: relative;
+         top: -0.7em;
+         font-size: 1.5em;
+         padding: 0 0.25em;
+         background: white;
+         }
+         tr:hover {
+         background-color: #efefef;
+         }
+      </style>
+   </head>
+   <!--OnLoad="blinker()"-->
+   <body>
+      <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
+         <div class="container">
+            <nav class="navbar navbar-default" role="navigation">
+               <ul class="nav navbar-nav navbar-left">
+                  <h7><a href="#changelog" data-toggle="collapse" data-parent"#accordion" data-target="#collapseChange">Ultimo aggionamento: 08/06/2016</a></h7>
+               </ul>
+               <ul class="nav navbar-nav navbar-middle">
+                  <img src="img/logo-directa.png">
+               </ul>
+               <!--<ul class="nav navbar-nav navbar-right">
+                  <li><a>
+                     <img src="img/italia.gif" class="img-rounded img-responsive"></a>
+                  </li>
+                  <li><a href="inglese.html">
+                     <img src="img/uk.gif" class="img-rounded img-responsive"></a>
+                  </li>
+               </ul>-->
+            </nav>
+         </div>
+      </header>
+      <div class="container tab-content" id="top2">
+         <br>
+         <!--class="jumbotron" -->
+         <!-- per l'esplosione dei titoli usati cosi -->
+         <!-- <a data-toggle="collapse" data-parent="#accordion" href="#collapseseven" > </a> questo link nel titolo -->
+         <!-- nel div che verrà esposto mettere nel tag id="collapseseven" class="panel-collapse collapse" -->
+         <!-- nel menu invece data-toggle="collapse" data-parent="#accordion" data-target="#collapseseven"-->
+         <div class="row">
+            <div class="col-md-9">
+               <!--HEADER-->
+               <!--
+                  <div class="panel panel-default" id="intro">
+                  	<div class="panel-heading">
+                  		<h3 class="panel-title" >Introduzione</h3>
+                  	</div>
+                  	<div class="panel-body">
+                  		<p class="text-justify">GIT Ë un sistema di versioning distribuito: ogni sviluppatore Ë responsabile di fare il versioning del proprio lavoro sulla propria macchina di sviluppo. PuÚ quindi manutenere una copia su remoto del proprio repository sia per avere un backup sia per condividere il progetto con altri sviluppatori.</p>
+                  	</div>
+                  </div>
+                  -->
+               <!-- CONTENT -->
+               <!-- hr separa le sezioni, si possono applicare diversi stili cambiando il nome della classe
+                  - style-one, style-two, ecc. (fino alla 8 credo)
+                  - l'id serve per associare un riferimento nel menu a destra; maggiori dettagli nella sezione MENU
+                  -->
+               <!-- In questo gruppo ogni titolo Ë cliccabile e viene mostrato il contenuto per la sezione, GRUPPO TENDINA -->
+               <!-- ** NOTE D'USO **
+                  si puÚ fare copia incolla di un blocco qualsiasi per creare altre sezioni, a patto di:
+                  - cambiare il campo href="#nomesezione", nella riga antecedente il titolo; deve essere univoco sull'intera pagina, per semplicit‡ si usa #collapse{NumeroSezione} es. '#collapseOne','#collapseTwo', ecc.
+                  - lo stesso nome usato in href='' va usato per l'id della sezione successiva al titolo
+                  
+                  si puÚ specificare il colore del box cambiando la classe del div pi˘ esterno
+                  - panel-info = azzurro
+                  - panel-waring = giallo
+                  - panel-danger = rosso
+                  - panel-success = verde
+                  - panel-primary = blu-->
+               <div class="panel-group accordion-group" id="accordion">
+                  <!--Funzionalita comuni-->
+                  <div class="page-header" id="intro_df">
+                     <h2 id="fcomuni">Utilizzo del servizio API tramite Excel</h2>
+                  </div>
+				  
+                  <div class="panel panel-info" id="comefunziona">
+                     <div class="panel-heading">
+                        <h4 class="panel-title">
+                           <b>Come Funziona</b>
+                        </h4>
+                     </div>
+                     <div id="collapseOne" >
+                        <div class="panel-body">
+                           <p class="text-justify">
+                              Una libreria .xll per Excel consente all'utente di collegarsi al servizio API della piattaforma Darwin per ricevere i dati realtime ed effettura operazioni di trading.
+                              Questa wiki spiega come installare questa libreria e collegarsi al servizio API da Excel ed elenca i comandi attualmente disponibili. 
+							 <!-- <br><br>
+							  Viene inoltre reso disponibile un file di esempio che mostra come utilizzare il servizio API in Excel sia tramite funzioni sia tramite macro.-->
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="panel panel-info" id="avvioplg">
+                     <div class="panel-heading">
+                        <h4 class="panel-title">
+                           <b>Avvio del servizio API</b>
+                        </h4>
+                     </div>
+                     <div id="collapsetwo" >
+                        <div class="panel-body">
+                           <p class="text-justify">
+                              Se l'utente &egrave; abilitato al servizio API, questo verr&agrave avviato automaticamente con la piattaforma Darwin; in caso contrario il servizio non sar&agrave; disponibile.<br>
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="panel panel-warning" id="gestioneH">
+                     <div class="panel-heading">
+                        <h4 class="panel-title">
+                           <b>Installazione libreria per Excel</b>
+                        </h4>
+                     </div>
+                     <div id="collapsethree" >
+                        <div class="panel-body">
+                           <p class="text-justify">
+                              Per poter accedere al servizio API da Excel &egrave;   necessario installare un'apposita libreria .xll realizzata e distribuita da Directa.<br>
+							  I passi da seguire per installare la libreria sono i seguenti:
+							  <br><br>
+							  <!--<b>MODALITA' MANUALE</b>
+							  <!--TODO: installer automatico?<br>
+							  TODO2: dove salviamo il jar della Darwin muta?
+							  <ol>
+								 <li>Richiedere le librerie ( in formato .zip) al nostro servizio clienti all'indirizzo di posta <img src="img/imgmail.png" class="img-rounded img-responsive"> <!--<a href="downfile.php?id=11">&nbsp;ExcelPluginDirecta</a> </li>
+                                 <li>all'interno dello zip ci saranno due librerie una a 64bit l'altra a 32it</b></li>
+								 <li>Avviare Excel </li>
+								 <li>Aprire il file in cui si vogliono usare le API o creare un nuovo file</li>
+								 <li>Andare su "File" > "Opzioni" </li>
+								 <li>Andare su "Componenti Aggiuntivi" e selezionare "Vai" </li>
+								 <li>Selezionare "Sfoglia", si aprir&agrave;   una finesta sfogliatore al percorso "C:\Users\<NOME UTENTE>\AppData\Roaming\Microsoft\AddIns"</li>
+								 <li>Incollare nella cartella mostrata la libreria .xll fornita da Directa, <b>da scegliere in base alla propria versione di Excel 32 o 64 bit</b>, selezionarla e preme ok </li>
+								 <li>La libreria sar&agrave;  ora presente nell'elenco, verificare che sia presente la spunta di abilitazione, quindi premere ok.</li> 
+								 <li>Da questo momento in avanti le funzionalit&agrave;   API saranno disponibili da Excel</li>
+								 <!--<li>Per poter avviare la Darwin muta, &egrave; necessario copiare il file Engine.jar in "C:\"</li>
+                                 <li>Per avere le connessioni &egrave; necessario avviare la Darwin e tenerla 'aperta' insieme al proprio file Excel</li>
+							  </ol> -->
+                            <ol>
+                                <li>Vi verr&agrave; fornito un installer da scaricare, dopo aver fatto richiesta al nostro indirizzo di posta <img src="img/imgmail.png" class="img-rounded img-responsive"></li>
+                                <li>Una volta installato e lanciato il launcher vi verr&agrave; richiesto di inserire utente e password e cliccare su ExcelPlugin</li>
+                                <li>Cliccandolo verrano installati nella cartella AddIns di Microsoft Excel i componenti aggiuntivi e verr&agrave; aperto un semplice file Excel creato da noi.</li>
+                                <li>Dopo l'apertura del file sar&agrave; necessario attivare il componente aggiuntivo</li>
+                                <li>Andare su "File" > "Opzioni"</li>
+                                <li>Andare su "Componenti Aggiuntivi" e selezionare "Vai"</li>
+                                <li>Selezionare "Sfoglia", si aprir&agrave; una finesta sfogliatore al percorso "C:\Users\\AppData\Roaming\Microsoft\AddIns"</li>
+                                <li>Selezionare la versione della libreria, 32 o 64 bit, in base alla propria installazione di Excel e premere ok, i componenti aggiuntivi dovrebbero avere nome Directa Add-In Add-In per la versione di Excel a 64 bit mentre Directa Add-In-Addin-Packet per la versione di Excel a 32 bit, il nome potrebbe variare da sistema a sistema, in caso una libreria dopo essere selezionata non mostri le formule che proponiamo &egrave; necessario selezionare l'altra, &egrave; comunque possibile selezionarle tutte e due e avere un immediato funzionamento.<br> <b>Le librerie in questione comunque avranno sempre all'interno del nome Directa come dettaglio</b>.</li>
+                                <li>Da questo momento tutte le formule per la connessione sono a disposizione sul proprio foglio Excel</li>
+                                <li>Ora per interagire con i dati sar&agrave; necesario aprire una Darwin oppure una Darwin senza interfaccia direttamente dal foglio Excel, il tutto &egrave; spiegato nella prossima sezione.</li>
+                            </ol>
+                            <b><code><font size="3" color="#FF6347" >NB</font></code></b>Nel caso di utilizzo della Darwin normale, La prima volta &egrave; necessario avviare la Darwin dopo l'impostazione spiegata sopra, nelle volte successive la Darwin pu&ograve; essere avviata anche prima dell'apertura del file.<br>
+                            <br><b><code><font size="3" color="#FF6347" >NB</font></code></b> Questa operazione d'installazione sar&agrave; necessaria solamente la prima volta per permettere al sistema di impostare i componenti aggiuntivi nella posizione corretta,
+                            nelle volte successive si potr&agrave; aprire il proprio file direttamente. Questa operazione pu&ograve; essere di nuovo necessaria nel caso in cui i componenti aggiuntivi vengano aggiornati, per questo terremo su questa guida lo stato
+                            dell'avanzamento del progetto.<br><br>
+                            <b><code><font size="3" color="#FF6347" >NB</font></code></b> Al momento &egrave; possibile operare con una sola Darwin attiva alla volta.
+                           
+                        </div>
+                     </div>
+                  </div>
+                  <div class="panel panel-success" id="closeDW">
+                     <div class="panel-heading">
+                        <h4 class="panel-title">
+                           <b>Avvio e chiusura di Darwin da Excel</b>
+                        </h4>
+                     </div>
+                     <div id="collapsefour" >
+                        <div class="panel-body">
+                           <b>Per utilizzare il servizio API, e di conseguenza il plugin Excel, &egrave necessario avviare la Darwin. Qualora l'utente non volesse avviare la Darwin nella sua versione ordinaria, la libreria Excel rende disponibile un comando per avviare una versione standalone della Darwin, ovvero senza interfaccia grafica.</b><br><br>
+                           <b><code><font size="3" color="#FF6347" >NB</font></code></b> In caso di utilizzo della Darwin normale questi comandi possono essere non considerati.
+                           <br><br>
+                           Se si &egrave; scelto di operare attraverso la DarwinCommandLine sono a disposizione dei comandi utili per comandare la connessione alla Darwin direttamente dal proprio foglio Excel:
+                           <br>
+						   Comando: <kbd>=Darwin()</kbd> si apre una shell e verranno richiesti username e password<br>
+						   Comando: <kbd>=Darwin(A1;B1)</kbd> se nelle celle A1 e B1 sono gi&agrave presenti username e password<br>
+						   Comando: <kbd>=Darwin("CONTO";"PASSWORD")</kbd> per passare come stringhe username e password<br>
+						   <br>
+						   Una volta che il caricamento &egrave; completato <!--(TODO Notificare con un log comprensibile)--> &egrave; possibile avviare la connessione ai canali di trading (per operare) e di datafeed (per avere le quotazioni realtime)<br>
+						   <br>
+						   La DarwinCommandLine in questione verr&agrave; chiusa automaticamente alla chiusura del file Excel, nel caso di utilizzo della Darwin con interfaccia questa non verr&agrave; chiusa direttamente.
+                           <br>
+						  Formato risposta per partenza Darwin:<br>
+                          <table class="table table-bordered">
+                              <thread>
+                                 <tr>
+                                    <th>STATUS</th>
+                                    <th>CodiceConto</th>
+                                    <th>TRUE/FALSE</th>
+                                 </tr>
+                              </thread>
+							</table>
+                            <br>
+                            Esempio risposta per comando <kbd>=SE(E(B5<>"";B6<>"");Darwin(B5;B6))</kbd> se la cella B5 e B6 non sono vuote esegui la connesione per quel conto e la password associata:<br>
+                            <table class="table table-bordered">
+                              <thread>
+                                 <tr>
+                                    <th>STATUS</th>
+                                    <th>47511</th>
+                                    <th>TRUE</th>
+                                 </tr>
+                              </thread>
+							</table>
+                        </div>
+                     </div>
+                  </div>
+
+                  <!-- fine pannello introduzione comandi generali-->
+                  <hr class="style-one" id="datafeed">
+                  <!-- inizio pannello datafeed -->
+				 
+                  <div class="page-header" id="datafeed_tit">
+                     <h2 id="hdf">DataFeed</h2>
+                  </div>
+                  <div class="panel panel-info" id="df_conn">
+                     <div class="panel-heading">
+                        <h4 class="panel-title">
+                           <b>Connessione al DataFeed</b>
+                        </h4>
+                     </div>
+                     <div id="collapseseven"  >
+                        <div class="panel-body">
+                           <p class="text-justify">
+                           Per creare la connessione ai prezzi &egrave; necessario dopo aver avviato la Darwin digitare questa formula all'interno di una cella Excel<br>
+                            <kbd>=DirectaDataFeedConnection()</kbd><br>
+                            <br>
+                            La risposta della formula indicher&agrave; lo stato della connessione e notificher&agrave; eventuali errori durante la connessione.
+                            <br>
+                            Dopo aver ricevuto risposta dalla formula &egrave; possibile procedere con la sottoscrizione dei ticker, che verrano spiegati nel paragrafo seguente.
+                            <br>
+                            Formato risposta per connessione DataFeed:<br>
+                          <table class="table table-bordered">
+                              <thread>
+                                 <tr>
+                                    <th>DataFeed</th>
+                                    <th>STATUS</th>
+                                    <th>TRUE/FALSE</th>
+                                 </tr>
+                              </thread>
+							</table>
+                            <br>
+                            Esempio risposta per comando <kbd>=DirectaDataFeedConnection()</kbd><br>
+                            <table class="table table-bordered">
+                              <thread>
+                                 <tr>
+                                    <th>DataFeed</th>
+                                    <th>STATUS</th>
+                                    <th>TRUE</th>
+                                 </tr>
+                              </thread>
+							</table>
+                            <br>
+                            <b><code><font size="3" color="#FF6347" >NB</font></code>Essendo al momento disponibile l'utilizzo di una sola Darwin per questo componente, una volta stabilita la connessione non c'&egrave; bisogno su altri fogli o file di eseguire la formula di connessione al datafeed</b>
+                            </p>
+                     </div>
+                   </div> 
+                   </div>
+                   
+                    <div class="panel panel-warning" id="df_ricezione">
+                     <div class="panel-heading">
+                        <h4 class="panel-title">
+                           <b>Comandi Sottoscrizione/Desottoscrizione</b>
+                        </h4>
+                     </div>
+                     <div id="collapseseven"  >
+                        <div class="panel-body">
+                           <p class="text-justify">
+                            <table class="table table-bordered">
+                            <thread>
+                              <tr>
+                                 <th>FUNZIONE</th>
+                                 <th>AZIONE</th>
+                              </tr>
+                                 </thread>
+                              <tbody>
+                                 <tr>
+                                    <td><kbd>=PX_PACK("Ticker")</kbd></td>
+                                    <td>Tracciato pacchetto Price relativo al ticker</td>
+                                 </tr>
+                                 <tr>
+                                  <td><kbd>=PX_LAST("Ticker")</kbd></td>
+                                    <td>Ultimo prezzo battuto del ticker in questione</td>
+                                </tr>
+                                <tr>
+                                  <td><kbd>=PX_VOLUME("Ticker")</kbd></td>
+                                    <td>Volume del ticker in questione</td>
+                                </tr>
+                                <tr>
+                                  <td><kbd>=PX_VOLUME_PROGRESSIVE("Ticker")</kbd></td>
+                                    <td>Volume progressivo del ticker in questione</td>
+                                </tr>
+                                <tr>
+                                  <td><kbd>=PX_CONTRACTS_PROGRESSIVE("Ticker")</kbd></td>
+                                    <td>Progressivo contratti del ticker in questione</td>
+                                </tr>
+                                <tr>
+                                  <td><kbd>=PX_LOW("Ticker")</kbd></td>
+                                    <td>Minimo di giornata del ticker in questione</td>
+                                </tr>
+                                <tr>
+                                  <td><kbd>=PX_HIGH("Ticker")</kbd></td>
+                                    <td>Massimo di giornata del ticker in questione</td>
+                                </tr>
+                                <tr>
+                                    <td></td><td></td>
+                                </td>
+                                 <tr>
+                                    <td><kbd>=BIDASK_PACK("Ticker")</kbd></td>
+                                    <td>Tracciato pacchetto bidask relativo al ticker</td>
+                                </tr>
+                                <tr>
+                                    <td><kbd>=BIDASK("Ticker")</kbd></td>
+                                    <td>Prezzo in acquisto e in vendita rispetto al ticker richiesto</td>
+                                 </tr>
+                                  <tr>
+                                    <td><kbd>=MULTIBOOK_BIDASK("Ticker")</kbd></td>
+                                    <td>Multibook stile Darwin contente solamente il primo livello del book.</td>
+                                 </tr>
+                                 <tr>
+                                    <td><kbd>=FLASHBOOK_BIDASK("Ticker")</kbd></td>
+                                    <td>Flashbook verticale stile Darwin contente solamente il primo livello del book.</td>
+                                 </tr>
+                                 <tr>
+                                    <td><kbd>=FLASHBOOK_BIDASK_PX("Ticker")</kbd></td>
+                                    <td>Flashbook verticale stile Darwin contente solamente il primo livello del book, solamente con il dettaglio dei prezzi</td>
+                                 </tr>
+                                  <tr>
+                                    <td><kbd>=PX_BID("Ticker")</kbd></td>
+                                    <td>Prezzo in acquisto del ticker richiesto</td>
+                                 </tr>
+                                 <tr>
+                                    <td><kbd>=BID_SIZE_VOLUME("Ticker")</kbd></td>
+                                    <td>Numero Azioni in acquisto del ticker richiesto</td>
+                                 </tr>
+                                 <tr>
+                                    <td><kbd>=BID_SIZE_PROPOSALS("Ticker")</kbd></td>
+                                    <td>Numero Proposte in acquisto del ticker richiesto</td>
+                                 </tr>
+                                 <tr>
+                                    <td><kbd>=PX_ASK("Ticker")</kbd></td>
+                                    <td>Prezzo in vendita del ticker richiesto</td>
+                                 </tr>
+                                 <tr>
+                                    <td><kbd>=ASK_SIZE_VOLUME("Ticker")</kbd></td>
+                                    <td>Numero Azioni in vendita del ticker richiesto</td>
+                                 </tr>
+                                  <tr>
+                                    <td><kbd>=ASK_SIZE_PROPOSALS("Ticker")</kbd></td>
+                                    <td>Numero Proposte in vendita del ticker richiesto</td>
+                                 </tr>
+                                 <tr>
+                                    <td></td><td></td>
+                                </td>
+                                 <tr>
+                                    <td><kbd>=BOOK5_PACK("Ticker")</kbd></td>
+                                    <td>Tracciato completo book5</td>
+                                </tr>
+                                <tr>
+                                    <td><kbd>=BOOKL1("Ticker")</kbd></td>
+                                    <td>Campi acquisto e vendita per livello 1</td>
+                                 </tr>
+                                <tr>
+                                    <td><kbd>=BOOKL2("Ticker")</kbd></td>
+                                    <td>Campi acquisto e vendita per livello 2</td>
+                                 </tr>
+                                <tr>
+                                    <td><kbd>=BOOKL3("Ticker")</kbd></td>
+                                    <td>Campi acquisto e vendita per livello 3</td>
+                                 </tr>
+                                <tr>
+                                    <td><kbd>=BOOKL4("Ticker")</kbd></td>
+                                    <td>Campi acquisto e vendita per livello 4</td>
+                                 </tr>
+                                <tr>
+                                    <td><kbd>=BOOKL5("Ticker")</kbd></td>
+                                    <td>Campi acquisto e vendita per livello 5</td>
+                                 </tr>
+                                 <tr>
+                                    <td><kbd>=MULTIBOOK_L5("Ticker")</kbd></td>
+                                    <td>Book5 livelli, ogni riga riporta un livello di book, stile Multibook presente nella Darwin.</td>
+                                 </tr>
+                                 <tr>
+                                    <td><kbd>=FLASHBOOK_L5("Ticker")</kbd></td>
+                                    <td>Book5 livelli in verticale, stile Flashbook presente nella Darwin.</td>
+                                 </tr>
+                                 <tr>
+                                    <td><kbd>=FLASHBOOK_L5_PX("Ticker")</kbd></td>
+                                    <td>Book5 livelli in verticale, stile Flashbook presente nella Darwin, contetter&agrave; solamente il dettaglio dei prezzi.</td>
+                                 </tr>
+                                 <tr>
+                                    <td><kbd>=PX_BID_L1("Ticker")</kbd></td>
+                                    <td>Prezzo in acquisto per il livello 1 del book</td>
+                                 </tr>
+                                 <tr>
+                                    <td><kbd>=PX_BID_L2("Ticker")</kbd></td>
+                                    <td>Prezzo in acquisto per il livello 2 del book</td>
+                                 </tr>
+                                 <tr>
+                                    <td><kbd>=PX_BID_L3("Ticker")</kbd></td>
+                                    <td>Prezzo in acquisto per il livello 3 del book</td>
+                                 </tr>
+                                 <tr>
+                                    <td><kbd>=PX_BID_L4("Ticker")</kbd></td>
+                                    <td>Prezzo in acquisto per il livello 4 del book</td>
+                                 </tr>
+                                 <tr>
+                                    <td><kbd>=PX_BID_L5("Ticker")</kbd></td>
+                                    <td>Prezzo in acquisto per il livello 5 del book</td>
+                                 </tr>
+                                 <tr>
+                                    <td><kbd>=PX_ASK_L1("Ticker")</kbd></td>
+                                    <td>Prezzo in vendita per il livello 1 del book</td>
+                                 </tr>
+                                  <tr>
+                                    <td><kbd>=PX_ASK_L2("Ticker")</kbd></td>
+                                    <td>Prezzo in vendita per il livello 2 del book</td>
+                                 </tr>
+                                  <tr>
+                                    <td><kbd>=PX_ASK_L3("Ticker")</kbd></td>
+                                    <td>Prezzo in vendita per il livello 3 del book</td>
+                                 </tr>
+                                  <tr>
+                                    <td><kbd>=PX_ASK_L4("Ticker")</kbd></td>
+                                    <td>Prezzo in vendita per il livello 4 del book</td>
+                                 </tr>
+                                  <tr>
+                                    <td><kbd>=PX_ASK_L5("Ticker")</kbd></td>
+                                    <td>Prezzo in vendita per il livello 5 del book</td>
+                                 </tr>
+                                 <tr>
+                                    <td><kbd>=BID_SIZE_VOLUME_L1("Ticker")</kbd></td>
+                                    <td>Volumi in acquisto per il livello 1 del book</td>
+                                 </tr>
+                                  <tr>
+                                    <td><kbd>=BID_SIZE_VOLUME_L2("Ticker")</kbd></td>
+                                    <td>Volumi in acquisto per il livello 2 del book</td>
+                                 </tr>
+                                  <tr>
+                                    <td><kbd>=BID_SIZE_VOLUME_L3("Ticker")</kbd></td>
+                                    <td>Volumi in acquisto per il livello 3 del book</td>
+                                 </tr>
+                                  <tr>
+                                    <td><kbd>=BID_SIZE_VOLUME_L4("Ticker")</kbd></td>
+                                    <td>Volumi in acquisto per il livello 4 del book</td>
+                                 </tr>
+                                  <tr>
+                                    <td><kbd>=BID_SIZE_VOLUME_L5("Ticker")</kbd></td>
+                                    <td>Volumi in acquisto per il livello 5 del book</td>
+                                 </tr>
+                                  <tr>
+                                    <td><kbd>=ASK_SIZE_VOLUME_L1("Ticker")</kbd></td>
+                                    <td>Volumi in vendita per il livello 1 del book</td>
+                                 </tr>
+                                  <tr>
+                                    <td><kbd>=ASK_SIZE_VOLUME_L2("Ticker")</kbd></td>
+                                    <td>Volumi in vendita per il livello 2 del book</td>
+                                 </tr>
+                                  <tr>
+                                    <td><kbd>=ASK_SIZE_VOLUME_L3("Ticker")</kbd></td>
+                                    <td>Volumi in vendita per il livello 3 del book</td>
+                                 </tr>
+                                  <tr>
+                                    <td><kbd>=ASK_SIZE_VOLUME_L4("Ticker")</kbd></td>
+                                    <td>Volumi in vendita per il livello 4 del book</td>
+                                 </tr>
+                                  <tr>
+                                    <td><kbd>=ASK_SIZE_VOLUME_L5("Ticker")</kbd></td>
+                                    <td>Volumi in vendita per il livello 5 del book</td>
+                                 </tr>
+                                  <tr>
+                                    <td><kbd>=BID_SIZE_PROPOSALS_L1("Ticker")</kbd></td>
+                                    <td>Numero proposte in acquisto per il livello 1 del book</td>
+                                 </tr>
+                                  <tr>
+                                    <td><kbd>=BID_SIZE_PROPOSALS_L2("Ticker")</kbd></td>
+                                    <td>Numero proposte in acquisto per il livello 2 del book</td>
+                                 </tr>
+                                  <tr>
+                                    <td><kbd>=BID_SIZE_PROPOSALS_L3("Ticker")</kbd></td>
+                                    <td>Numero proposte in acquisto per il livello 3 del book</td>
+                                 </tr>
+                                  <tr>
+                                    <td><kbd>=BID_SIZE_PROPOSALS_L4("Ticker")</kbd></td>
+                                    <td>Numero proposte in acquisto per il livello 4 del book</td>
+                                 </tr>
+                                  <tr>
+                                    <td><kbd>=BID_SIZE_PROPOSALS_L5("Ticker")</kbd></td>
+                                    <td>Numero proposte in acquisto per il livello 5 del book</td>
+                                 </tr>
+                                  <tr>
+                                    <td><kbd>=ASK_SIZE_PROPOSALS_L1("Ticker")</kbd></td>
+                                    <td>Numero proposte in vendita per il livello 1 del book</td>
+                                 </tr>
+                                 <tr>
+                                    <td><kbd>=ASK_SIZE_PROPOSALS_L2("Ticker")</kbd></td>
+                                    <td>Numero proposte in vendita per il livello 2 del book</td>
+                                 </tr>
+                                 <tr>
+                                    <td><kbd>=ASK_SIZE_PROPOSALS_L3("Ticker")</kbd></td>
+                                    <td>Numero proposte in vendita per il livello 3 del book</td>
+                                 </tr>
+                                 <tr>
+                                    <td><kbd>=ASK_SIZE_PROPOSALS_L4("Ticker")</kbd></td>
+                                    <td>Numero proposte in vendita per il livello 4 del book</td>
+                                 </tr>
+                                 <tr>
+                                    <td><kbd>=ASK_SIZE_PROPOSALS_L5("Ticker")</kbd></td>
+                                    <td>Numero proposte in vendita per il livello 5 del book</td>
+                                 </tr>
+                                  <tr>
+                                    <td><kbd>=UNSUBSCRIBE("Ticker")</kbd></td>
+                                    <td>Desottoscrive il relativo ticker, tutti i flussi con il relativo ticker non saranno pi&ugrave; aggiornate</td>
+                                 </tr>
+                              </tbody> 
+                              </table>
+                              <br>
+                              <b><code><font size="3" color="#FF6347" >NB</font></code> Tutte le formule possono essere utilizzate tramite macroVBA, le funzioni da richiamare sono le medesime, unica prerogativa
+                              &egrave; passare come argomento nel richiamo di tale formula un riferimento di cella con le coordinate x y desiderate, nel caso non si passasse il riferimento nel richiamo del metodo si verr&agrave; indirizzati alla cella A1, questo vale solamente per le funzioni richiamate tramite Macro e non per quelle da cella Excel che riporteranno il proprio risultato nella cella dove &egrave; avvenuto il richiamo. </b>
+                              <br>Esempio di macro per ricezione last price per LX.EURUSD associta ad un bottone:<br>
+                              <code>
+                                  Sub LastPrice()<br>
+                                    Dim x As Integer<br>
+                                    Dim y As Integer<br>
+                                    x = Range("O15").Row<br>
+                                    y = Range("O15").Column<br>
+                                    Application.Run "PX_LAST", "LX.EURUSD", x, y<br>
+                                End Sub<br>
+                              </code>    
+                               <br>
+                                  <b><code><font size="3" color="#FF6347" >NB</font></code></b> I prezzi ricevuti variano in base alle abilitazioni ai mercati sul proprio conto Directa.    
+                              </p>
+                            
+                     </div>
+                   </div> 
+                   </div>
+                   
+                   <div class="panel panel-success" id="price_risposta">
+                     <div class="panel-heading">
+                        <h4 class="panel-title">
+                           <b>Formato risposte formule Price</b>
+                        </h4>
+                     </div>
+                     <div id="collapseseven"  >
+                        <div class="panel-body">
+                           <p class="text-justify">
+                               Di seguito vengono descritti i tracciati in base alla formula inviata:
+                               <ul>
+                                   <li><kbd>=PX_PACK("Ticker")</kbd><br>
+                                   <!--<p>&lt;TIPO_MESSAGGIO&gt; ; &lt;TICKER&gt; ; &lt;ORA HH:MM:SS&gt; ; &lt;PREZZO&gt; ; &lt;QUANTIT&Agrave; AZIONI&gt; ; &lt;PROGRESSIVO AZIONI&gt; ; &lt;PROGRESSIVO CONTRATTI&gt; ; &lt;MINIMO DI GIORNATA&gt; ; &lt;MASSIMO DI GIORNATA&gt;</p>-->
+                              <table class="table table-bordered">
+                              <thread>
+                                 <tr>
+                                    <th>TIPO</th>
+                                    <th>TIT</th>
+                                    <th>ORA</th>
+									<th>PRZ</th>
+									<th>QTAAZ</th>
+									<th>PGRAZ</th>
+                                    <th>PGRC</th>
+                                    <th>MIN</th>
+                                    <th>MAX</th>
+                                 </tr>
+                              </thread>
+                              <tbody>
+                              </tbody>
+							</table>
+                            <ul>
+                                <li><b>TIPO</b> - tipo pacchetto</li>
+                                <li><b>TIT</b> - Ticker in questione</li>
+                                <li><b>ORA</b> - Orario arrivo pacchetto</li>
+                                <li><b>PRZ</b> - Prezzo battuto</li>
+                                <li><b>QTAAZ</b> - quantit&agrave; azioni</li>
+                                <li><b>PGRAZ</b> - progressivo azioni</li>
+                                <li><b>PGRC</b> - progressivo contratti</li>
+                                <li><b>MIN</b> - minimo di giornata</li>
+                                <li><b>MAX</b> - massimo di giornata</li>
+                            </ul>
+                            </li>
+                            <li> <kbd>=PX_LAST("Ticker")</kbd> &nbsp; <kbd>=PX_VOLUME("Ticker")</kbd> &nbsp; <kbd>=PX_VOLUME_PROGRESSIVE("Ticker")</kbd> &nbsp; <kbd>=PX_CONTRACTS_PROGRESSIVE("Ticker")</kbd> &nbsp; <kbd>=PX_LOW("Ticker")</kbd> &nbsp; <kbd>=PX_HIGH("Ticker")</kbd>
+                            <br>Le seguenti formule avranno una risposta singola che sar&agrave; il risultato richiesto con la formula per il determinato ticker inserito, il tracciato della risposta sar&agrave; cos&igrave; composto:<br>
+                            <table class="table table-bordered">
+                            <thread>
+                            <tr>
+                                    <th>TICKER</th>
+                                    <th>RISULTATO</th>
+                            <tr>
+                            </thread>
+                            <tbody>
+                            </tbody>
+							</table>
+                                Esempio per formula la &nbsp; <kbd>=PX_LAST("FCA")</kbd>:
+                                 <table class="table table-bordered">
+                            <thread>
+                            <tr>
+                                    <th>FCA</th>
+                                    <th>6,255</th>
+                            <tr>
+                            </thread>
+                            <tbody>
+                            </tbody>
+							</table>
+                            Nel campo ticker rimarr&agrave; interrogabile la formula quindi si potr&agrave; cambiare ticker per avere l'informazione di un'altro titolo, le altre formule avranno tutte lo stesso comportamento.
+                                   </li>
+                               </ul>
+                           </p>
+                     </div>
+                   </div> 
+                   </div>
+
+                   <div class="panel panel-warning" id="bd_risposta">
+                     <div class="panel-heading">
+                        <h4 class="panel-title">
+                           <b>Formato risposte formule BidAsk</b>
+                        </h4>
+                     </div>
+                     <div id="collapseseven"  >
+                        <div class="panel-body">
+                           <p class="text-justify">
+                              
+                            
+                                   <ul>
+                                   <li><kbd>=BIDASK_PACK("Ticker")</kbd><br>
+                                   <!--<p>&lt;TIPO_MESSAGGIO&gt; ; &lt;TICKER&gt; ; &lt;ORA HH:MM:SS&gt; ; &lt;QUANTIT&Agrave; AZIONI ACQUISTO LIVELLO 1&gt; ; &lt;NUM PROPOSTE ACQUISTO LIVELLO 1&gt; ; &lt;PREZZO ACQUISTO LIVELLO 1&gt; ; &lt;QUANTIT&Agrave; AZIONI VENDITA LIVELLO 1&gt; ; &lt;NUM PROPOSTE VENDITA LIVELLO 1&gt; ; &lt;PREZZO VENDITA LIVELLO 1&gt;</p> -->
+                                    <table class="table table-bordered">
+                                        <thread>
+                                            <tr>
+                                                <th>TIPO</th>
+                                                <th>TIT</th>
+                                                <th>ORA</th>
+									            <th>QTAACQ1</th>
+									            <th>NPACQ1</th>
+									            <th>PRZACQ1</th>
+                                                <th>QTAVEN1</th>
+                                                <th>NPVEN1</th>
+                                                <th>PRZVEN1</th>
+                                            </tr>
+                                      </thread>
+							    </table>
+                                
+                                <ul>
+                                <li><b>TIPO</b> - tipo pacchetto</li>
+                                <li><b>TIT</b> - Ticker in questione</li>
+                                <li><b>ORA</b> - Orario arrivo pacchetto</li>
+                                <li><b>QTAACQ1</b> - quantit&agrave; azioni in acquisto livello1</li>
+                                <li><b>NPACQ1</b> - numero proposte in acquisto livello1</li>
+                                <li><b>PRZACQ1</b> - prezzo acquisto livello1</li>
+                                <li><b>QTAVEN1</b> - quantit&agrave; vendita livello1</li>
+                                <li><b>NPVEN1</b> - numero proposte in vendita livello1</li>
+                                <li><b>PRZVEN1</b> - prezzo in vendita livello1</li>
+                                </ul>
+                                <br>
+                                </li>
+                                <li>
+                                <td><kbd>=BIDASK("Ticker")</kbd>
+                                 <table class="table table-bordered">
+                                        <thread>
+                                            <tr>
+                                                <th>TIT</th>
+									            <th>Prezzo BID</th>
+                                                <th>Prezzo ASK</th>
+                                            </tr>
+                                      </thread>
+							    </table>
+                                Esempio: <kbd>=BIDASK("FCA")</kbd>
+                                <table class="table table-bordered">
+                                        <thread>
+                                            <tr>
+                                                <th>FCA</th>
+									            <th>6,24</th>
+                                                <th>6,245</th>
+                                            </tr>
+                                      </thread>
+							    </table>
+                                 </li>
+                                 <li><kbd>=MULTIBOOK_BIDASK("Ticker")</kbd>
+                                 <table class="table table-bordered">
+                                        <thread>
+                                            <tr>
+                                                <th>TIT</th>
+									            <th>LAST PRICE</th>
+                                                <th>ORA</th>
+                                            </tr>
+                                      </thread>
+                                    <tbody>
+                                        <td>QTAACQ1</td>
+									    <td>NPACQ1</td>
+									    <td>PRZACQ1</td>
+                                        <td>QTAVEN1</td>
+                                        <td>NPVEN1</td>
+                                        <td>PRZVEN1</td>
+                                    </tbody>
+							    </table>
+                                Esempio: <kbd>=MULTIBOOK_BIDASK("FCA")</kbd>
+                                <table class="table table-bordered">
+                                        <thread>
+                                            <tr>
+                                                <th>FCA</th>
+									            <th>6,235</th>
+                                                <th>14:49:14</th>
+                                            </tr>
+                                      </thread>
+                                    <tbody>
+                                        <td>20717</td>
+									    <td>0</td>
+									    <td>6,23</td>
+                                        <td>10007</td>
+                                        <td>0</td>
+                                        <td>6,235</td>
+                                    </tbody>
+							    </table>
+                                </li>
+                                <li>
+                                 
+                                    <td><kbd>=FLASHBOOK_BIDASK("Ticker")</kbd></td>
+                                    <table class="table table-bordered">
+                                        <thread>
+                                            <tr>
+                                                <th>TIT</th>
+									            <th>LAST PRICE</th>
+                                                <th>ORA</th>
+                                            </tr>
+                                      </thread>
+                                    <tbody>
+                                        <td>QTAACQ1</td>
+									    <td>NPACQ1</td>
+									    <td>PRZACQ1</td>
+                                    </tbody>
+                                    <td></td><td></td><td></td>
+                                    <tbody>     
+                                        <td>QTAVEN1</td>
+                                        <td>NPVEN1</td>
+                                        <td>PRZVEN1</td>
+                                    </tbody>
+							    </table>
+                                Esempio: <kbd>=FLASHBOOK_BIDASK("FCA")</kbd>
+                                <table class="table table-bordered">
+                                        <thread>
+                                            <tr>
+                                                <th>FCA</th>
+									            <th>6,23</th>
+                                                <th>15:29:23</th>
+                                            </tr>
+                                      </thread>
+                                    <tbody>
+                                        <td>20517</td>
+									    <td>0</td>
+									    <td>6,235</td>
+                                    </tbody>
+                                    <td></td><td></td><td></td>
+                                    <tbody>     
+                                        <td>47526</td>
+                                        <td>0</td>
+                                        <td>6,23</td>
+                                    </tbody>
+							    </table>
+                                </li>
+                                <li>
+                                 
+                                    <td><kbd>=FLASHBOOK_BIDASK_PX("Ticker")</kbd></td>
+                                    <table class="table table-bordered">
+                                        <thread>
+                                            <tr>
+                                                <th>TIT</th>
+									            <th>LAST PRICE</th>
+                                                <th>ORA</th>
+                                            </tr>
+                                      </thread>
+                                    <tbody>
+									    <td>PRZACQ1</td><td></td><td></td>
+                                    </tbody>
+                                    <td></td><td></td><td></td>
+                                    <tbody>     
+                                        <td>PRZVEN1</td><td></td><td></td>
+                                    </tbody>
+							    </table>
+                                Esempio: <kbd>=FLASHBOOK_BIDASK_PX("FCA")</kbd>
+                                <table class="table table-bordered">
+                                        <thread>
+                                            <tr>
+                                                <th>FCA</th>
+									            <th>6,23</th>
+                                                <th>15:29:23</th>
+                                            </tr>
+                                      </thread>
+                                    <tbody>
+									    <td>6,235</td>
+                                        <td></td><td></td>
+                                    </tbody>
+                                    <td></td><td></td><td></td>
+                                    <tbody>     
+                                        <td>6,23</td>
+                                        <td></td><td></td>
+                                    </tbody>
+							    </table>
+                                </li>
+                                <li>
+                                 <kbd>=PX_BID("Ticker")</kbd> &nbsp;<kbd>=BID_SIZE_VOLUME("Ticker")</kbd> &nbsp;<kbd>=BID_SIZE_PROPOSALS("Ticker")</kbd> &nbsp; <kbd>=PX_ASK("Ticker")</kbd> &nbsp; <kbd>=ASK_SIZE_VOLUME("Ticker")</kbd> &nbsp; <kbd>=ASK_SIZE_PROPOSALS("Ticker")</kbd>
+                                 <br>Le seguenti formule avranno una risposta singola che sar&agrave; il risultato richiesto con la formula per il determinato ticker inserito, il tracciato della risposta sar&agrave; cos&igrave; composto:<br>
+                                    
+
+                                <table class="table table-bordered">
+                            <thread>
+                            <tr>
+                                    <th>TICKER</th>
+                                    <th>RISULTATO</th>
+                            <tr>
+                            </thread>
+                            <tbody>
+                            </tbody>
+							</table>
+                                Esempio per formula la &nbsp; <kbd>=PX_BID("FCA")</kbd>:
+                                 <table class="table table-bordered">
+                            <thread>
+                            <tr>
+                                    <th>FCA</th>
+                                    <th>6,205</th>
+                            <tr>
+                            </thread>
+                            <tbody>
+                            </tbody>
+							</table>     
+                            </li>      
+                            </ul> 
+                           </p>
+                     </div>
+                   </div> 
+                   </div>
+                
+
+                 <div class="panel panel-danger" id="book5_risposta">
+                     <div class="panel-heading">
+                        <h4 class="panel-title">
+                           <b>Formato risposte formule BOOK5</b>
+                        </h4>
+                     </div>
+                     <div id="collapseseven"  >
+                        <div class="panel-body">
+                           <p class="text-justify">
+                                          
+                                   <li><kbd>=BOOK5_PACK("Ticker")</kbd><br>
+                                    <!--<p>>&lt;TIPO_MESSAGGIO&gt; ; &lt;TICKER&gt; ; &lt;ORA HH:MM:SS&gt; ; &lt;QUANTITA AZIONI ACQUISTO LIVELLO 1&gt; ; &lt;NUM PROPOSTE ACQUISTO LIVELLO 1&gt; ;
+							            &lt;PREZZO ACQUISTO LIVELLO 1&gt; ; &lt;QUANTIT&Agrave; AZIONI ACQUISTO LIVELLO 2&gt; ; &lt;NUM PROPOSTE ACQUISTO LIVELLO 2&gt; ; &lt;PREZZO ACQUISTO LIVELLO 2&gt; ;
+							            &lt;QUANTIT&Agrave; AZIONI ACQUISTO LIVELLO 3&gt; ; &lt;NUM PROPOSTE ACQUISTO LIVELLO 3&gt; ; &lt;PREZZO ACQUISTO LIVELLO 3&gt; ;
+							            &lt;QUANTIT&Agrave; AZIONI ACQUISTO LIVELLO 4&gt; ; &lt;NUM PROPOSTE ACQUISTO LIVELLO 4&gt; ; &lt;PREZZO ACQUISTO LIVELLO 4&gt; ;
+							            &lt;QUANTIT&Agrave; AZIONI ACQUISTO LIVELLO 5&gt; ; &lt;NUM PROPOSTE ACQUISTO LIVELLO 5&gt; ; &lt;PREZZO ACQUISTO LIVELLO 5&gt; ;
+							            &lt;QUANTIT&Agrave; AZIONI VENDITA LIVELLO 1&gt; ; &lt;NUM PROPOSTE VENDITA LIVELLO 1&gt; ; &lt;PREZZO VENDITA LIVELLO 1&gt; ;
+							            &lt;QUANTIT&Agrave; AZIONI VENDITA LIVELLO 2&gt; ; &lt;NUM PROPOSTE VENDITA LIVELLO 2&gt; ; &lt;PREZZO VENDITA LIVELLO 2&gt; ;
+							            &lt;QUANTIT&Agrave; AZIONI VENDITA LIVELLO 3&gt; ; &lt;NUM PROPOSTE VENDITA LIVELLO 3&gt; ; &lt;PREZZO VENDITA LIVELLO 3&gt; ;
+							            &lt;QUANTIT&Agrave; AZIONI VENDITA LIVELLO 4&gt; ; &lt;NUM PROPOSTE VENDITA LIVELLO 4&gt; ; &lt;PREZZO VENDITA LIVELLO 4&gt; ;
+							            &lt;QUANTIT&Agrave; AZIONI VENDITA LIVELLO 5&gt; ; &lt;NUM PROPOSTE VENDITA LIVELLO 5&gt; ; &lt;PREZZO VENDITA LIVELLO 5&lt;\n</p> -->
+                                   </li>
+                                    <table class="table table-bordered">
+                                        <thread>
+                                            <tr>
+                                                <th>TIPO</th>
+                                                <th>TIT</th>
+                                                <th>ORA</th>
+									            <th>QTAACQ1</th>
+									            <th>NPACQ1</th>
+									            <th>PRZACQ1</th>
+                                                 <th>...</th>
+                                                <th>QTAVEN1</th>
+                                                <th>NPVEN1</th>
+                                                <th>PRZVEN1</th>
+                                                <th>...</th>
+                                               
+                                            </tr>
+                                      </thread>
+							    </table>
+                                <ul>
+                                <li><b>TIPO</b> - tipo pacchetto</li>
+                                <li><b>TIT</b> - Ticker in questione</li>
+                                <li><b>ORA</b> - Orario arrivo pacchetto</li>
+                                <li><b>QTAACQ1</b> - quantit&agrave; azioni in acquisto livello1</li>
+                                <li><b>NPACQ1</b> - numero proposte in acquisto livello1</li>
+                                <li><b>PRZACQ1</b> - prezzo acquisto livello1</li>
+                                <li>... - stessi tre campi per il livello dal 2 al 5</li>
+                                <li><b>QTAVEN1</b> - quantit&agrave; vendita livello1</li>
+                                <li><b>NPVEN1</b> - numero proposte in vendita livello1</li>
+                                <li><b>PRZVEN1</b> - prezzo in vendita livello1</li>
+                                <li>... - stessi tre campi per il livello dal 2 al 5</li>
+                                </ul>
+                                <br>
+                                <li>
+                                <kbd>=MULTIBOOK_L5("Ticker")</kbd>
+                                <table class="table table-bordered">
+                                        <thread>
+                                            <tr>
+                                                <td>TITOLO</td>
+                                                <td>LAST_PRICE</td>
+                                                <td>ORA</td>
+                                            </tr>
+                                           </thread>
+                                           <tbody>
+                                               <tr>
+                                               <td>QTAACQ1</td>
+									            <td>NPACQ1</td>
+									            <td>PRZACQ1</td>
+                                                <td>QTAVEN1</td>
+                                                <td>NPVEN1</td>
+                                                <td>PRZVEN1</td>
+                                                </tr>
+                                           </tbody>
+                                           <tbody>
+                                               <td>QTAACQ2</td>
+									            <td>NPACQ2</td>
+									            <td>PRZACQ2</td>
+                                                <td>QTAVEN2</td>
+                                                <td>NPVEN2</td>
+                                                <td>PRZVEN2</td>
+                                           </tbody> 
+                                           <tbody>
+                                               <td>QTAACQ3</td>
+									            <td>NPACQ3</td>
+									            <td>PRZACQ3</td>
+                                                <td>QTAVEN3</td>
+                                                <td>NPVEN13</td>
+                                                <td>PRZVEN3</td>
+                                           </tbody> 
+                                           <tbody>
+                                               <td>QTAACQ4</td>
+									            <td>NPACQ4</td>
+									            <td>PRZACQ4</td>
+                                                <td>QTAVEN4</td>
+                                                <td>NPVEN4</td>
+                                                <td>PRZVEN4</td>
+                                           </tbody> 
+                                           <tbody>
+                                               <td>QTAACQ5</td>
+									            <td>NPACQ5</td>
+									            <td>PRZACQ5</td>
+                                                <td>QTAVEN5</td>
+                                                <td>NPVEN5</td>
+                                                <td>PRZVEN5</td>
+                                           </tbody> 
+                                            </tr>
+                                      </thread>
+							    </table>
+                                <br>
+                                Esempio: <kbd>=MULTIBOOK_L5("FCA")</kbd>
+                                 <table class="table table-bordered">
+                                        <thread>
+                                            <tr>
+                                                <td>FCA</td>
+                                                <td>6,225</td>
+                                                <td>16:41:32</td>
+                                            </tr>
+                                           </thread>
+                                           <tbody>
+                                               <tr>
+                                               <td>9609</td>
+									            <td>8</td>
+									            <td>6,22</td>
+                                                <td>10474</td>
+                                                <td>8</td>
+                                                <td>6,225</td>
+                                                </tr>
+                                           </tbody>
+                                           <tbody>
+                                               					
+                                               <td>26701</td>
+									            <td>18</td>
+									            <td>6,215</td>
+                                                <td>53330</td>
+                                                <td>26</td>
+                                                <td>6,23</td>
+                                           </tbody> 
+                                           <tbody>
+                                               					
+                                               <td>45557</td>
+									            <td>23</td>
+									            <td>6,21</td>
+                                                <td>32604</td>
+                                                <td>19</td>
+                                                <td>6,235</td>
+                                           </tbody> 
+                                           <tbody>
+                                               					
+                                               <td>111783</td>
+									            <td>25</td>
+									            <td>6,205</td>
+                                                <td>71744</td>
+                                                <td>24</td>
+                                                <td>6,24</td>
+                                           </tbody> 
+                                           <tbody>			
+                                               <td>79707</td>
+									            <td>39</td>
+									            <td>6,2</td>
+                                                <td>49387</td>
+                                                <td>24</td>
+                                                <td>6,245</td>
+                                           </tbody> 
+                                            </tr>
+                                      </thread>
+							    </table>
+                                </li>
+                                <br>
+                                <li><kbd>=FLASHBOOK_L5("Ticker")</kbd>
+                                  <table class="table table-bordered">
+                                        <thread>
+                                            <tr>
+                                                <td>TITOLO</td>
+                                                <td>LAST_PRICE</td>
+                                                <td>ORA</td>
+                                            </tr>
+                                           </thread>
+                                           <tbody>
+                                               <tr>
+                                                <td>QTAVEN1</td>
+                                                <td>NPVEN1</td>
+                                                <td>PRZVEN1</td>
+                                                </tr>
+                                           </tbody>
+                                           <tbody>
+                                                <td>QTAVEN2</td>
+                                                <td>NPVEN2</td>
+                                                <td>PRZVEN2</td>
+                                           </tbody> 
+                                           <tbody>
+                                                <td>QTAVEN3</td>
+                                                <td>NPVEN13</td>
+                                                <td>PRZVEN3</td>
+                                           </tbody> 
+                                           <tbody>
+                                                <td>QTAVEN4</td>
+                                                <td>NPVEN4</td>
+                                                <td>PRZVEN4</td>
+                                           </tbody> 
+                                           <tbody>
+                                                <td>QTAVEN5</td>
+                                                <td>NPVEN5</td>
+                                                <td>PRZVEN5</td>
+                                           </tbody>
+                                           <tbody>
+                                               <td></td>
+                                               <td></td>
+                                               <td></td>
+                                           </tbody>
+                                           <tbody>
+                                               <td>QTAACQ1</td>
+									            <td>NPACQ1</td>
+									            <td>PRZACQ1</td>
+                                           </tbody> 
+                                           <tbody>
+                                               <td>QTAACQ2</td>
+									            <td>NPACQ2</td>
+									            <td>PRZACQ2</td>
+                                           </tbody> 
+                                           <tbody>
+                                               <td>QTAACQ3</td>
+									            <td>NPACQ3</td>
+									            <td>PRZACQ3</td>
+                                           </tbody> 
+                                           <tbody>
+                                               <td>QTAACQ4</td>
+									            <td>NPACQ4</td>
+									            <td>PRZACQ4</td>
+                                           </tbody> 
+                                           <tbody>
+                                               <td>QTAACQ5</td>
+									            <td>NPACQ5</td>
+									            <td>PRZACQ5</td>
+                                           </tbody>  
+                                            </tr>
+                                      </thread>
+							    </table>
+                                <br>
+
+                                Esempio: <kbd>=FLASHBOOK_L5("FCA")</kbd>
+                                      <table class="table table-bordered">
+                                        <thread>
+                                            <tr>
+                                                <td>FCA</td>
+                                                <td>6,24</td>
+                                                <td>16:59:22</td>
+                                            </tr>
+                                           </thread>
+                                           <tbody>
+                                               <tr>
+                                                <td>48083</td>
+                                                <td>23</td>
+                                                <td>6,265</td>
+                                                </tr>
+                                           </tbody>
+                                           <tbody>
+                                                <td>50267</td>
+                                                <td>23</td>
+                                                <td>6,26</td>
+                                           </tbody> 
+                                           <tbody>
+                                                <td>85177</td>
+                                                <td>35</td>
+                                                <td>6,255</td>
+                                           </tbody> 
+                                           <tbody>
+                                                <td>79627</td>
+                                                <td>32</td>
+                                                <td>6,25</td>
+                                           </tbody> 
+                                           <tbody>
+                                                <td>18706</td>
+                                                <td>10</td>
+                                                <td>6,245</td>
+                                           </tbody>
+                                           <tbody>
+                                               <td></td>
+                                               <td></td>
+                                               <td></td>
+                                           </tbody>
+                                           <tbody>
+                                               		
+		
+		
+		
+		
+                                               <td>31646</td>
+									            <td>16</td>
+									            <td>6,24</td>
+                                           </tbody> 
+                                           <tbody>
+                                               <td>28772</td>
+									            <td>19</td>
+									            <td>6,235</td>
+                                           </tbody> 
+                                           <tbody>
+                                               <td>43714</td>
+									            <td>23</td>
+									            <td>6,23</td>
+                                           </tbody> 
+                                           <tbody>
+                                               <td>111246</td>
+									            <td>25</td>
+									            <td>6,225</td>
+                                           </tbody> 
+                                           <tbody>
+                                               <td>87326</td>
+									            <td>20</td>
+									            <td>6,22</td>
+                                           </tbody>  
+                                            </tr>
+                                      </thread>
+							    </table>
+                                </li>
+                                <li> <kbd>=FLASHBOOK_L5_PX("Ticker")</kbd>
+                                  <table class="table table-bordered">
+                                        <thread>
+                                            <tr>
+                                                <td>TITOLO</td>
+                                                <td>LAST_PRICE</td>
+                                                <td>ORA</td>
+                                            </tr>
+                                           </thread>
+                                           <tbody>
+                                               <tr>
+                                                <td>PRZVEN1</td>
+                                                <td></td>
+                                                <td></td>
+                                                </tr>
+                                           </tbody>
+                                           <tbody>
+                                                <td>PRZVEN2</td>
+                                                <td></td>
+                                                <td></td>
+                                           </tbody> 
+                                           <tbody>
+                                                <td>PRZVEN3</td>
+                                                <td></td>
+                                                <td></td>
+                                           </tbody> 
+                                           <tbody>
+                                                <td>PRZVEN4</td>
+                                                <td></td>
+                                                <td></td>
+                                           </tbody> 
+                                           <tbody>
+                                                <td>PRZVEN5</td>
+                                                <td></td>
+                                                <td></td>
+                                           </tbody>
+                                           <tbody>
+                                               <td></td>
+                                               <td></td>
+                                               <td></td>
+                                           </tbody>
+                                           <tbody>
+                                               <td>PRZACQ1</td>
+									            <td></td>
+									            <td></td>
+                                           </tbody> 
+                                           <tbody>
+                                               <td>PRZACQ2</td>
+									            <td></td>
+									            <td></td>
+                                           </tbody> 
+                                           <tbody>
+                                               <td>PRZACQ3</td>
+									            <td></td>
+									            <td></td>
+                                           </tbody> 
+                                           <tbody>
+                                               <td>PRZACQ4</td>
+									            <td></td>
+									            <td></td>
+                                           </tbody> 
+                                           <tbody>
+                                               <td>PRZACQ5</td>
+									            <td></td>
+									            <td></td>
+                                           </tbody>  
+                                            </tr>
+                                      </thread>
+							    </table>
+                                <br>
+                                Esempio: <kbd>=FLASHBOOK_L5_PX("FCA")</kbd>
+                                  <table class="table table-bordered">
+                                        <thread>
+                                            <tr>
+                                                <td>FCA</td>
+                                                <td>6,24</td>
+                                                <td>16:59:22</td>
+                                            </tr>
+                                           </thread>
+                                           <tbody>
+                                               <tr>
+                                                <td>6,265</td>
+                                                <td></td>
+                                                <td></td>
+                                                </tr>
+                                           </tbody>
+                                           <tbody>
+                                                <td>6,26</td>
+                                                <td></td>
+                                                <td></td>
+                                           </tbody> 
+                                           <tbody>
+                                                <td>6,255</td>
+                                                <td></td>
+                                                <td></td>
+                                           </tbody> 
+                                           <tbody>
+                                                <td>6,25</td>
+                                                <td></td>
+                                                <td></td>
+                                           </tbody> 
+                                           <tbody>
+                                                <td>6,245</td>
+                                                <td></td>
+                                                <td></td>
+                                           </tbody>
+                                           <tbody>
+                                               <td></td>
+                                               <td></td>
+                                               <td></td>
+                                           </tbody>
+                                           <tbody>
+                                               <td>6,24</td>
+									            <td></td>
+									            <td></td>
+                                           </tbody> 
+                                           <tbody>
+                                               <td>6,235</td>
+									            <td></td>
+									            <td></td>
+                                           </tbody> 
+                                           <tbody>
+                                               <td>6,23</td>
+									            <td></td>
+									            <td></td>
+                                           </tbody> 
+                                           <tbody>
+                                               <td>6,255</td>
+									            <td></td>
+									            <td></td>
+                                           </tbody> 
+                                           <tbody>
+                                               <td>6,22</td>
+									            <td></td>
+									            <td></td>
+                                           </tbody>  
+                                            </tr>
+                                      </thread>
+							    </table>
+                                </li>
+                                <br>
+                                <li>   
+                                <kbd>=BOOKL1("Ticker")</kbd> &nbsp;<kbd>=BOOKL2("Ticker")</kbd>&nbsp;<kbd>=BOOKL3("Ticker")</kbd>&nbsp;<kbd>=BOOKL4("Ticker")</kbd>&nbsp;<kbd>=BOOKL5("Ticker")</kbd>
+                                <br>Questa formula riporta il livello di book indicato nella formula stessa per il ticker inserito come argomento:
+                                <table class="table table-bordered">
+                                        <thread>
+                                            <tr>
+                                                <td>TITOLO</td>
+									            <td>QTAACQL?</td>
+									            <td>NPACQL?</td>
+									            <td>PRZACQL?</td>
+                                                <td>QTAVENL?</td>
+                                                <td>NPVENL?</td>
+                                                <td>PRZVENL?</td>
+                                            </tr>
+                                      </thread>
+							    </table>
+                                Esempio: <kbd>=BOOKL3("FCA")</kbd>
+                                <table class="table table-bordered">
+                                        <thread>
+                                            <tr>
+                                                <td>FCA</td>
+									            <td>33412</td>
+									            <td>21</td>
+									            <td>6,215</td>
+                                                <td>50471</td>
+                                                <td>23</td>
+                                                <td>6,24</td>
+                                            </tr>
+                                      </thread>
+							    </table>
+                                </li>
+                                <li>
+                                    <kbd>=PX_BID_L1("Ticker")</kbd>&nbsp;<kbd>=PX_BID_L2("Ticker")</kbd>&nbsp;<kbd>=PX_BID_L3("Ticker")</kbd>&nbsp;<kbd>=PX_BID_L4("Ticker")</kbd>&nbsp;<kbd>=PX_BID_L5("Ticker")<br>
+                                    </kbd>&nbsp;<kbd>=PX_ASK_L1("Ticker")</kbd>&nbsp;<kbd>=PX_ASK_L2("Ticker")</kbd>&nbsp;<kbd>=PX_ASK_L3("Ticker")</kbd>&nbsp;<kbd>=PX_ASK_L4("Ticker")</kbd>&nbsp;<kbd>=PX_ASK_L5("Ticker")</kbd><br>
+                                    &nbsp;<kbd>=BID_SIZE_VOLUME_L1("Ticker")</kbd>&nbsp;<kbd>=BID_SIZE_VOLUME_L2("Ticker")</kbd>&nbsp;<kbd>=BID_SIZE_VOLUME_L3("Ticker")</kbd><br>&nbsp;<kbd>=BID_SIZE_VOLUME_L4("Ticker")</kbd>&nbsp;<kbd>=BID_SIZE_VOLUME_L5("Ticker")<br>
+                                    </kbd>&nbsp;
+                                    <kbd>=ASK_SIZE_VOLUME_L1("Ticker")</kbd>&nbsp;<kbd>=ASK_SIZE_VOLUME_L2("Ticker")</kbd>&nbsp;<kbd>=ASK_SIZE_VOLUME_L3("Ticker")</kbd>&nbsp;<br><kbd>=ASK_SIZE_VOLUME_L4("Ticker")</kbd>&nbsp;
+                                    <kbd>=ASK_SIZE_VOLUME_L5("Ticker")</kbd>
+                                    &nbsp;<br><kbd>=BID_SIZE_PRPOSALS_L1("Ticker")</kbd>&nbsp;<kbd>=BID_SIZE_PRPOSALS_L2("Ticker")</kbd>&nbsp;<kbd>=BID_SIZE_PRPOSALS_L3("Ticker")</kbd>&nbsp;
+                                    <kbd>=BID_SIZE_PRPOSALS_L4("Ticker")</kbd>&nbsp;<kbd>=BID_SIZE_PRPOSALS_L5("Ticker")</kbd><br>
+                                    &nbsp;<kbd>=ASK_SIZE_PRPOSALS_L1("Ticker")</kbd>&nbsp;
+                                    <kbd>=ASK_SIZE_PRPOSALS_L2("Ticker")</kbd>&nbsp;<kbd>=ASK_SIZE_PRPOSALS_L3("Ticker")</kbd>&nbsp;<kbd>=ASK_SIZE_PRPOSALS_L4("Ticker")</kbd>&nbsp;
+                                    <kbd>=ASK_SIZE_PRPOSALS_L5("Ticker")</kbd>
+                                    <br>
+                                    Le seguenti formule avranno una risposta singola che sar&agrave; il risultato richiesto con la formula per il determinato ticker inserito, il tracciato della risposta sar&agrave; cos&igrave; composto:<br>
+                                    <table class="table table-bordered">
+                                    <thread>
+                                    <tr>
+                                        <th>TICKER</th>
+                                        <th>RISULTATO</th>
+                                    <tr>
+                                    </thread>
+                                    <tbody>
+                                    </tbody>
+							        </table>
+                                 Esempio per formula la &nbsp; <kbd>=PX_ASK_L3("FCA")</kbd>:
+                                 <table class="table table-bordered">
+                                    <thread>
+                                    <tr>
+                                    <th>FCA</th>
+                                    <th>6,24</th>
+                                    <tr>
+                                     </thread>
+                                     <tbody>
+                                    </tbody>
+							        </table>
+                                </li>
+                                   
+                           </p>
+                     </div>
+                   </div> 
+                   </div>
+
+                    <div class="panel panel-info" id="price_uns">
+                     <div class="panel-heading">
+                        <h4 class="panel-title">
+                           <b>Formato risposte formule Price</b>
+                        </h4>
+                     </div>
+                     <div id="collapseseven"  >
+                        <div class="panel-body">
+                           <p class="text-justify">
+                                <li>
+                                       <kbd>=UNSUBSCRIBE("Ticker")</kbd><br>
+                                       <p>Risponder&agrave; true o false pi&ugrave; il ticker in questione in base alla riuscita del comando.</p>
+                                </li> 
+                           </p>
+                     </div>
+                   </div> 
+                   </div>
+
+                  <!-- fine pannello datafeed -->
+                  <hr class="style-one" id="trading">
+                  <!-- inizio pannello trading -->
+                  <div class="page-header" id="trading_tit">
+                     <h2 id="htrading">Trading</h2>
+                  </div>
+				  <div class="panel panel-info" id="canale_trading">
+                     <div class="panel-heading">
+                        <h4 class="panel-title">
+                           <b>Connessione al canale di Trading</b>
+                        </h4>
+                     </div>
+                     <div id="collapse14">
+                        <div class="panel-body">
+                            <p class="text-justify">
+                              Per effettuare operazioni di trading &egrave;  necessario come prima cosa aprire il canale di trading, tramite l'apposita funzione.
+							  <kbd>=DirectaTradingConnection()</kbd> &egrave possibile specificare come parametro un numero di righe, nel qual caso verrano stampate nelle celle successive a dove viene digitato il comando delle righe di log.
+							  <br>
+                              La formula restituisce lo stato della connessione e notificher&agrave; eventuali errori durante la sessione.
+                               <br>
+                            Formato risposta per connessione Trading:<br>
+                          <table class="table table-bordered">
+                              <thread>
+                                 <tr>
+                                    <th>Trading</th>
+                                    <th>STATUS</th>
+                                    <th>TRUE/FALSE</th>
+                                 </tr>
+                              </thread>
+							</table>
+                            <br>
+                            Esempio risposta per comando <kbd>=DirectaTradingConnection()</kbd><br>
+                            <table class="table table-bordered">
+                              <thread>
+                                 <tr>
+                                    <th>Trading</th>
+                                    <th>STATUS</th>
+                                    <th>TRUE</th>
+                                 </tr>
+                              </thread>
+							</table>
+                            <b><code><font size="3" color="#FF6347" >NB</font></code>Essendo al momento disponibile l'utilizzo di una sola Darwin per questo componente, una volta stabilita la connessione non c'&egrave; bisogno su altri fogli o file di eseguire la formula di connessione al trading</b>
+							</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="panel panel-warning" id="cmd_trading">
+                     <div class="panel-heading">
+                        <h4 class="panel-title">
+                           <b>Comandi di Trading</b>
+                        </h4>
+                     </div>
+                     <div id="collapse15">
+                        <div class="panel-body">
+                           <p class="text-justify">
+                              Viene riportato di seguito l'elenco delle funzioni disponibili per il trading. Per ciascun comando i parametri possono essere passati come valori contenuti in una cella o come stringhe.
+                           <table class="table table-bordered">
+                              <thread>
+                              <tr>
+                                 <th>FUNZIONE</th>
+                                 <th>AZIONE</th>
+                              </tr>
+                                 </thread>
+                              <tbody>
+                                 <tr>
+                                    <td><kbd>=Buy("TITOLO";QUANTITA;PREZZO)</kbd></td>
+                                    <td>Acquista azioni al prezzo limite indicato</td>
+                                 </tr>
+                                 <tr>
+                                    <td><kbd>=Sell("TITOLO";QUANTITA;PREZZO)</kbd></td>
+                                    <td> Vendi azioni al prezzo limite indicato</td>
+                                 </tr>
+                                 <tr>
+                                    <td><kbd>=BuyMarket("TITOLO";QUANTITA)</kbd></td>
+                                    <td>Acquista azioni senza limite di prezzo</td>
+                                 </tr>
+                                 <tr>
+                                    <td><kbd>=SellMarket("TITOLO";QUANTITA)</kbd></td>
+                                    <td> Vendi azioni senza limite di prezzo</td>
+                                 </tr>
+                                 <tr>
+									<td><kbd>=BuyStop("TITOLO";QUANTITA;SEGNALE)</kbd></td>
+                                    <td>Acquista azioni con ordine stop market</td>
+                                 </tr>
+                                 <tr>
+									<td><kbd>=SellStop("TITOLO";QUANTITA;SEGNALE)</kbd></td>
+                                    <td>Vendi azioni con ordine stop market</td>
+                                 </tr>
+                                 <tr>
+									<td><kbd>=BuyStopLimit("TITOLO";QUANTITA;LIMITE;SEGNALE)</kbd></td>
+                                    <td> Acquista azioni con prz. limite e prz.segnale</td>
+                                 </tr>
+                                 <tr>
+									<td><kbd>=SellStopLimit("TITOLO";QUANTITA;LIMITE;SEGNALE)</kbd></td>
+                                    <td> Vendi azioni con prz. limite e prz.segnale</td>
+                                 </tr>
+                                <tr>
+                                    <td><kbd>=ModifyOrder("ID_ORDINE",LIMITE;SEGNALE)</kbd></td>
+                                    <td>Modifica il prezzo relativo all'ordine indicato nell'idOrdine</td>
+                                 </tr>
+
+                                 <tr>
+                                    <td><kbd>=CancelOrder("ID_ORDINE")</kbd></td>
+                                    <td>Revoca ordine specificato</td>
+                                 </tr>
+                                 <tr>
+                                    <td><kbd>=CancelAll("TICKER")</kbd></td>
+                                    <td>Revoca tutti gli ordini per il ticker specificato</td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                           <!--<p>Per informazioni sui tipi di ordine cliccare<a href="http://www.directa.it/pub/it/help/ordini.html"> QUI</a></p>-->
+                           <br>
+                           <code>Per le informazioni relative alla validit&agrave; degli ordini nei diversi mercati fare riferimento alla tabella all'interno<br>
+                           dell'Help del sito commerciale all'indirizzo:
+                           <a href="http://www.directa.it/pub/it/help/100/2.html" target="_blank">http://www.directa.it/pub/it/help/100/2.html</a> </code>
+                           <br>
+                           <br>
+                            <br>
+                              <b><code><font size="3" color="#FF6347" >NB</font></code> Tutte le formule possono essere utilizzate tramite macroVBA, le funzioni da richiamare sono le medesime, unica prerogativa
+                              &egrave; passare come argomento nel richiamo di tale formula un riferimento di cella con le coordinate x y desiderate, nel caso non si passasse il riferimento nel richiamo del metodo si verr&agrave; indirizzati alla cella A1, questo vale solamente per le funzioni richiamate tramite Macro e non per quelle da cella Excel che riporteranno il proprio risultato nella cella dove &egrave; avvenuto il richiamo. </b>
+                              <br>Esempio di macro per revoca ordine con determinato idOrder associato ad un bottone:<br>
+                              <code>
+                                Sub RevocaOrdine()<br>
+                                Dim id As String<br>
+                                id = Range("G10")<br>
+                                x = Range("I10").Row<br>
+                                y = Range("I10").Column<br>
+                                Application.Run "CancelOrder", id, x, y<br>
+                                End Sub<br>
+                              </code>    
+                          </p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="panel panel-success" id="cmd_trading_client">
+                     <div class="panel-heading">
+                        <h4 class="panel-title">
+                           <b>Risposta ai comandi di trading</b>
+                        </h4>
+                     </div>
+                     <div id="collapse16">
+                        <div class="panel-body">
+                           <p class="text-justify">
+                              Quando viene eseguito un comando di trading, nella cella in cui &egrave presente la funzione viene restituito il valore VERO se il comando &egrave stato gestito correttamente dal servizio API.
+							  Non appena diviene disponibile una risposta dal Server di Trading, questa viene stampata alla destra della cella in cui &egrave presente la funzione.
+                              La risposta può essere di due tipi: <b>TRADOK</b> in caso di successo dell'operazione o <b>TRADERR</b> in caso di errore:<br><br>
+                              Di seguito i dettagli della risposta <b>TRADOK</b>:<br>
+                           <table class="table table-bordered">
+                              <thread>
+                                 <tr>
+                                    <th>RISPOSTA</th>
+                                    <th>TIT</th>
+                                    <th>ID</th>
+									<th>STATO</th>
+									<th>TIPO</th>
+									<th>QTA</th>
+									<th>PRZ</th>
+									<th>PRZS</th>
+									<th>PRZE</th>
+									<th>QTAE</th>
+									<th>QTAR</th>
+									<th>IDDirecta</th>
+                                 </tr>
+                              </thread>
+                           </table>
+                           
+						        <ul> 
+								<li><b>RISPOSTA</b>- questo caso sar&agrave; <b>TRADOK</b></li>
+                                </ul>
+								<ul><li><b>TIT</b> codice identificativo del titolo</li></ul>
+								<ul><li><b>ID</b> codice identificativo dell'ordine</li></ul>
+								<ul><li><b>STATO</b> dell'ordine, pu&ograve assumere tre valori:</li>
+								<ul>
+									<li>3000 - Ordine Immesso</li>
+									<li>3001 - Ordine Eseguito</li>
+									<li>3002 - Ordine Revocato</li>
+								</ul>
+                                </ul>
+								<ul><li><b>TIPO</b> tipo di ordine, ovvero limite, market, stop, stoplimit</li></ul> 
+								<ul><li><b>QTA</b> quantit&agrave; dell'ordine</li></ul>
+								<ul><li><b>PRZ</b> prezzo immesso dell'ordine</li></ul>
+								<ul><li><b>PRZS</b> eventuale prezzo segnale inserito </li></ul> 
+                                <ul><li><b>PRZE</b> prezzo eseguito - utile per acquisti al meglio o a mercato</li></ul>
+                                <ul><li><b>QTAE</b> quantit&agrave; eseguita </li></ul>
+                                <ul><li><b>QTAR</b> eventuale quantit&agrave; residua - utile per eseguiti parziali </li></ul>
+                                <ul><li><b>IDDirecta</b> id riferimento presso i server Directa</li></ul>
+                                <br>
+                                <br>
+                                Qui invece i dettagli della risposta <b>TRADERR</b>:<br>
+								  <table class="table table-bordered">
+                              <thread>
+                                 <tr>
+                                    <th>RISPOSTA</th>
+                                    <th>TIT</th>
+                                    <th>ID</th>
+									<th>STATO</th>
+									<th>TIPO</th>
+									<th>QTA</th>
+									<th>PRZ</th>
+									<th>PRZS</th>
+									<th>MSG</th>
+                                 </tr>
+                              </thread>
+                           </table>	
+                           <ul> 
+								<li><b>RISPOSTA</b>- questo caso sar&agrave; <b>TRADERR</b></li>
+                                </ul>
+								<ul><li><b>TIT</b> codice identificativo del titolo</li></ul>
+								<ul><li><b>ID</b> codice identificativo dell'ordine</li></ul>
+								<ul><li><b>STATO</b> in questo caso sar&agrave; sempre 1012</li></ul>
+								<ul><li><b>TIPO</b> tipo di ordine, ovvero limite, market, stop, stoplimit</li></ul> 
+								<ul><li><b>QTA</b> quantit&agrave; dell'ordine</li></ul>
+								<ul><li><b>PRZ</b> prezzo immesso dell'ordine</li></ul>
+								<ul><li><b>PRZS</b> eventuale prezzo segnale inserito </li></ul> 
+                                <ul><li><b>MSG</b> Messaggio causa errore</li></ul>
+                                <br>
+                                <br>
+                                Esempio Buy di un azione di FCA al prezzo di 3,5 <kbd>=Buy("FCA";1;3,5)</kbd>:<br>
+                                  <table class="table table-bordered">
+                              <thread>
+                                 <tr>
+                                    <th>TRUE</th>
+                                    <th>FCA</th>
+                                    <th>EXC0</th>
+									<th>PENDING</th>
+									<th>BUY</th>
+									<th>1</th>
+									<th>3,5</th>
+									<th>0</th>
+									<th>0</th>
+                                    <th>0</th>
+                                    <th>S0717114518837</th>
+                                 </tr>
+                              </thread>
+                           </table>	
+                            <br>
+                            <br>
+                            Esempio TRADERR per comando <kbd>=BuyMarket("FCA";1)</kbd>:<br>
+                            										
+                              <table class="table table-bordered">
+                              <thread>
+                                 <tr>
+                                    <th>FALSE</th>
+                                    <th>FCA</th>
+                                    <th>EXC1</th>
+									<th>REJECTED</th>
+									<th>BUYMARKET</th>
+									<th>1</th>
+									<th></th>
+									<th></th>
+									<th>ORDINI AL MEGLIO CONSENTITI SOLO CON PARAMETRO ASTA	</th>
+                                 </tr>
+                              </thread>
+                           </table>	
+
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+
+                   <div class="panel panel-success" id="modifyOrder">
+                   <div class="panel-heading">
+                        <h4 class="panel-title">
+                           <b>Comando ModifyOrder</b>
+                        </h4>
+                     </div>   
+                     <div id="collapse18">
+                        <div class="panel-body">
+                            <p class="text-justify">
+                             Il comando <kbd>=ModifyOrder("ID_ORDINE";limite;segnale)</kbd> Permette la modifica di un determinato ordine in base al id, il prezzo segnale pu&ograve; essere omesso per operazioni con limite<br>
+                             La risposta alla forumula sar&agrave; composta:<br>
+                             	<table class="table table-bordered">
+                              <thread>
+                                 <tr>
+                                    <th>MOD</th>
+                                    <th>IDOrdine</th>
+									<th>Risultato</th>
+                                    <th>Price_limit</th>
+									<th>Price_signal</th>
+                                 </tr>
+                              </thread>
+                              <tbody>
+                               </tbody>
+							   </table>
+                               
+                               <ul>
+                                   <li><b>MOD</b> -  Risultato della funzione restituisce MOD</li>
+                                   <li><b>IDOrdine</b> - L'id dell'ordine che &egrave; stato modificato.</li>
+                                   <li><b>Risultato</b> - TRUE - per risposta positiva del comando</li>
+                                   <li><b>Price_limit</b> - Il prezzo limite modificato</li>
+                                   <li><b>Price_signal</b> - Eventuale prezzo stop modificato, nel caso di mancanza del prezzo stop sar&agrave; inviato uno 0</li>
+                               </ul>
+                               <br>
+                               <br>
+                               Esempio per modifica ordine per acquisto di una azione di FCA al prezzo di 3,8 al posto di 3,5<kbd>=ModifyOrder("EXC0";3,8;0)</kbd>:<br>
+                               	<table class="table table-bordered">
+                              <thread>
+                                 <tr>
+                                    <th>MOD</th>
+                                    <th>EXC0</th>
+									<th>TRUE</th>
+                                    <th>3,8</th>
+									<th>0</th>
+                                 </tr>
+                              </thread>
+                              <tbody>
+                               </tbody>
+							   </table>
+
+                            </p>
+                        </div>
+                     </div>       
+                  </div>
+
+                   <div class="panel panel-success" id="cancelOrder">
+                   <div class="panel-heading">
+                        <h4 class="panel-title">
+                           <b>Comando CancelOrder</b>
+                        </h4>
+                     </div>   
+                     <div id="collapse18">
+                        <div class="panel-body">
+                            <p class="text-justify">
+                             Il comando <kbd>=CancelOrder("ID_ORDINE")</kbd> Permette la revoca dell'ordine con quel determinato ID_ORDINE<br>
+                             La risposta alla forumula sar&agrave; composta:<br>
+                             	<table class="table table-bordered">
+                              <thread>
+                                 <tr>
+                                    <th>CANCELLED</th>
+                                    <th>Risultato</th>
+									<th>ID_Ordine</th>
+                                 </tr>
+                              </thread>
+                              <tbody>
+                               </tbody>
+							   </table>
+                               
+                               <ul>
+                                   <li><b>CANCELLED</b> -  Risultato della funzione restituisce CANCELLED</li>
+                                   <li><b>Risultato</b> - TRUE - per risposta positiva del comando</li>
+                                   <li><b>ID_Ordine</b> - L'id dell'ordine revocato</li>
+                               </ul>
+                               <br>Esempio di revoca ordine <kbd>=CancelOrder("EXC0")</kbd>:<br>
+                               	<table class="table table-bordered">
+                              <thread>
+                                 <tr>
+                                    <th>CANCELLED</th>
+                                    <th>TRUE</th>
+									<th>EXC0</th>
+                                 </tr>
+                              </thread>
+                              <tbody>
+                               </tbody>
+							   </table>
+                            </p>
+                        </div>
+                     </div>       
+                  </div>
+                
+                <div class="panel panel-success" id="cancelall">
+                   <div class="panel-heading">
+                        <h4 class="panel-title">
+                           <b>Comando CancelAll</b>
+                        </h4>
+                     </div>   
+                     <div id="collapse18">
+                        <div class="panel-body">
+                            <p class="text-justify">
+                             Il comando <kbd>=CancelAll("TICKER")</kbd> Permette la revoca di tutte le operazini su quel determinato ticker<br>
+                             La risposta alla forumula sar&agrave; composta:<br>
+                             	<table class="table table-bordered">
+                              <thread>
+                                 <tr>
+                                    <th>CANCELLED</th>
+									<th>TICKER</th>
+                                 </tr>
+                              </thread>
+                              <tbody>
+                               </tbody>
+							   </table>
+                               
+                               <ul>
+                                   <li><b>CANCELLED</b> -  Risultato della funzione restituisce CANCELLED</li>
+                                   <li><b>TICKER</b> - Ticker su cui si vogliono cancellare tutti gli ordini</li>
+                               </ul>
+                               <br>
+                               <code><b>N.B</b> La <b>CancelAll</b> &egrave; valida solamente per gli ordini normali, non quelli stop o stoplimit, dove &egrave necessario<br> eseguire una revoca puntuale
+                                    dell'ordine tramite CancelOrder, in quanto &egrave; lo stesso comportamento della Darwin.</code><br>
+                            </p>
+                        </div>
+                     </div>       
+                  </div>
+
+
+
+
+
+
+				  <div class="panel panel-success" id="infostock">
+                     <div class="panel-heading">
+                        <h4 class="panel-title">
+                           <b>Comando Infostock</b>
+                        </h4>
+                     </div>
+                     <div id="collapse17">
+                        <div class="panel-body">
+                            <p class="text-justify">
+								Il comando <kbd>=Infostock()</kbd> restituisce l'elenco dei titoli in portafoglio. Ogni riga avr&agrave i seguenti campi, uno per colonna<br>
+							<table class="table table-bordered">
+                              <thread>
+                                 <tr>
+                                    <th>TICKER</th>
+                                    <th>TIME</th>
+                                    <th>QTAP</th>
+									<th>QTADirecta</th>
+									<th>QTAN</th>
+									<th>GAIN</th>
+                                 </tr>
+                              </thread>
+                              <tbody>
+                              </tbody>
+							</table>
+                            
+                            <ul>
+                                   <li><b>TICKER</b> -  Titolo in questione</li>
+                                   <li><b>TIME</b> - Orario invio comando</li>
+                                   <li><b>QTAP</b> - Quantit&agrave; in portafoglio</li>
+                                   <li><b>QTADirecta</b> - Quantit&agrave; presso i nostri server</li>
+                                   <li><b>QTAN</b> - Quantit&agrave; in negozazione</li>
+                                   <li><b>GAIN</b> - Gain</li>
+                               </ul>
+                            <br>
+                            Esempio formato risposta comando <kbd>=InfoStock()</kbd>:<br>
+                            <table class="table table-bordered">
+                              <thread>
+                                 <tr>
+                                    <th>FCA</th>
+                                    <th>17:25:53</th>
+                                    <th>0</th>
+									<th>0</th>
+									<th>1</th>
+									<th>0</th>
+                                 </tr>
+                              </thread>
+                              <tbody>
+                              </tbody>
+							</table>
+
+							</p>
+						</div>
+					 </div>   
+				  </div>
+				  <div class="panel panel-success" id="orderlist">
+                     <div class="panel-heading">
+                        <h4 class="panel-title">
+                           <b>Comando Orderlist</b>
+                        </h4>
+                     </div>
+                     <div id="collapse18">
+                        <div class="panel-body">
+                            <p class="text-justify">
+								Il comando <kbd>=Orderlist()</kbd> restituisce l'elenco degli ordini immessi nella giornata corrente, indipendentemente dallo stato. Ogni riga avr&agrave i seguenti campi, uno per colonna:<br>
+								<table class="table table-bordered">
+                              <thread>
+                                 <tr>
+                                    <th>TIME</th>
+                                    <th>TICKER</th>
+									<th>ID</th>
+                                    <th>STATUS</th>
+									<th>TIPO</th>
+									<th>PL</th>
+									<th>PS</th>
+									<th>QTA</th>
+                                    <th>PM</th> 
+									<th>PE</th>
+									<th>QTAM</th>
+									<th>IDDirecta</th>
+                                 </tr>
+                              </thread>
+                              <tbody>
+
+                               </tbody>
+							   </table>
+                               
+                               <ul>
+                                   <li><b>ORA</b> -  Orario invio ordine</li>
+                                   <li><b>TIT</b> - Il ticker relativo all'ordine</li>
+                                   <li><b>ID</b> - L'id ordine relativo all'ordine nella sessione trading</li>
+                                   <li><b>STATO</b> - Stato ordine (Immesso - Eseguito - Revocato)</li>
+                                   <li><b>TIPO</b> - Tipo operazione trading effettuata</li>
+                                   <li><b>PL</b> - Prezzo limite</li>
+                                   <li><b>PS</b> - Eventuale Prezzo Segnale</li>
+                                   <li><b>QTA</b> - Quantit&agrave; dell'ordine</li>
+                                   <li><b>PM</b> - Prezzo medio relativo al ticker</li>
+                                   <li><b>PE</b> - Prezzo eseguito</li>
+                                   <li><b>QTAM</b> - Eventuale quantit&agrave; ancora a mercato (eseguiti parziali)</li>
+                                   <li><b>IDDirecta</b> - l'id univoco dell'ordine presso i nostri server</li>
+                               </ul>
+                               
+                               
+                       
+							
+                            <br>
+                            Per accedere a delle liste ordini filtrate sono disponibili due comandi:<br>
+                            <ul>
+                                <li><kbd>=OrderlistPending()</kbd> Lista ordini con solamente gli ordini in negozazione</li>
+                                <li><kbd>=OrderlistNoRev()</kbd> Lista ordini senza riportare gli ordini revocati</li>
+                            </ul>
+                            <br>
+                            Esempio di risposta per comando <kbd>=OrderList()</kbd>:<br>	
+                           
+                            	<table class="table table-bordered">
+                              <thread>
+                                 <tr>
+                                    <td>17:11:45</td>
+                                    <td>FCA</td>
+									<td>EXC0</td>
+                                    <td>CANCELLED</td>
+									<td>BUY</td>
+									<td>3,5</td>
+									<td>0</td>
+									<td>1</td>
+                                    <td>0</td> 
+									<td>0</td>
+									<td>0</td>
+									<td>S0717114518837</td>
+                                 </tr>
+                              </thread>
+                              <tbody>
+                                <tr>
+                                    <td>17:20:31</td>
+                                    <td>FCA</td>
+									<td>EXC1</td>
+                                    <td>CANCELLED</td>
+									<td>BUY</td>
+									<td>3,8</td>
+									<td>0</td>
+									<td>1</td>
+                                    <td>0</td> 
+									<td>0</td>
+									<td>0</td>
+									<td>S0717203119654</td>
+                                </tr>    
+                                <tr>
+                                    <td>17:25:50</td>
+                                    <td>FCA</td>
+									<td>EXC2</td>
+                                    <td>PENDING</td>
+									<td>BUY</td>
+									<td>3,5</td>
+									<td>0</td>
+									<td>1</td>
+                                    <td>0</td> 
+									<td>0</td>
+									<td>0</td>
+									<td>S0717255020209</td>
+                                </tr>                                
+                                 </tbody>
+							   </table>
+
+                            </p>
+						</div>
+					 </div>   
+				  </div>
+                  
+                  <div class="panel panel-success" id="infoaccount">
+                   <div class="panel-heading">
+                        <h4 class="panel-title">
+                           <b>Comando InfoAccount</b>
+                        </h4>
+                     </div>   
+                     <div id="collapse18">
+                        <div class="panel-body">
+                            <p class="text-justify">
+                             Il comando <kbd>=InfoAccount()</kbd> Restituisce informazioni sullo stato patrimoniale del conto<br>
+                             	<table class="table table-bordered">
+                              <thread>
+                                 <tr>
+                                    <th>TIME</th>
+                                    <th>Utente</th>
+									<th>LIQ</th>
+                                    <th>Gain&euro;</th>
+									<th>OpPr/Loss</th>
+                                 </tr>
+                              </thread>
+                              <tbody>
+                               </tbody>
+							   </table>
+                               
+                               <ul>
+                                   <li><b>TIME</b> -  Orario richiesta comando</li>
+                                   <li><b>Utente</b> - Il proprio codice utente Directa</li>
+                                   <li><b>LIQ</b> - Liquidit&agrave; conto</li>
+                                   <li><b>Gain&euro;</b> - Gain Euro</li>
+                                   <li><b>Op Pr/Loss</b> - Open Profit / Loss</li>
+                               </ul>
+                               <br>
+                               Esempio risposta per comando <kbd>=InfoAccount()</kbd>:<br>
+                               	<table class="table table-bordered">
+                              <thread>
+                                 <tr>
+                                    <th>11:48:17</th>
+                                    <th>47511</th>
+									<th>52,15</th>
+                                    <th>0</th>
+									<th>0</th>
+                                 </tr>
+                              </thread>
+                              <tbody>
+                               </tbody>
+							   </table>
+                            </p>
+                        </div>
+                     </div>       
+                  </div>
+
+                 
+                  
+                           <div class="panel panel-success" id="InfoAvailability">
+                   <div class="panel-heading">
+                        <h4 class="panel-title">
+                           <b>Comando InfoAvailability</b>
+                        </h4>
+                     </div>   
+                     <div id="collapse18">
+                        <div class="panel-body">
+                            <p class="text-justify">
+                             Il comando <kbd>=InfoAvailability()</kbd> Situazione liquidit&agrave; portafoglio<br>
+                             	<table class="table table-bordered">
+                              <thread>
+                                 <tr>
+                                    <th>TIME</th>
+                                    <th>DISPAz</th>
+									<th>DISPAzM</th>
+                                    <th>DISPDer</th>
+									<th>DISPDerM</th>
+                                    <th>LiqTOT</th>
+                                 </tr>
+                              </thread>
+                              <tbody>
+                               </tbody>
+							   </table>
+                               
+                               <ul>
+                                   <li><b>TIME</b> -  Orario richiesta comando</li>
+                                   <li><b>DISPAz</b> - Disponibilit&agrave; azioni</li>
+                                   <li><b>DISPAzM</b> - Disponibilit&agrave; azioni con marginatura</li>
+                                   <li><b>DISPDer</b> - Disponibilit&agrave; derivati</li>
+                                   <li><b>DISPDerM</b> - Disponibilit&agrave; derivati con marginatura</li>
+                                   <li><b>LiqTOT</b> - Liquidit&agrave; totale</li>
+                               </ul>
+                                <br>
+                               Esempio risposta per comando <kbd>=InfoAvailability()</kbd>:<br>
+                               	<table class="table table-bordered">
+                              <thread>
+                                 <tr>
+                                    <th>11:50:22</th>
+                                    <th>52,15</th>
+									<th>52,15</th>
+                                    <th>0</th>
+									<th>0</th>
+                                    <th>52,15</th>
+                                 </tr>
+                              </thread>
+                              <tbody>
+                               </tbody>
+							   </table>
+                            </p>
+                        </div>
+                     </div>       
+                  </div>
+                  
+                  
+                  <!-- COMUNICAZIONI -->
+				  <!-- 
+                  <br>
+                  <hr class="style-eight" id="comunicazioni">
+                  <br>
+                  <div class="panel panel-info" id="remote-delete">
+                     <div class="panel-heading">
+                        <h3 class="panel-title" ><b>Comunicazioni</b></h3>
+                     </div>
+                     <div class="panel-body">
+                        <p class="text-justify">
+                           Directa pubblicher&agrave; informazioni sull'avanzamento del programma API tramite un canale RSS dedicato a questo indirizzo:
+                           <br><a href="#">http://213.92.13.32/darwin/developer-rss.xml</a>
+                           <br>Le comunicazioni urgenti saranno inoltrate anche via e-mail direttamente agli sviluppatori.
+                        </p>
+                     </div>
+                  </div>
+				  -->
+				  <!-- CHANGELOG -->
+                  <div class="panel panel-warning" id="changelog">
+                     <div class="panel-heading">
+                        <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseChange"><b>Aggiornamenti</a></b></h3>
+                     </div>
+                     <div class="panel-body panel-collapse collapse" id="collapseChange">
+                        <ul>
+                           
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- chiusura div finestra non spostare-->
+            <!-- FINE SEZIONE CONTENUTI -->
+            <!-- INIZIO MENU
+               Utilizzo
+               - ogni elemento dell'elenco ha un link <a></a>, con un campo href;
+               - il valore di href corrisponde all'id di un elemento nella pagina;
+               - ogni sezione puÚ avere un sotto livello di link, creato con un secondo elenco <ul></ul>-->
+            <br><br><br><br><br>
+            <div  id="menu" class="col-md-3">
+               <div class="navbar navbar-right bs-docs-sidebar hidden-print" role="complementary">
+                  <ul class="nav bs-docs-sidenav">
+                     <li>
+                        <a  href="#fcomuni" >Utilizzo delle API tramite Excel</a>
+                        <ul class="nav">
+                           <li ><a href="#comefunziona">Come Funziona</a></li>
+                           <li><a href="#avvioplg">Avvio del Plugin</a></li>
+                           <li ><a href="#gestioneH">Installazione libreria per Excel</a></li>
+                           <li><a href="#closeDW">Avvio e chiusura di Darwin da Excel</a></li>
+                        </ul>
+                     </li>
+                     
+					 <li >
+                        <a href="#hdf" ><code><font color="#01796F">DATAFEED</font></code></a>
+                        <ul class="nav">
+                           <li ><a href="#df_ricezione">Comandi sottoscrizione/desottoscrizione</a></li>
+                           <li ><a href="#price_risposta">Formato risposta price</a></li>
+                           <li ><a href="#bd_risposta">Formato risposta bidask</a></li>
+                           <li ><a href="#book5_risposta">Formato risposta book5</a></li>
+                           <li ><a href="#price_uns">Formato risposta desottoscrizione</a></li>
+                        </ul>
+                     </li>
+					 
+                     <li >
+                        <a href="#htrading"><code><font color="#CD5C5C">TRADING</font></code></a>
+                        <ul class="nav">
+                           <li ><a href="#cmd_trading" >Comandi di Trading</a></li>
+                           <li ><a href="#cmd_trading_client" >Risposta ai comandi di trading</a></li>
+                            <li><a href="#modifyOrder"> ModifyOrder</a></li>
+                           <li><a href="#cancelOrder"> CancelOrder</a></li>
+                           <li><a href="#cancelall"> CancelAll</a></li>
+						   <li ><a href="#infostock" >Infostock</a></li>
+						   <li ><a href="#orderlist" >Orderlist</a></li>
+                           <li ><a href="#infoaccount" >InfoAccount</a></li>
+                           <li ><a href="#infoavailability" >InfoAvailability</a></li>
+                        </ul>
+                     </li>
+                     <!--
+                     <li>
+						 <a href="#comunicazioni">Comunicazioni</a>
+                     </li>
+					 -->
+					 <li>
+						 <a href="#changelog">Aggiornamenti</a>
+                     </li>
+                     <!-- torna in cima alla pagina -->
+                     <li ><a href="#top">Back to top</a></li>
+                  </ul>
+               </div>
+            </div>
+            <!-- FINE MENU -->
+		 </div>
+         <br>
+		 <hr class="style-one">
+      </div>
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="js/jquery.min.js"></script>
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/doc.min.js"></script>
+   </body>
+</html>
