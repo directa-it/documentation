@@ -51,7 +51,7 @@ Le librerie di terze parti incluse nei progetti sono:
 - <a href="https://github.com/google/gson">GSON</a>
 - <a href="https://commons.apache.org/">Apache Commons</a>
 
-Tali librerie sono rilasciate sotto <a href="https://github.com/ingAle/documentazione/blob/master/LICENSE-2.0.txt">Apache 2.0 License</a>. 
+Tali librerie sono rilasciate sotto <a href="https://github.com/directa-it/documentation/blob/master/ApacheLICENSE-2.0.txt">Apache 2.0 License</a>. 
 
 ```
 This product includes software developed at
