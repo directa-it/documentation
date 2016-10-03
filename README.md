@@ -30,11 +30,11 @@ Darwin 2.0 è sviluppata in Java  e richiede la presenza della versione aggiorna
 
 Ogni repository e' relativo ad un singolo progetto [ in modo da facilitare il processo di segnalazione e correzione di bug o discussione di proposte/miglioramenti relativi al progetto in questione]. Per la documentazione ed esempi seguire i link:
 
-- <a href="">Darwin CommandLine</a>: https://ingale.github.io/documentazione/
+- <a href="">Darwin CommandLine</a>: https://directa-it.github.io/documentation/#PluginDirecta
 
-- <a href="">Plugin Excel</a>
+- <a href="">Plugin Excel</a> https://directa-it.github.io/documentation/excel.html
 
-- <a href="">Plugin Multichart</a>
+- <a href="">Plugin Multichart</a> https://directa-it.github.io/documentation/#InfoMC
 
 **BUG REPORTING**
 
