@@ -65,9 +65,34 @@
             background-color: #efefef;
         }
     </style>
+
+	<script type="text/javascript">
+
+    function blinker2()
+    {
+        if(document.getElementById("blink2"))
+        {
+            var d = document.getElementById("blink2") ;
+            d.style.color= (d.style.color=='blue'?'Gainsboro':'blue');
+            setTimeout('blinker2()', 500);
+        }
+    }
+
+	function blinker()
+    {
+        if(document.getElementById("blink"))
+        {
+            var d = document.getElementById("blink") ;
+            d.style.color= (d.style.color=='red'?'Gainsboro':'red');
+            setTimeout('blinker()', 3000);
+        }
+    }
+
+</script> 
+
   </head>
 
-  <body>
+  <body  OnLoad="blinker(),blinker2()">
 
    <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
     <div class="container">
@@ -75,7 +100,7 @@
 
       <ul class="nav navbar-nav navbar-left">
 
-       	<h7><a href="#changelog" data-toggle="collapse" data-parent"#accordion" data-target="#collapseChange">Last Update: 25/04/2016</a></h7>
+       	<h7><a href="#changelog" data-toggle="collapse" data-parent"#accordion" data-target="#collapseChange">Last Update: 13/10/2016</a></h7>
        </ul>
 
       	<ul class="nav navbar-nav navbar-middle">
@@ -410,6 +435,61 @@
 				    </div>
 				  </div>
 
+
+				  <div class="panel panel-success" id="closeDW">
+				  	<div class="panel-heading">
+				  		<h4 class=panel-title>
+
+				  			<b>Management Closing Darwin via API</b>
+
+				  		</h4>
+				  	</div>
+				  	<div id="collapsethree" >
+				  		 <div class="panel-body">
+				        It 'provides a command to close the Darwin directly through an API command. <br>
+						The command over to close the Darwin without having to interact with the graphic interface of Darwin or
+						possibly by killing the process, it also guarantees the rescue of their desk Darwin.
+						The command is available in all three socket connections (datafeed, trading and historical calls)
+						The following operation:
+				         <br>
+				      	 <br>	
+						Command:&nbsp;<b>CLOSEDARWIN</b><br>
+						the answer before the start of the closing process will be as follows:<br>
+						<b>RUN close Darwin : save(true)</b><br>
+						The <b>save(true)</b> It indicates that the desk will be saved.
+						<br><br>
+						If you do not want to save the desk of Darwin you can be closed in this way:<br>
+						<b>CLOSEDARWIN FALSE</b><br>
+						the answer will be this:<br>
+						<b>RUN close Darwin : save(false)</b><br>
+						The closing process is the same but it will not be taken into account changes to Darwin's desk.
+				      </div>
+				    </div>
+				  </div>
+
+
+
+
+				  <div class="panel panel-warning" id="connDw">
+					  <div class="panel-heading">
+				  		<h4 class=panel-title>
+
+				  			<b>Darwin connection DataFeed and Trading</b>
+
+				  		</h4>
+				  	</div>
+					<div id="collapsethree" >
+				  		 <div class="panel-body">
+						
+						The connection to the prices and the trading is conditioned by our server, so it is important to specify that the <b> every day
+						about midnight the Darwin active will automatically disconesse </b>, this is necessary because of the daily work on our servers. <br>
+						This implies that the Darwin does not allow a H24 use but which must be restarted once a day by referring to the disconnection of midnight,
+						in this schedule can memorize options it useful to make systems that use <a href="#DarwinApp"> DarwinApp </a> <!-- or Darwin CommandLine --> so that they can
+						schedule of auto reconnection with scripts.
+						  </div>
+					</div>	 
+				</div>
+
 				   <div class="panel panel-info" id="comandi-informativi">
 				  	<div class="panel-heading">
 				  		<h4 class=panel-title>
@@ -479,8 +559,20 @@
 				        	 For example:
 				        	  Command: <b>GETPOSITION FCA</b>
 				        	  to be used in the way specified in the example: &lt;comando&gt; _space_  &lt;ticker&gt;</b>.
+							  <br><br>
+							   Command: ORDERLIST<br>
+								When you need to see the list of your orders, it is necessary to send to the system a command like:<br>
+  								<b>ORDERLIST \n</b><br>
+								<br>
+ 								After Finding out that the order list can become very bushy, due to the operations that can be carried out, we have created some commands that allow access to filtered orders lists. The two new commands available are:<br>
+								<br>
+								ORDERLISTNOREV - the list includes only the pending and executed orders<br>
+								ORDERLISTPENDING - the list includes only the pending orders, cancelled and executed orders will be discarded<br>
+								<br>	
 
-
+								<b><code><font size="3" color="#FF6347" >NB</font></code></b> part of the reason for creating these commands is that, we've decided not to weigh down further on the initial connection to the trading system, and therefore, if the order list is greater than or equal to 100, the order list will be equivalent to the ORDERLISTNOREV command, so, you will have, as an initial detail: the executed orders, and any pending orders, if there were no pending or executed orders, but the list of the cancelled orders exceeds 100. then an error code 1019 will be sent, even though the list is not actually empty. needless to say that,the possibility to check with the native ORDERLIST command, including all orders is always guaranteed.<br>
+								This management of the 100 limit is workig only upon the connection to the Trading socket.<br>
+								The orders response details are discussed in the next section.<br>
 				        	 </ul>
 				        </p>
 				      </div>
@@ -556,31 +648,34 @@
 							STOCK record example for the A2A security( 4 Stocks in portfolio and 4 Trading stocks):<br>
 							<b>STOCK;A2A;10:40:58;4;0;4;1.2375;-1;-1\n</b> 
 							<br><br>
- 							<b><code><font size="3" color="#FF6347" >NB</font></code></b>: The STOCK data flow is triggered by the commands:<br>
+ 							<b><code><font size="3" color="#FF6347" >NB</font></code></b>: The STOCK data flow is triggered by the commands:<br><br>
  							<ul>
 							<li>INFOSTOCKS - returns with the entire list of shares in portfolio and those in negotiation</li>
 							<li>GetPosition ticker - returns information about the position of a single security in the same format like the INFOSTOCKS' command</li>
 							</ul>
 							<b><code><font size="3" color="#FF6347" >NB</font></code></b>: Indication of the field &lt;TRADING QUANTITY&gt;<br>
-							The details could have different response types:
+							The details could have different response types:<br><br>
 							<ul>
 							<li>STOCK; FCA; 09: 54: 38; 0; <font color="blue"><b>1</b></font>; <font color="red"><b>1></b></font>; 0.0 ;</li>
  							When the details appear <font color="red"><b>&nbsp;&lt;val&gt;&nbsp;&gt;</b></font> means that the order has been taken over by Directa, and you may notice that the amount details in Directa evaluate to 1 ( highlighted in the record with blue color).
-
+							<br><br>
 							<li>STOCK; FCA; 09: 54: 41; 0; <font color="blue"><b>0</b></font>; <font color="red"><b>1</b></font>; 0.0 ;</li>
 							In this following detail, it could be noticed that the <font color="red"><b>&gt;</b></font> is no longer present, which means that the order has been taken over by the Stock Exchange and the quantity details at Directa has returned to be 0 (signaled in the records with the color blue).
-
+							<br><br>
 							<li>STOCK; FCA; 10: 03: 16; 0; <font color="blue"><b>1</b></font>; <font color="red"><b>1> 1</b></font>; 0.0 ;</li>
 							In this example, you can notice both a detail <val>> along with a detail <val>, this means that an order is already trading in the exchange while another is still at Directa as pointed out in the detail>.
-
+							<br><br>
 							<li>STOCK; FCA; 10: 03: 18; 0; <font color="blue"><b>0</b></font>; <font color="red"><b>2</b></font>; 0.0 ;</li>
 							In this example, it could be seen how the signal <font color="red"><b>&gt;</b></font> has disappeared and the number of orders has increased because there are two orders,
 							In this example for the FCA Stock, at the stock exchange. 
-
+							<br><br>
 							<li>Following a withdrawal (eg REVORD &lt;ID_ORD&gt;) -> STOCK; FCA; 10: 09: 15; 0; <font color="blue"><b>0</b></font>; <font color="red"><b>1</b></font>; 0.0 ;</li>
 							You can notice how the amount details in negotiation has decreased by one unit following a cancellation of a security.
+							<br><br>
+							<li>Trading quantity is equal to 0 *</li>
+								This can occur when, while having a stocke in portfolio, you place a stop condition on both purchase and sale of the same instrument,   * the detail is to indicate that, it's not a real zero, but a zero conditioned by other operations.
 				        	</ul>
-				        	
+				        	<br>
 				        	
 				        	<!--<b>STOCK;A2A;10:40:58;4;0;4;1.2375;-1;-1\n</b>
 				        	<br>
@@ -604,6 +699,8 @@
 				        	In questo esempio si pu&ograve; notare come il segnale <font color="red"><b>&gt;</b></font> sia sparito e il numero degli ordini &egrave; salito perch&egrave; sono presenti due ordini, in questo esempio per il titolo FCA, presso borsa.<br><br>
 				        	<li>A seguito di una revoca (e.g REVORD &lt;ID_ORD&gt;) -> STOCK;FCA;10:09:15;0;<font color="blue"><b>0</b></font>;<font color="red"><b>1</b></font>;0.0;;</li>
 				        	 Si pu&ograve; notare come il dettaglio quantit&agrave; in negozazione sia regredito di un unit&agrave; a seguito di una revoca di un titolo.
+							 <li>Trading quantity is equal to 0 *
+							This can occur when, while having a stocke in portfolio, you place a stop condition on both purchase and sale of the same instrument,   * the detail is to indicate that, it's not a real zero, but a zero conditioned by other operations.</li>
 				        	</ul>
 				        	</div>-->
 				        	
@@ -1471,21 +1568,6 @@
 					<h2 id="htrading">Trading</h2>
 				</div>
 
-				<div class="panel panel-info" id="autenticazione">
-				  	<div class="panel-heading">
-				  		<h4 class=panel-title>
-				  			<b>Authentication</b>
-				  		</h4>
-				  	</div>
-				  	<div id="collapse13">
-				  		 <div class="panel-body">
-				        <p class="text-justify">
-				        	Trading authentication
-				        </p>
-				      </div>
-				    </div>
-				  </div>
-
 				<div class="panel panel-info" id="cmd_trading">
 				  	<div class="panel-heading">
 				  		<h4 class=panel-title>
@@ -1753,6 +1835,351 @@
 				    </div>
 				  </div>
 
+				    <div class="panel panel-my" id="newCmdTrading">
+				  		<div class="panel-heading">
+				  			<h4 class=panel-title>
+				  				<b>New Command <code><font color="#CD5C5C">TRADING</font></code></b>
+				  			</h4>
+				  		</div>
+				  	
+				    	<div id="collapse800">
+				  			 <div class="panel-body">
+				  			  <p class="text-justify">
+				  			After several suggestions, we have made an efffort to create some commands to extend the set of information retrievable through the API.<br>
+							At the moment, special attention has been given to the expansion of the trading related information.<br>
+							The chioce was made to safeguard the Trading Systems currently in use, and to create commands that can be activated and deactivated to access the features.<br>
+							The following are the new available commands:<br><br>
+				  			 
+				  			 <table class="table table-bordered">
+				        	<thread>
+				        		<tr>
+				        			<th>COMMAND</th>
+				        			<th>MEANING</th>
+				        			<th>VALUE</th>
+				        			<th>DEFAULT</th>
+				        		</tr>
+				        	</thread>
+				        	<tbody>
+				        		<tr>
+				        			<td>FLOWPOINT</td>
+				        			<td> Start & End markers of the data flow packages</td>
+				        			<td> FALSE / TRUE</td>
+				        			<td>FALSE</td>
+				        		</tr>
+				        		<tr>
+				        			<td>UPDATEORDER</td>
+				        			<td> Possibility, at order submission, to receive updates without having to send specific commands</td>
+				        			<td> FALSE / TRUE</td>
+				        			<td>FALSE</td>
+				        		</tr>
+				        		<tr>
+				        			<td>PRICEEXE</td>
+				        			<td>fields related to the trade execution price are added, quantity and Order_ID relating to the  TRADOK and ORDER packages</td>
+				        			<td> FALSE / TRUE</td>
+				        			<td>FALSE</td>
+				        		</tr>
+								<tr>
+				        			<td>LOGCMD</td>
+				        			<td>added at the end of TRADOK and TRADERR packages of the command that has generated the package</td>
+				        			<td> FALSE / TRUE</td>
+				        			<td>FALSE</td>
+				        		</tr>
+
+								<tr>
+									<td>POINTUPDATEORDER</td>
+									<td>a new way to have an automatic update on one's own situation with regard to trade operation.</td>
+									<td> FALSE / TRUE</td>
+									<td> FALSE </td>
+								</tr>
+
+								<tr>
+									<td>AUTOREC</td>
+									<td>an automatic method of restoring trading connection because of line drops</td>
+									<td> FALSE / TRUE</td>
+									<td> FALSE </td>
+								</tr>
+				        		
+				        	<tbody>
+				        	</table>
+				        	<br>
+				        	For each command, you can perform three types of tasks:<br>
+				        	<ul>
+				        		<li>Set to TRUE - TRUE command_type'blank - e.g. PRICEEXE TRUE;  API Response: PRICEEXE; TRUE</li>
+				        		<li>Set to FALSE - Command_type'blank'FALSE - e.g. FLOWPOINT  FALSE; Response API response: FLOWPOINT; FALSE</li>
+				        		<li>Request the current status - Command type - e.g UPDATEORDER; API response: UPDATEORDE;FALSE</li>
+				        	</ul>
+				  			 <br>
+				  			 <b><code><font size="3" color="#F4A460" >FLOWPOINT COMMAND</font></code></b><br>
+							It distinguishes the commands ORDERLIST and INFOSTOCKS from the start & end flags of the flow.<br>
+							For Examples (in blue will be identified the lines sent to the socket, those received in black):<br>
+							Activation of the Command <b>FLOWPOINT</b><br>
+							 <font color='blue'>FLOWPOINT TRUE</font><br>
+				  			 FLOWPOINT;TRUE<br>
+				  			 <font color='blue'>ORDERLIST</font><br>
+				  			 <b>BEGIN ORDERLIST</b><br> 
+							 ORDER;A2A;09:46:11;ORD1;ACQAZ;1.075;0.0;1;2004 <br>
+							 ORDER;A2A;09:59:46;ORD2;ACQAZ;1.5;0.0;1;2003 <br>
+							 ORDER;A2A;09:57:12;ORD3;ACQAZ;1.052;0.0;1;2004 <br> 
+							 ORDER;ENEL;10:04:42;ORD9;VENAZ;3.8;0.0;1;2003 <br>
+							 <b>END ORDERLIST</b> <br>
+							 <br>
+							 Activation of the Command <b>FLOWPOINT</b><br>
+				  			 <font color='blue'>FLOWPOINT TRUE</font><br>
+				  			 FLOWPOINT;TRUE<br>
+							 	<font color='blue'>INFOSTOCKS</font><br>
+								<b>BEGIN STOCKLIST</b> <br> 
+								STOCK;AGL;16:41:49;47;0;;7.7036;20 <br> 
+								STOCK;A2A;16:41:49;82;70;70> -70;1.1326;-4 <br>
+								STOCK;BMPS;16:41:49;1;0;;2.18;-1 <br>
+								STOCK;LX.EURUSD;16:41:49;144;0;;1.122389;43 <br> 
+								STOCK;.FB;16:41:49;14;0;;83.1958;77 <br>
+								STOCK;.GOOG;16:41:49;10;0;;641.7701;-362 <br> 
+								STOCK;.KO;16:41:49;4;0;;43.4792;-14 <br>
+							<b>END STOCKLIST</b> <br>
+							 
+							 
+							<br>
+							 <p id="upOrd_cmd"></p><b><code><font size="3" color="#F4A460" >UPDATEORDER COMMAND</font></code></b><br>
+							 Upon submission of an order, you will always receive the TRADOK package that will indicate the situation of the order, with this command set to TRUE. by default this is set to FALSE, to avoid the recreation of a Trading System that's already operational, you will receive updates on the situation of the order and other data relating to the portfolio without sending additional commands via socket.
+							Update messages will be different depending on the operation being performed:
+
+							 <table class="table table-bordered">
+				        	<thread>
+				        		<tr>
+				        			<th>OPERATION</th>
+				        			<th>DESCRIPTION</th>
+				        		</tr>
+				        	</thread>
+				        	<tbody>
+				        		<tr>
+				        			<td>PLACING ORDER</td>
+				        			<td> In addition to the package TRADOK (with the code 3000) the ORDER package will be sent, relating to the entered order, and the information on the balance status of the account, the package INFOACCOUNT</td>
+				        		</tr>
+				        		<tr>
+				        			<td>CHANGED ORDER</td>
+				        			<td> in addition to TRADOK (with the code 3000)
+										the ORDER package will be sent relative to the changed order, the STOCK of the financial instrument, the details of the command AVAILABILITY-Liquidity portfolio (with or without margin) and information on the balance status of the account, the package INFOACCOUNT (this will appear twice, having been made an change). </td>
+				        		</tr>
+				        		<tr>
+				        			<td>EXECUTED ORDER</td>
+				        			<td>when an order should be executed TRADOK detail comes out (with code 3001) and in addition, the detail of the order through the package ORDER, the relative STOCK of the security, the detail AVAILABILITY-Liquidity of the portfolio (with or without margin)
+										and information on the balance status of the account, the INFOACCOUNT package.</td>
+				        		</tr>
+				        		<tr>
+				        			<td>CANCELED ORDER</td>
+				        			<td>in addition to the TRADOK  package (with the 3002 detail) moreover, there will be the STOCK package related to the financial instrument, the detaile: AVAILABILITY-Liquidity portfolio (with or without margin) and the information on the balance situation of the account, the INFOACCOUNT package.</td>
+				        		</tr>
+				        	<tbody>
+				        	</table>
+
+							 <b>Examples</b> (in <font color=blue>blue</font> will be identified the lines sent to the socket, those received are in black, and, in <font color=red>red</font> are the comments):<br>
+							 A data flow regarding all the possible operations will be displayed.
+							 
+<font color='red'>Activation of the commands</font><br>
+<font color='blue'>UPDATEORDER TRUE </font><br>
+UPDATEORDER;TRUE<br>
+<font color='red'>I send a purchase order</font><br>	      
+<font color='blue'>ACQAZ ORD172001,LX.EURUSD,10,1.11941</font><br> 
+<font color='red'>In this case, the order confirmation is on, so the order confirmation</font><br>
+TRADCONFIRM;LX.EURUSD;ORD172001;3003;ACQAZ;10;1.119410;I SEND YOU PURCHASE ORDER OF 10 LX.EURUSD AT THE PRICE OF $ 1,119410 TRADE VALUE of $ 11,194. order confirmation is requested by the customer: the command CONFORD<ID_ORDER>
+<font color='red'>We confirm the order</font><br>
+<font color='blue'>CONFORD ORD172001</font><br>
+TRADOK;LX.EURUSD;ORD172001;3000;ACQAZ;10;1.11941;0.0  <br>
+ORDER;LX.EURUSD;17:20:26;ORD172001;ACQAZ;1.11941;0.0;10;2002 <br>
+INFOACCOUNT;17:20:26;47511;13.19;-1;0.41999998688697815 <br>
+<font color='red'>Another change</font> <br>
+<font color='blue'>MODORD ORD172001,1.11949 </font> <br>
+TRADOK;LX.EURUSD;ORD172001;3000;ACQAZ;10;1.11949;0.0  <br>
+ORDER;LX.EURUSD;17:20:43;ORD172001;ACQAZ;1.11949;0.0;10;2002 <br> 
+INFOACCOUNT;17:20:44;47511;13.19;-1;0.41999998688697815<br>
+STOCK;LX.EURUSD;17:20:44;144;0;10;1.122389;206  <br>
+AVAILABILITY;17:20:44;539899.8;542133.0;0.0;0.0;541257.3 <br> 
+INFOACCOUNT;17:20:45;47511;13.19;-1;1.2800999879837036<br>
+<font color='red'>Another change, to get executed</font><br>
+<font color='blue'>MODORD ORD172001,1.12399 </font><br>
+TRADOK;LX.EURUSD;ORD172001;3000;ACQAZ;10;1.12399;0.0  <br>
+ORDER;LX.EURUSD;17:20:56;ORD172001;ACQAZ;1.12399;0.0;10;2002 <br> 
+INFOACCOUNT;17:20:56;47511;13.19;-1;0.41999998688697815 <br>
+STOCK;LX.EURUSD;17:20:56;144;10;10>;1.122389;196  <br>
+AVAILABILITY;17:20:56;539899.8;542133.0;0.0;0.0;541257.3 <br> 
+INFOACCOUNT;17:20:56;47511;13.19;-1;0.41999998688697815 <br>
+<font color='red'>order executed</font><br>
+TRADOK;LX.EURUSD;ORD172001;3001;ACQAZ;10;1.12399;0.0  <br>
+ORDER;LX.EURUSD;17:20:56;ORD172001;ACQAZ;1.12399;0.0;10;2003 <br> 
+STOCK;LX.EURUSD;17:20:58;154;0;;1.122494;203 <br>
+AVAILABILITY;17:20:58;539899.4;542132.56;0.0;0.0;541006.9  <br>
+INFOACCOUNT;17:20:59;47511;13.19;-1;0.41999998688697815
+<font color='red'> we suggest a cancel order</font><br>
+<font color='red'>order submission</font><br>
+<font color='blue'>ACQAZ ORD173106,LX.EURUSD,10,1.11941 </font><br>
+<font color='red'>In this case, order confirmation is important, so, confirm the order</font><br>
+TRADCONFIRM;LX.EURUSD;ORD173106;3003;ACQAZ;10;1.119410;I SEND YOU A PURCHASE ORDER OF 10 LX.EURUSD AT THE PRICE OF  1,119410 USD FOR A TOTAL AMOUNT OF 11194 USD.<br>
+<font color='blue'>CONFORD ORD173106</font> <br>
+TRADOK;LX.EURUSD;ORD173106;3000;ACQAZ;10;1.11941;0.0  <br>
+ORDER;LX.EURUSD;17:31:36;ORD173106;ACQAZ;1.11941;0.0;10;2002  <br>
+INFOACCOUNT;17:31:36;47511;13.19;-1;0.41999998688697815 <br>
+<font color='red'>Cancel the order</font><br>
+<font color='blue'>REVORD ORD173106</font> <br>
+TRADOK;LX.EURUSD;ORD173106;3002;ACQAZ;;1.11941;0.0  <br>
+STOCK;LX.EURUSD;17:31:42;154;0;;1.122494;149  <br>
+AVAILABILITY;17:31:42;539899.4;542132.56;0.0;0.0;541006.9  <br>
+INFOACCOUNT;17:31:43;47511;13.19;-1;0.41999998688697815 <br>
+<br>
+<b><code><font size="3" color="#F4A460" >COMMAND PRICEEXE</font></code></b><br>
+The command will be running on TRADOK and ORDER packages. By setting the command to TRUE, you  will have the following information:<br>
+<ul>
+	<li><b>TRADOK</b> package, the following details will be added towards the end:
+		<ul>
+			<li>executed price (useful for purchases at best or at the market)</li>
+			<li>quantity executed (if all, it will be equal to the amount detail already in the remaining amount package </li>
+			<li>quantity residual (if the it was a total order execution, it will be equal to 0)</li>
+			<li>the id referring to Directa</li>
+		</ul>
+	</li>
+	<li><b>ORDER</b> package, the following details will be added towards the end:
+		<ul>
+			<li>average price</li>
+			<li>execution price</li>
+			<li>at the market quantity, useful for checking if at the market quantity still exists</li>
+			<li>id referring to Directa</li>
+		</ul>
+	</li>
+</ul>
+Here is an example of a data flow to showcase the differences: (in <font color=blue>blue</font> will be identified the lines sent to the socket, those received in black, in <b>bold</b> face we will instead highlight the new fields)<br>
+<font color='blue'>PRICEEXE TRUE </font><br>
+PRICEEXE;TRUE  <br>
+<font color='blue'>ACQAZ ORD105037,A2A,1,1.328 </font><br>
+TRADOK;A2A;ORD105037;3000;ACQAZ;1;1.328;0.0;<b>0.0;0;0;P3710505738518</b> <br> 
+<font color='blue'>MODORD ORD105037,1.344 </font><br>
+TRADOK;A2A;ORD105037;3000;ACQAZ;1;1.344;0.0;<b>0.0;0;0;P3710512338519 </b> <br> 
+<font color='blue'>MODORD ORD105037,1.345 </font><br>
+TRADOK;A2A;ORD105037;3000;ACQAZ;1;1.345;0.0;<b>0.0;0;0;P3710513238520</b> <br>  
+TRADOK;A2A;ORD105037;3001;ACQAZ;1;1.345;0.0;<b>1.3440;1;0;P3710513238520 </b> <br> 
+<font color='blue'>FLOWPOINT TRUE </font><br>
+FLOWPOINT;TRUE <br> 
+<font color='blue'>ORDERLIST </font><br>
+BEGIN ORDERLIST <br>
+ORDER;A2A;10:50:57;ORD105037;ACQAZ;1.344;0.0;1;2004;<b>0.0;0.0;0;P3710505738518</b> <br>
+ORDER;A2A;10:51:23;ORD105037;ACQAZ;1.345;0.0;1;2004;<b>0.0;0.0;0;P3710512338519 </b><br>
+ORDER;A2A;10:51:32;ORD105037;ACQAZ;1.345;0.0;1;2003;<b>1.3400;1.3440;0;P3710513238520</b> <br>
+END ORDERLIST <br>
+<b><code><font size="3" color="#FF6347">NB</font></code></b>The fields will be added later on in the order in which they were described, the other fields will be in the same original order, that's without the activation of the <b>PRICEEXE</b> command.<br>
+Another very important detail is the possibility of having the execution price included in the ORDER package, at the moment, this field will be evaluated only within a Darwin session, therefore, if there was a trading socket disconnection, the value will always be available, and, it will be no longer available if you close and re-open Darwin. however, the evaluation of the fields is guaranteed, even if they are not available with a 0, so as not to create failures in the reading of the messages.
+<br>
+<br>
+<b><code id="cmdlog"><font size="3" color="#F4A460" >COMMAND LOGCMD</font></code></b><br>
+This command, when activated (LOGCMD TRUE) adds at the end of the packages: TRADOK and TRADERR, and the command that has generated the package, for the sake of giving greater information on the order submissions.
+This command also be working if it's active, rigardless of wheather the PRICEEXE is active or not, even though the addition of the command will always be towards the bottom.<br>
+Below, a usage example is offered by using: (in blue will be identified the lines sent to the socket, those received in black, and in bold type, we will instead highlight the new fields<br>
+<font color='blue'>LOGCMD TRUE</font><br>
+LOGCMD;TRUE<br>
+<font color='blue'>PRICEEXE TRUE</font><br>
+PRICEEXE;TRUE<br>
+<font color='blue'>ACQAZ ORD121835,FCA,1,4.75</font><br>
+TRADOK;FCA;ORD121835;3000;ACQAZ;1;4.75;0.0;0.0;0;0;S1112184397605;<b>ACQAZ ORD121835,FCA,1,4.75</b><br>  
+<font color='blue'>REVORD ORD121835</font><br>
+TRADOK;FCA;ORD121835;3002;ACQAZ;1;4.75;0.0;0.0;0;0;S1112184397605;<b>REVORD ORD121835</b><br>  
+<font color='blue'>PRICEEXE FALSE</font><br>
+PRICEEXE;FALSE<br> 
+<font color='blue'>ACQAZ ORD121916,FCA,1,4.75</font><br>
+TRADOK;FCA;ORD121916;3000;ACQAZ;1;4.75;0.0;<b>ACQAZ ORD121916,FCA,1,4.75</b><br> 
+<font color='blue'>REVORD ORD121916</font><br>
+TRADOK;FCA;ORD121916;3002;ACQAZ;1;4.75;0.0;<b>REVORD ORD121916</b><br>
+<font color='blue'>ACQAZ ORD124431,FCA,1,1.75</font><br> 
+TRADERR;FCA;ORD124431;1012;ACQAZ;1;1.7500;THE ORDER CANNOT BE SUBMITTED DUE TO HIGH PRICE DEVIATION COMPARED TO THE MARKET PRICES;ACQAZ ORD124431,FCA,1,1.7500<br>
+<br>
+<b><code id="cmdup"><font size="3" color="#F4A460" >POINTUPDATEORDER COMMAND</font></code></b><br>
+
+This command is intended as a more complete command to get automatic updates without having to send commands to the socket. <br>
+The characteristics of this command is that the update will be always the same, namely the upgrade packages will not change according to the operation performed
+unlike the first proposal for a camando UPDATEORDER. <br>
+This information package will always after its operation TRADOK, this type of upgrade is guaranteed for orders placed via API,
+if these are facts about Darwin platform it could happen that this update does not reach to avoid the risk of putting inaccurate information. <br>
+The update will always be composed of:<br>
+<b>
+	BEGIN UPDATEORDER<br>
+	UORDER<br>
+	USTOCK<br>
+	UAVAILABILITY<br>
+	UINFOACCOUNT<br>
+	END UPDATEORDER<br>
+</b><br>
+Description:
+<ul>
+	<li><b>BEGIN UPDATEORDER</b> - START update </li>
+	<li><b>UORDER</b> - Package Order concerning the placing / run / revocation effected</li>
+	<li><b>USTOCK - Package STOCK situation portfolio according to your input / run / revocation effected</b></li>
+	<li><b>UAVAILABILITY - Package AVAILABILITY situation</b></li>
+	<li><b>UINFOACCOUNT</b> - NFOACCOUNT package updated</li>
+	<li><b>END UPDATEORDER</b> - END update </li>
+</ul>
+<br>
+<code><font size="3" color="#FF6347" >NB</font></code></b>The fields are all initialized with a U to highlight the fact that, the field is related to the update, and so to avoid confusion compared to the other fields.
+Below, a usage example is given: (in <font color=blue>blue</font> will be identified the lines sent to the socket, those received in black, and in <b>bold</b> type we will instead highlight the new fields)<br>
+
+<font color='blue'>PRICEEXE TRUE</font><br> 
+PRICEEXE;TRUE<br>  
+<font color='blue'>POINTUPDATEORDER TRUE</font><br>
+POINTUPDATEORDER;TRUE<br> 
+<font color='blue'>ACQAZ ORD1,FCA,1,5.75</font><br> 
+TRADOK;FCA;ORD1;3000;ACQAZ;1;5.75;0.0;0.0;0;0;S4216521807924<br>  
+<b>BEGIN UPDATEORDER<br> 
+UORDER;FCA;16:52:18;ORD1;ACQAZ;5.75;0.0;1;2002;0.0;0.0;0;S4216521807924<br>
+USTOCK;FCA;16:52:18;0;0;1;0.0;<br> 
+UAVAILABILITY;16:52:18;45.09;45.09;0.0;0.0;50.84<br> 
+UINFOACCOUNT;16:52:18;47511;50.84;0;0.0<br> 
+END UPDATEORDER</b><br> 
+<font color='blue'>MODORD ORD1,5.65</font><br> 
+TRADOK;FCA;ORD1;3000;ACQAZ;1;5.65;0.0;0.0;0;0;S4216523407947<br>  
+<b>BEGIN UPDATEORDER<br> 
+UORDER;FCA;16:52:34;ORD1;ACQAZ;5.65;0.0;1;<code>2006</code>;0.0;0.0;0;S4216523407947<br> 
+USTOCK;FCA;16:52:34;0;0;1;0.0;<br> 
+UAVAILABILITY;16:52:34;45.19;45.19;0.0;0.0;50.84<br> 
+UINFOACCOUNT;16:52:34;47511;50.84;0;0.0<br> 
+END UPDATEORDER</b><br>
+<font color='blue'>REVORD ORD1</font><br> 
+TRADOK;FCA;ORD1;3002;ACQAZ;1;5.65;0.0;0.0;0;0;S4216523407947<br>  
+<b>BEGIN UPDATEORDER<br> 
+UORDER;FCA;16:52:34;ORD1;ACQAZ;5.65;0.0;1;2004;0.0;0.0;0;S4216523407947<br> 
+USTOCK;FCA;16:52:59;0;0;;0.0;<br> 
+UAVAILABILITY;16:52:59;50.84;50.84;0.0;0.0;50.84<br> 
+UINFOACCOUNT;16:52:59;47511;50.84;0;0.0<br> 
+END UPDATEORDER</b><br>
+<br>
+
+<code><font size="3" color="#FF6347" >NB</font></code></b> by activating this command, the changed orders will have, as a detail for the order status the value of 2006, and this' was required to have a distinguishing detail compared to the standard codes of 2000/2002,
+this code will also have an effect on the ORDERLIST command, if the command will gets disabled, the detail in 2006 will no longer be available and you will return to the default of (2000/2002))
+<br><br>
+<code><font size="3" color="#FF6347" >NB</font></code></b> We recommend, to to avoid errors, to keep enabled only one update method, therefore, either the command UPDATEORDER, or the command POINTUPDATEORDER should be active. If both the commands are activated
+POINTUPDATEORDER will have higher priority, and, in case one becomes disabled, both of them will then be disabled,This is to avoid the risk of requesting inaccurate updates. 
+<br>
+<br>
+<b><code id="cmdautorec"><font size="3" color="#F4A460" >THE AUTOREC COMMAND</font></code>(currently in a testing phase)</b><br>
+This command is meannt to make an automatic reconnection if trading disconnection occures. The command should be activated after connecting the socket and only after receiving the initial packages.
+<br>Below, a usage example is given: (in <font color=blue>blue</font> will be identified lines sent to the socket, those received in black, and <b>bold</b> we instead highlight the new fields)<br>
+<font color='blue'>AUTOREC TRUE</font><br> 
+<b>AUTOREC;TRUE;AUTORECOK</b><br>  
+ERR;N/A;1024<br>
+<b>Trading Disconnesso;false;1024</b><br>  
+<b>Recconect Trading to 5 sec</b><br> 
+<b>TradingRiconesso;true;1025</b><br>  
+DARWIN_STATUS;RECONNTRADINGOK CONN_OK ;Release 1.2.179 build 24/11/2015 14:37:00 more info at http://213.92.13.32/directaapi/rss.php<br> 
+ERR;N/A;1018<br>
+ORDER;FCA;10:49:00;ORD1;ACQAZ;6.165;0.0;1;2004<br>  
+ORDER;FCA;10:36:11;ORD2;ACQAZ;6.15;0.0;1;2004<br>  
+ORDER;FCA;10:36:45;ORD3;ACQAZ;6.145;0.0;1;2004<br>  
+ORDER;FCA;10:47:49;ORD4;ACQAZ;6.145;0.0;1;2004<br>  
+ORDER;FCA;10:49:05;ORD5;ACQAZ;6.16;0.0;1;2004<br>  
+<font color='blue'>ACQAZ ORD1,FCA,1,4.75</font><br> 
+TRADOK;FCA;ORD1;3000;ACQAZ;1;4.75;0.0<br>  
+<font color='blue'>MODORD ORD1,4.85</font><br> 
+TRADOK;FCA;ORD1;3000;ACQAZ;1;4.85;0.0<br>  
+<font color='blue'>REVORD ORD1</font><br> 
+TRADOK;FCA;ORD1;3002;ACQAZ;1;4.85;0.0<br>  
+</p>
+</div>
+</div>					  		
+</div>
 
 				<!-- fine pannello trading -->
 
@@ -2090,6 +2517,117 @@
 
 				<!-- fine pannello chiamate storiche tbt&candle -->
 				
+
+					<hr class="style-eight" id="PluginDirecta">
+				<h2 id="hdwapp">Plugin Directa</h2>
+
+				<div class="panel panel-Mc" id="InfoMC">
+					<div class="panel-heading">
+						<h3 class="panel-title"><b>Multicharts</b></h3>
+					</div>
+						<div id="collapse30">
+				  		 <div class="panel-body">
+					<b>The current online version of our pluginIN to connect with Multicharts is <code>1.50 - 07/04/2016.</code><br></b>
+					To find the installer needed for the connection, you have to follow these steps:<br>
+
+					Starting from the Main Board of the Trading site at http://www1.directatrading.com/, click on Info -> point 5a (ADDITIONAL ACTIVATIONS AND VARIATIONS/Additional Activations) -> point 3i (API).
+					At the top you will find listed the two installers, one for the 32bit systems, and the other for the 64bit.
+
+					<br><br>
+						<div class="panel panel-Mc" id="AggiornamentiMC">
+					<div class="panel-heading">
+						<h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseChange2"><b>Updates</a></b></h3>
+					</div>
+					<div class="panel-body panel-collapse collapse" id="collapseChange2">
+					<ul>
+						<li><p class="test-justify"><pre>07/04/2016 Latest release available plugin Multicharts</pre></p></li>
+						</ul>
+					</div>
+				</div>
+					</div>
+					</div>
+				</div>
+				
+				<div class="panel panel-DCM" id="InfoMute">
+					<div class="panel-heading">
+						<h3 class="panel-title"><b>Darwin Command Line</b></h3>
+					</div>
+					<div id="collapse30">
+				  		<div class="panel-body">
+							Darwin standalone version without GUI:
+							At the request of some users, we decided to implement a Darwin without any user interface that delivers the data set
+							Darwin described in the API protocol. This version we called Darwin Command Line, will be
+							executable, precisely, via the command line and should already be fully compatible with what you have eventually developed,
+							as it has been possible to use it without additional changes even with our plugin Multicharts.
+							To proceed to download the necessary resources to be able to use this component are available at this address:
+							<a href=https://directa2.directatrading.com/app/MUTE/DarwinCommandLine.zip> DarwinCommandLine.zip</a><br>
+							<b>This .zip will be constantly updated, the currently available version is the: <code>1.0.0 - 29/07/2016</code></b>
+							<br>
+						<div class="panel panel-DCM" id="AggiornamentiDCM">
+					<div class="panel-heading">
+						<h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseChange3"><b>Updates</a></b></h3>
+					</div>
+					<div class="panel-body panel-collapse collapse" id="collapseChange3">
+					<ul>
+						<li><p class="test-justify"><pre>04/07/2016 First release of the Beta version</pre></p></li>
+						</ul>
+					</div>
+				</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="panel panel-Excel" id="InfoExcel">
+					<div class="panel-heading">
+						<h3 class="panel-title"><b>Microsoft Excel Add-In</b></h3>
+					</div> 
+					<div id="collapse30">
+				  		 <div class="panel-body">
+						Microsoft Excel Add-In:
+						We have created libraries that allow the connection between Darwin (with and without GUI)
+and an Excel file, so you can manipulate the data provided by the Protocol API directly on your spreadsheets.
+In order to use this component you need to download this launcher can be downloaded at this link:
+						<a href=http://213.92.13.32/pluginExcelSetup/setupDirectaXL.exe> SetupXL.exe</a><br>
+						This program will copy all necessary files to use Excel with Darwin and open a sample file created by us, after this operation
+just open your eventual excel files, all the features of this component
+They are explained in detail in the guide dedicated to this link:<a href=http://213.92.13.32/apiwiki/excel.html> ExcelGuide</a><br>
+						To update the add-ins will need to use the program and click on <b> ExcelPlugin </b> and will be downloaded and replaced the files necessary to connect without having to
+perform any manual operation. <br>
+Below an image of the application that you install on your PC <br><br>
+						<img src="img/dxl.png" style="float: left" alt="ExcelPlugin" height="250" width="250"/>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						
+						&nbsp;&nbsp;&nbsp;&nbsp;<b>The version currently in line is: <code>1.0.0 - 29/07/2016</code></b>.
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+							<div class="panel panel-Excel" id="AggiornamentiExcel">
+					<div class="panel-heading">
+						<h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseChange4"><b>Updates</a></b></h3>
+					</div>
+					<div class="panel-body panel-collapse collapse" id="collapseChange4">
+					<ul>
+						<li><p class="test-justify"><pre>29/07/2016  First release of the Beta version</pre></p></li>
+						</ul>
+					</div>
+				</div>
+					</div> 
+					</div> 
+				</div> 
+				
+
+<!-- fine div per plugin esterni -->
+
+			
 				
 				
 				<hr class="style-eight" id="DarwinApp">
@@ -2906,14 +3444,18 @@ The Darwin App's new version is designed for developer users
 
 				<hr class="style-one" id="changelog">
 				<br>
-				<div class="panel panel-warning id="clog">
+				<div class="panel panel-warning" id="clog">
 					<div class="panel-heading">
 						<h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseChange"><b>Update</a></b></h3>
 					</div>
-					<div class="panel-body panel-collapse collapse" id="collapseChange">
-						<p class=text-justify"><pre>03/12/2015 General Update</pre></p>
-						<p class=text-justify"><pre>31/03/2015 Introduction a table for Utility History Calls</pre></p>
-						<p class=text-justify"><pre>19/01/2015 Introduction Mail image and update page</pre></p>
+						<div class="panel-body panel-collapse collapse" id="collapseChange">
+						<p class="text-justify"><pre>13/10/2016 <a href="#connDw">Information of Connection Darwin</a></pre></p>
+						<p class="text-justify"><pre>13/10/2016 <a href="#closeDW">Close Darwin with API command</a></pre></p>
+						<p class="text-justify"><pre>13/10/2016 <a href="#InfoMC">Directa plugin Multicharts information</a></pre></p>
+						<p class="text-justify"><pre>13/10/2016 <a href="#newCmdTrading"> New trading command</a></pre></p>
+						<p class="text-justify"><pre>03/12/2015 General Update</pre></p>
+						<p class="text-justify"><pre>31/03/2015 Introduction a table for Utility History Calls</pre></p>
+						<p class="text-justify"><pre>19/01/2015 Introduction Mail image and update page</pre></p>
 						<p class="text-justify"><pre>26/12/2014 Introduction English documentation</pre></p>
 						<p class="text-justify"><pre>15/12/2014 Update commands section Trading</pre></p>
 						<p class="text-justify"><pre>10/11/2014 Update introduction activation link in the email</pre></p>
@@ -2961,6 +3503,8 @@ The Darwin App's new version is designed for developer users
 						  		<li ><a href="#comefunziona">How it works</a></li>
 						  		<li><a href="#avvioplg">Plugin Launch</a></li>
 						  		<li ><a href="#gestioneH">Heartbeat signal management</a></li>
+								<li><a href="#closeDW">Close Darwin</a></li>
+								<li><a href="#connDw">Darwin Connection</a></li>
 						  		<li ><a href="#comandi-informativi">Informative commands</a></li>
 						  		<li > <a href="#messaggiClient">Messages to the Client format</a></li>
 						  		<li ><a href="#codici-errore">Error codes</a></li>
@@ -2980,9 +3524,9 @@ The Darwin App's new version is designed for developer users
 
 						<li ><a href="#htrading"><code><font color="#CD5C5C">TRADING</font></code></a>
 							 <ul class="nav">
-								<li ><a href="#autenticazione" >Autentication</a></li>
 								<li ><a href="#cmd_trading" >Trading commands to the server</a></li>
 								<li ><a href="#cmd_trading_client" >Trading messages to the Client format</a></li>
+								<li> <a href="#newCmdTrading" id="blink2">New Trading Command</a></li>
 							</ul>
 						</li>
 
@@ -2994,6 +3538,14 @@ The Darwin App's new version is designed for developer users
 							</ul>
 						</li>
 						
+						<li>
+							<a href="#PluginDirecta" id="blink">PLUGIN Directa</a>
+							<ul class="nav">
+							 	<li><a href="#InfoMC">Multicharts</a></li>
+								<li ><a href="#InfoMute">Darwin Command Line</a></li>
+								<li ><a href="#InfoExcel" >Microsoft Excel Add-In</a></li> 
+							</ul>
+						</li>
 						
 						<li>
 							<a href="#DarwinApp">DarwinApp</a>

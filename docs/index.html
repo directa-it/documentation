@@ -104,7 +104,7 @@
 
        <ul class="nav navbar-nav navbar-left">
 
-       	<h7><a href="#changelog" data-toggle="collapse" data-parent"#accordion" data-target="#collapseChange">Ultimo aggionamento: 30/08/2016</a></h7>
+       	<h7><a href="#changelog" data-toggle="collapse" data-parent"#accordion" data-target="#collapseChange">Ultimo aggionamento: 13/10/2016</a></h7>
        </ul>
 
 
@@ -262,7 +262,7 @@
 				       						       					</table>
 
 				       						       					<br>
-				       				Per avere la ricezione dei Socket &egrave necessario aprire la Darwin ed essere abilitati al Servizio Prezzi.<br>
+				       				Per avere la ricezione dei Socket &egrave; necessario aprire la Darwin ed essere abilitati al Servizio Prezzi.<br>
 				       				Nella sezione <a href="#htutorial">TUTORIAL</a> &egrave; presente un esempio per provare la connessione direttamente da riga di comando e esempi di connessione con linguaggi di programmazione differenti.
 				       				Ogni servizio ha dei suoi comandi specifici che genereranno una risposta o risposte.
 				       				Nella sezione <a href="#fcomuni">FUNZIONALIT&Agrave; COMUNI</a> &egrave; sono specificati gli usi che ogni servizio mette a disposizione.<br>
@@ -488,26 +488,6 @@
 				    </div>
 				  </div>
 				  
-
-				  <div class="panel panel-warning" id="connDw">
-					  <div class="panel-heading">
-				  		<h4 class=panel-title>
-
-				  			<b>Connessione Darwin Flusso Prezzi e Trading</b>
-
-				  		</h4>
-				  	</div>
-					<div id="collapsethree" >
-				  		 <div class="panel-body">
-						
-						 La connessione ai prezzi ed al Trading &egrave; condizionata dai nostri server, pertanto &egrave; importante precisare che <b>ogni giorno
-						 verso la mezzanotte le Darwin attive verranno automaticamente disconesse</b>, questo perch&egrave; sono necessari degli interventi giornalieri sui nostri server.<br>
-						 Questo implica che la Darwin non permette un utilizzo H24 ma che deve essere riavviata una volta al giorno facendo riferimento alla disconessione della mezzanotte,
-						 in questa schedulazione pu&ograve; utile creare dei sistemi che utilizzano la <a href="#DarwinApp">DarwinApp</a> <!--o la Darwin CommandLine--> cos&igrave; da potersi
-						 schedulare delle autoriconnessioni tramite degli script.
-						  </div>
-					</div>	 
-				</div>
 				  
 				  <div class="panel panel-success" id="closeDW">
 				  	<div class="panel-heading">
@@ -539,6 +519,26 @@
 				      </div>
 				    </div>
 				  </div>
+
+				  <div class="panel panel-warning" id="connDw">
+					  <div class="panel-heading">
+				  		<h4 class=panel-title>
+
+				  			<b>Connessione Darwin Flusso Prezzi e Trading</b>
+
+				  		</h4>
+				  	</div>
+					<div id="collapsethree" >
+				  		 <div class="panel-body">
+						
+						 La connessione ai prezzi ed al Trading &egrave; condizionata dai nostri server, pertanto &egrave; importante precisare che <b>ogni giorno
+						 verso la mezzanotte le Darwin attive verranno automaticamente disconesse</b>, questo perch&egrave; sono necessari degli interventi giornalieri sui nostri server.<br>
+						 Questo implica che la Darwin non permette un utilizzo H24 ma che deve essere riavviata una volta al giorno facendo riferimento alla disconessione della mezzanotte,
+						 in questa schedulazione pu&ograve; utile creare dei sistemi che utilizzano la <a href="#DarwinApp">DarwinApp</a> <!--o la Darwin CommandLine--> cos&igrave; da potersi
+						 schedulare delle autoriconnessioni tramite degli script.
+						  </div>
+					</div>	 
+				</div>
 
 				   <div class="panel panel-info" id="comandi-informativi">
 				  	<div class="panel-heading">
@@ -593,7 +593,7 @@
   										<td><code><font color="#CD5C5C">TRADING</font></code></td>
   										<td>Restituisce l'elenco degli ordini (tutti)</td>
   									</tr>
-  									<p id="table_command""></p>
+  									<p id="table_command">
   									<tr>
   										<td>TABLELIST</td>
   										<td><code><font color="#5E86C1">ALL</font></code></td>
@@ -721,7 +721,7 @@
 				        	In questo esempio si pu&ograve; notare come il segnale <font color="red"><b>&gt;</b></font> sia sparito e il numero degli ordini &egrave; salito perch&egrave; sono presenti due ordini, in questo esempio per il titolo FCA, presso borsa.<br><br>
 				        	<li>A seguito di una revoca (e.g REVORD &lt;ID_ORD&gt;) -> STOCK;FCA;10:09:15;0;<font color="blue"><b>0</b></font>;<font color="red"><b>1</b></font>;0.0;;</li>
 				        	 Si pu&ograve; notare come il dettaglio quantit&agrave; in negozazione sia regredito di un unit&agrave; a seguito di una revoca di un titolo.<br><br>
-							 <li>Quantit&agrave in negozazione vale 0*</li> 
+							 <li>Quantit&agrave; in negozazione vale 0*</li> 
 							 Questo si pu&ograve; verificare quando avendo una azione in portafoglio si mette una stop sia in acquisto che in vendita sullo stesso strumento, il dettaglio * sta ad indicare che non &egrave; un reale zero ma un zero condizionato da altre operazioni.<br><br>
 				        	</ul>
 				        	</div>
@@ -1951,6 +1951,7 @@ Descrizione campi:
 	<li><b>USTOCK - pacchetto STOCK situazione portafoglio in base all'immissione/eseguito/revoca effettuata</b></li>
 	<li><b>UAVAILABILITY - pacchetto AVAILABILITY situazione disponibilit&agrave;</b></li>
 	<li><b>UINFOACCOUNT</b> - pacchetto INFOACCOUNT aggiornato</li>
+	<li><b>END UPDATEORDER</b> - marcatore fine pacchetto update </li>
 </ul>
 <br>
 	<b><code><font size="3" color="#FF6347" >NB</font></code></b> I campi sono inizializzati tutti con una <b>U</b> per evidenziare il fatto che quel campo &egrave; relativo all'aggiornamento e per evitare confusioni rispetto agli altri campi.<br>
@@ -2362,7 +2363,7 @@ TRADOK;FCA;ORD1;3002;ACQAZ;1;4.85;0.0<br>
 					Oltre agli installer del plugin &egrave; presente anche la guida all'installazione che mettiamo a disposizione anche qui:
 					<li><a href="downfile.php?id=12">&nbsp;ManualeInstallazioneMC</a></li> 
 					<br>
-						<div class="panel panel-Mc id="AggiornamentiMC">
+						<div class="panel panel-Mc" id="AggiornamentiMC">
 					<div class="panel-heading">
 						<h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseChange2"><b>Aggiornamenti</a></b></h3>
 					</div>
@@ -2391,7 +2392,7 @@ TRADOK;FCA;ORD1;3002;ACQAZ;1;4.85;0.0<br>
 							<a href=https://directa2.directatrading.com/app/MUTE/DarwinCommandLine.zip> DarwinCommandLine.zip</a><br>
 							<b>Questo .zip sar&agrave; costantemente aggiornato, attualmente la versione disponibile &egrave; la: <code>1.0.0 del 29/07/2016</code></b>
 							<br>
-						<div class="panel panel-DCM id="AggiornamentiDCM">
+						<div class="panel panel-DCM" id="AggiornamentiDCM">
 					<div class="panel-heading">
 						<h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseChange3"><b>Aggiornamenti</a></b></h3>
 					</div>
@@ -2405,7 +2406,7 @@ TRADOK;FCA;ORD1;3002;ACQAZ;1;4.85;0.0<br>
 					</div>
 				</div>
 
-			<div class="panel panel-Excel" id="InfoExcel">
+				<div class="panel panel-Excel" id="InfoExcel">
 					<div class="panel-heading">
 						<h3 class="panel-title"><b>Componente aggiuntivo Microsoft Excel</b></h3>
 					</div> 
@@ -2422,7 +2423,9 @@ TRADOK;FCA;ORD1;3002;ACQAZ;1;4.85;0.0<br>
 						Per aggiornare i componenti aggiuntivi sar&agrave; necessario utilizzare il programma e cliccare sul bottone <b>ExcelPlugin</b> e verranno scaricati e sostituiti i file necessari per il collegamento senza dover 
 						effettuare nessuna operazione manuale.<br>
 						Di seguito un'immagine dell'applicativo che si installer&agrave; sul proprio pc <br><br>
-						<img src="img/dxl.png" style="float: left" alt="ExcelPlugin" height="250" width="250"/>
+						<p align="center"><img src="img/dxl.jpg" alt=”biglia” style=”float:left;margin: 10px”>
+    <p>Qui il testo… </p> 
+						<img src="img/dxl.png" style="float: left" alt="ExcelPlugin" height="250" width="250">
 						<br>
 						<br>
 						<br>
@@ -2438,7 +2441,7 @@ TRADOK;FCA;ORD1;3002;ACQAZ;1;4.85;0.0<br>
 						<br>
 						<br>
 						<br>
-							<div class="panel panel-Excel id="AggiornamentiExcel">
+							<div class="panel panel-Excel" id="AggiornamentiExcel">
 					<div class="panel-heading">
 						<h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseChange4"><b>Aggiornamenti</a></b></h3>
 					</div>
@@ -2451,7 +2454,6 @@ TRADOK;FCA;ORD1;3002;ACQAZ;1;4.85;0.0<br>
 					</div> 
 					</div> 
 				</div> 
-			
 
 
 
@@ -3529,7 +3531,7 @@ La nuova versione di DarwinApp &egrave; stata pensata anche per gli utenti svilu
 				<br>
 				<hr class="style-eight" id="comunicazioni">
 				<!--<br>
-				<!--link e comunicazioni
+				link e comunicazioni
 				<div class="panel panel-info" id="remote-delete">
 					<div class="panel-heading">
 					  <h3 class="panel-title" ><b>Comunicazioni</b></h3>
@@ -3565,12 +3567,13 @@ La nuova versione di DarwinApp &egrave; stata pensata anche per gli utenti svilu
 
 				<hr class="style-one" id="changelog">
 				<br>
-				<div class="panel panel-warning id="clog">
+				<div class="panel panel-warning" id="clog">
 					<div class="panel-heading">
 						<h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseChange"><b>Aggiornamenti</a></b></h3>
 					</div>
 					<div class="panel-body panel-collapse collapse" id="collapseChange">
 					<ul>
+						<li><p class="text-justify"><pre>13/10/2016<a href="#connDw"> Informazione sulla connessione della Darwin</a></pre></p></li>
 						<li><p class="text-justify"><pre>30/08/2016<a href="#cmdautorec"> Nuovo comando per autoriconessione trading - <b>AUTOREC</b></a></pre></p></li>
 						<li><p class="text-justify"><pre>30/08/2016<a href="#cmdup"> Nuovo comando attivabile per update - <b>POINTUPDATEORDER</b></a></pre></p></li>
 						<li><p class="test-justify"><pre>29/07/2016<a href="#cmdlog"> Aggiunto comando a sezione nuovi comandi trading</a></pre></p></li>
@@ -3588,7 +3591,7 @@ La nuova versione di DarwinApp &egrave; stata pensata anche per gli utenti svilu
 						<li><p class="text-justify"><pre>30/06/2015 Informazioni flusso BIDASK</pre></p></li>
 						<li><p class="text-justify"><pre>29/06/2015 Informazioni aggiuntive per i codici errori </pre></p></li>
 						<li><p class="text-justify"><pre>02/06/2015 Informazioni gestione della conferma Ordini</pre></p></li>
-						<li><p class="text-justify"><pre>20/04/2015 Aggiunto informazioni al dettaglio quantit&agrave in negozazione flusso STOCK</pre></p></li>
+						<li><p class="text-justify"><pre>20/04/2015 Aggiunto informazioni al dettaglio quantit&agrave; in negozazione flusso STOCK</pre></p></li>
 						<li><p class="text-justify"><pre>10/04/2015 Specifiche per l'informativa degli Indici</pre></p></li>
 						<li><p class="text-justify"><pre>31/03/2015 Tabella specifiche periodi chiamate Storiche </pre></p></li>
 						<li><p class="text-justify"><pre>17/03/2015 Informazione comandi Revoca</pre></p></li>
@@ -3646,8 +3649,8 @@ La nuova versione di DarwinApp &egrave; stata pensata anche per gli utenti svilu
 						  		<li ><a href="#comefunziona">Come Funziona</a></li>
 						  		<li><a href="#avvioplg">Avvio del Plugin</a></li>
 						  		<li ><a href="#gestioneH">Gestione HeartBeat</a></li>
-								<li><a href="#connDw">Connessione Darwin</a></li>  
 						  		<li><a href="#closeDW">Chiusura Darwin</a></li>
+								<li><a href="#connDw">Connessione Darwin</a></li>
 						  		<li ><a href="#comandi-informativi">Comandi Informativi</a></li>
 						  		<li > <a href="#messaggiClient">Formato messaggi verso il Client</a></li>
 						  		<li ><a href="#codici-errore">Codici Errore</a></li>
