@@ -2042,22 +2042,11 @@ TRADOK;FCA;ORD1;3002;ACQAZ;1;4.85;0.0<br>
 				  	<div id="collapse18" >
 				  		 <div class="panel-body">
 				  	<b>Specifiche per i periodi storici disponibili</b>
-				  	<br>
-				  	<b><code><font size="3" color="#FF6347" >NB</font></code></b> Il limite imposto per le chiamate Intraday &egrave; di 40 giorni,
-				  	per le chiamate superiori ai 40 giorni &egrave; disponibile la compressione EndOfDay.<br>
-				  	E.g: se facciamo una chiamata di questo tipo CANDLERANGE FCA 20141129000000 20151130235959 1 ( stiamo effettuando una chiamata che supera il limite dei 40 giorni e con una compressione
-				  	non disponibile essendo di 1 secondo, il sistema automaticamente ritorner&agrave; la risposta con la compressione migliore disponibile, in questo caso EndOfday).
-				  	<br>Al momento se vengono generate delle chiamate non conformi il sistema automaticamente risponder&agrave; con la migliore compressione disponibile
-				  	per quell'arco di tempo.<br>
-				  	<br>
-				  	<b><code><font size="3" color="#FF6347" >NB</font></code></b>Nel caso in cui non si volesse un indirizzamento forzato delle varie chiamate storiche, ma ricevere quello che &egrave; disponibile per quella chiamata 
-				  	&egrave; a disposizione un comando: <b>CANDLEDISPO</b>.<br>
-				  	Di default sar&agrave; settato a TRUE ed il comportamento sar&agrave; come descritto nel precedente paragrafo, invece settando a false il comando, in questo modo <b>CANDLEDISPO FALSE</b> ,il comportamento sar&agrave; questo:<br>
-				  	E.g. facendo una chiamata del tipo CANDLE FCA 41 3600, il sistema non imposter&agrave; pi&ugrave; la risposta in EndOfDay ma risponder&agrave; solamente per i 40 giorni disponibili per le chiamate Intraday,stesso discorso
-				  	per le chiamate con dataInizio e dataFine se il range supera i 40 giorni verrano mandati i dati al massimo di 40 giorni indietro.<br>
-				  	Inviando invece solamente il comando <b>CANDLEDISPO</b> verr&agrave; riportata la risposta del setting del comando, quindi TRUE o FALSE.<br><br>
-				  	
-				  	L'accesso ai dati &egrave; in fase di valutazione, tutti gli aggiornamenti saranno indicati su questa pagina.
+					<br>
+					<br>
+					<b> The limit currently imposed are 40 days for intraday calls and five years for EnfOfDay calls when
+						calls beyond the limits of the response will be composed of the maximum depth of our data base, in case of error in the controls or
+						within the limits of error codes they will be sent.</b><br>	
 				  	<br>
 				        	<table class="table table-bordered">
 				        	<thread>
