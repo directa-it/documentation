@@ -1,6 +1,4 @@
 
-<a href=https://directa-it.github.io/documentation>**LINK DOCUMETAZIONE API DIRECTA**</a>
-
 **DIRECTA SIM**
 
 <a href="http://www.directa.it/">Directa Sim</a> è una Società di Intermediazione Mobiliare costituita a Torino nel 1995, con l'obiettivo di permettere agli investitori privati di comprare e vendere azioni per via telematica, direttamente dal loro PC.
@@ -15,7 +13,7 @@ I repository rappresentano il punto di riferimento per gli sviluppatori interess
 
 Ad ogni *progetto* corrisponde un repository che conterra' sempre l'ultima versione aggiornata (degli eseguibili) del software messo a disposizione da Directa. Oltre ad offrire un sistema di controllo di versione, l'obiettivo e' quello di facilitare la segnalazione di eventuali bug e seguirne la relativa correzione nei vari rilasci di versione, creare un punto per la discussione di eventuali proposte di miglioramenti e/o integrazioni, (e raccogliere esempi o ...)
 
-**API DIRECTA**
+**API DIRECTA** (<a href=https://directa-it.github.io/documentation>https://directa-it.github.io/documentation</a>)
 
 Le API Directa utilizzano dei socket in ascolto sulla macchina locale e mettono a disposizione tre flussi dati:
 
