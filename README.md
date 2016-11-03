@@ -82,7 +82,7 @@ Descrizione servizio API: http://www.directa.it/pub2/it/darwin/api.html
 
 For each *project* there is a matching repository that will contain always the latest updated version (the executables) of the software provided by Directa. As well as offering a version control system, the aim is to make easier any eventual bug reporting, to be followed up by bug-fixing patch releases, in various version releases, and also to create a discussion point of any possible user suggestions for improvements and / or additions, (and to collect examples or ...ect)
 
-**DIRECTA'S API**
+**DIRECTA'S API** <a href=https://directa-it.github.io/documentation>https://directa-it.github.io/documentation/en.html</a>
 
 Directa APIs make use of listening sockets on the local machine and so make available three types of data flows:
 - *Data Feed*: a dataflow to apply for a security ; It allows you to receive the executed orders / bid-ask / book5 Book levels for the selected security
