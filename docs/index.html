@@ -104,7 +104,7 @@
 
        <ul class="nav navbar-nav navbar-left">
 
-       	<h7><a href="#changelog" data-toggle="collapse" data-parent"#accordion" data-target="#collapseChange">Ultimo aggionamento: 20/10/2016</a></h7>
+       	<h7><a href="#changelog" data-toggle="collapse" data-parent"#accordion" data-target="#collapseChange">Ultimo aggionamento: 10/11/2016</a></h7>
        </ul>
 
 
@@ -1024,6 +1024,12 @@
 				        				<td>Sengala la disconnessione del trading</td>
 				        				<td><code><font color="#CD5C5C">TRADING</font></code></td>
 				        			</tr>
+									<tr>
+				        				<td>1030</td>
+				        				<td>ERR_MARKET_UNAVAILABLE</td>
+				        				<td>Mercato non abilitato per il ticker richiesto</td>
+				        				<td><code><font color="#01796F">DATAFEED</font></code></td>
+				        			</tr>
 
 				        			<!-- <tr>
 				        				<td>1025</td>
@@ -1269,33 +1275,33 @@
 				        &Egrave; possibile per gli <b>INDICI</b> avere sia le informazioni relative al real-time che ai dati storici.<br>
 				        La lista dei ticker relativa agli indici fa riferimento a questo elenco:
 				        <ul>
-				        		<li>dIta</li>
+				        		<li>DITA</li>
 
-				        		<li>dGer</li>
+				        		<li>DGER</li>
 
-				        		<li>dFra</li>
+				        		<li>DFRA</li>
 
-				        		<li>fMIB</li>
+				        		<li>FMIB</li>
 
-				        		<li>fMbtl</li>
+				        		<li>FMBTL</li>
 
-				        		<li>fMidC</li>
+				        		<li>FMIDC</li>
 
-				        		<li>fStar</li>
+				        		<li>FSTAR</li>
 
-				        		<li>dax</li>
+				        		<li>DAX</li>
 
-				        		<li>Sdx</li>
+				        		<li>SDX</li>
 
-				        		<li>Mdx</li>
+				        		<li>MDX</li>
 
-				        		<li>Tdx</li>
+				        		<li>TDX</li>
 
-				        		<li>ndq</li>
+				        		<li>NDQ</li>
 
-				        		<li>ndq100</li>
+				        		<li>NDQ100</li>
 
-				        		<li>dj</li>
+				        		<li>DJ</li>
 				        </ul>
 				        <br>
 				        Di seguito alcuni esempi di sottoscrizione per alcuni indici:<br>
@@ -1317,7 +1323,7 @@
 						<b>UNS FMIDC</b> &nbsp;&nbsp;&nbsp;<-- comando desottoscrizione<br>
 						<br>
 						Per quanto riguarda le chiamate storiche fare riferimento alle istruzioni dei comandi dettagliati nella sezione <a href="#ch"><code><font color="#5E86C1">CHIAMATE STORICHE</font></code></a> e utilizzare i Ticker presenti nell'elenco indicato in precedenza.
-						<br><b><code><font size="3" color="#FF6347" >NB</font></code></b>Per le chiamate storiche &egrave; necessario utilizzare i ticker degli indici in Maiuscolo digitato in maniera diversa il ticker non verr&agrave; riconosciuto.
+						<br><b><code><font size="3" color="#FF6347" >NB</font></code></b>Per le chiamate storiche &egrave; necessario utilizzare i ticker degli indici in Maiuscolo come riportati nella lista, inseriti in maniera diversa il ticker non verr&agrave; riconosciuto.
 				      </div>
 				    </div>
 				  </div>
@@ -3578,6 +3584,7 @@ La nuova versione di DarwinApp &egrave; stata pensata anche per gli utenti svilu
 					</div>
 					<div class="panel-body panel-collapse collapse" id="collapseChange">
 					<ul>
+						<li><p class="text-justify"><pre>10/11/2016<a href="#codici-errore"> Aggiunta codice errore per mercato non abilitato per sottoscrizione strumento</a></pre></p></li>
 						<li><p class="text-justify"><pre>13/10/2016<a href="#connDw"> Informazione sulla connessione della Darwin</a></pre></p></li>
 						<li><p class="text-justify"><pre>30/08/2016<a href="#cmdautorec"> Nuovo comando per autoriconessione trading - <b>AUTOREC</b></a></pre></p></li>
 						<li><p class="text-justify"><pre>30/08/2016<a href="#cmdup"> Nuovo comando attivabile per update - <b>POINTUPDATEORDER</b></a></pre></p></li>
