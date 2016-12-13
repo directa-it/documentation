@@ -149,7 +149,7 @@
                      <div id="collapsetwo" >
                         <div class="panel-body">
                            <p class="text-justify">
-                              Se l'utente &egrave; abilitato al servizio API, questo verr&agrave avviato automaticamente con la piattaforma Darwin; in caso contrario il servizio non sar&agrave; disponibile.<br>
+                              Se l'utente &egrave; abilitato al servizio API, questo verr&agrave; avviato automaticamente con la piattaforma Darwin; in caso contrario il servizio non sar&agrave; disponibile.<br>
                            </p>
                         </div>
                      </div>
@@ -167,7 +167,7 @@
 							  I passi da seguire per installare la libreria sono i seguenti:
 							  <br><br>
 							  <!--<b>MODALITA' MANUALE</b>
-							  <!--TODO: installer automatico?<br>
+							  TODO: installer automatico?<br>
 							  TODO2: dove salviamo il jar della Darwin muta?
 							  <ol>
 								 <li>Richiedere le librerie ( in formato .zip) al nostro servizio clienti all'indirizzo di posta <img src="img/imgmail.png" class="img-rounded img-responsive"> <!--<a href="downfile.php?id=11">&nbsp;ExcelPluginDirecta</a> </li>
@@ -180,7 +180,7 @@
 								 <li>Incollare nella cartella mostrata la libreria .xll fornita da Directa, <b>da scegliere in base alla propria versione di Excel 32 o 64 bit</b>, selezionarla e preme ok </li>
 								 <li>La libreria sar&agrave;  ora presente nell'elenco, verificare che sia presente la spunta di abilitazione, quindi premere ok.</li> 
 								 <li>Da questo momento in avanti le funzionalit&agrave;   API saranno disponibili da Excel</li>
-								 <!--<li>Per poter avviare la Darwin muta, &egrave; necessario copiare il file Engine.jar in "C:\"</li>
+								 <li>Per poter avviare la Darwin muta, &egrave; necessario copiare il file Engine.jar in "C:\"</li>
                                  <li>Per avere le connessioni &egrave; necessario avviare la Darwin e tenerla 'aperta' insieme al proprio file Excel</li>
 							  </ol> -->
                             <ol>
@@ -353,6 +353,10 @@
                                     <td><kbd>=BIDASK_PACK("Ticker")</kbd></td>
                                     <td>Tracciato pacchetto bidask relativo al ticker</td>
                                 </tr>
+                                <tr>
+                                     <td><kbd>=PX_BIDASK_PACK("Ticker")</kbd></td>
+                                     <td>Tracciato del price e del bidask del relativo titolo</td>
+                                 </tr>
                                 <tr>
                                     <td><kbd>=BIDASK("Ticker")</kbd></td>
                                     <td>Prezzo in acquisto e in vendita rispetto al ticker richiesto</td>
@@ -552,6 +556,7 @@
                                     <td><kbd>=ASK_SIZE_PROPOSALS_L5("Ticker")</kbd></td>
                                     <td>Numero proposte in vendita per il livello 5 del book</td>
                                  </tr>
+                                 
                                   <tr>
                                     <td><kbd>=UNSUBSCRIBE("Ticker")</kbd></td>
                                     <td>Desottoscrive il relativo ticker, tutti i flussi con il relativo ticker non saranno pi&ugrave; aggiornate</td>
@@ -695,6 +700,61 @@
                                 </ul>
                                 <br>
                                 </li>
+
+                                <li>
+                                <td><kbd>=PX_BIDASK_PACK("Ticker")</kbd>
+                                 <table class="table table-bordered">
+                                        <thread>
+                                            <tr>
+                                                <tbody>
+                                                <th>TIT</th>
+                                                <th>ORA</th>
+									            <th>PRZ</th>
+									            <th>QTAAZ</th>
+                                                <th>PGRAZ</th>
+                                                </tbody>
+                                                <td></td><td></td><td></td>
+                                                <tbody>
+                                                <th>PGRC</th>
+                                                <th>MIN</th>
+                                                <th>MAX</th>
+									            <th>QTAACQ1</th>
+									            <th>NPACQ1</th>
+                                                </tbody>
+                                                <td></td><td></td><td></td>
+                                                <tbody>
+									            <th>PRZACQ1</th>
+                                                <th>QTAVEN1</th>
+                                                <th>NPVEN1</th>
+                                                <th>PRZVEN1</th>
+                                                </tbody>
+                                            </tr>
+                                      </thread>
+							    </table>
+                                Esempio: <kbd>=PX_BIDASK_PACK("FCA")</kbd>
+                                <table class="table table-bordered">
+                                        <thread>
+                                            <tr>
+                                                <th>FCA</th>
+									            <th>17:02:33</th>
+                                                <th>7,83</th>
+                                                <th>162</th>
+                                                <th>19137942</th>
+                                                <th>13341</th>
+                                                <th>7,745</th>
+                                                <th>7,885</th>
+                                                <th>36796</th>
+                                                <th>19</th>
+                                                <th>7,825</th>
+                                                <th>25558</th>
+                                                <th>16</th>
+                                                <th>7,83</th>
+                                            </tr>
+                                      </thread>
+							    </table>
+                                 </li>     
+
+
                                 <li>
                                 <td><kbd>=BIDASK("Ticker")</kbd>
                                  <table class="table table-bordered">
@@ -727,12 +787,12 @@
                                             </tr>
                                       </thread>
                                     <tbody>
-                                        <td>QTAACQ1</td>
-									    <td>NPACQ1</td>
-									    <td>PRZACQ1</td>
-                                        <td>QTAVEN1</td>
-                                        <td>NPVEN1</td>
-                                        <td>PRZVEN1</td>
+                                        <th>QTAACQ1</th>
+									    <th>NPACQ1</th>
+									    <th>PRZACQ1</th>
+                                        <th>QTAVEN1</th>
+                                        <th>NPVEN1</th>
+                                        <th>PRZVEN1</th>
                                     </tbody>
 							    </table>
                                 Esempio: <kbd>=MULTIBOOK_BIDASK("FCA")</kbd>
@@ -745,12 +805,12 @@
                                             </tr>
                                       </thread>
                                     <tbody>
-                                        <td>20717</td>
-									    <td>0</td>
-									    <td>6,23</td>
-                                        <td>10007</td>
-                                        <td>0</td>
-                                        <td>6,235</td>
+                                        <th>20717</th>
+									    <th>0</th>
+									    <th>6,23</th>
+                                        <th>10007</th>
+                                        <th>0</th>
+                                        <th>6,235</th>
                                     </tbody>
 							    </table>
                                 </li>
@@ -766,15 +826,15 @@
                                             </tr>
                                       </thread>
                                     <tbody>
-                                        <td>QTAACQ1</td>
-									    <td>NPACQ1</td>
-									    <td>PRZACQ1</td>
+                                        <th>QTAACQ1</th>
+									    <th>NPACQ1</th>
+									    <th>PRZACQ1</th>
                                     </tbody>
                                     <td></td><td></td><td></td>
                                     <tbody>     
-                                        <td>QTAVEN1</td>
-                                        <td>NPVEN1</td>
-                                        <td>PRZVEN1</td>
+                                        <th>QTAVEN1</th>
+                                        <th>NPVEN1</th>
+                                        <th>PRZVEN1</th>
                                     </tbody>
 							    </table>
                                 Esempio: <kbd>=FLASHBOOK_BIDASK("FCA")</kbd>
@@ -787,15 +847,15 @@
                                             </tr>
                                       </thread>
                                     <tbody>
-                                        <td>20517</td>
-									    <td>0</td>
-									    <td>6,235</td>
+                                        <th>20517</th>
+									    <th>0</th>
+									    <th>6,235</th>
                                     </tbody>
                                     <td></td><td></td><td></td>
                                     <tbody>     
-                                        <td>47526</td>
-                                        <td>0</td>
-                                        <td>6,23</td>
+                                        <th>47526</th>
+                                        <th>0</th>
+                                        <th>6,23</th>
                                     </tbody>
 							    </table>
                                 </li>
@@ -811,11 +871,11 @@
                                             </tr>
                                       </thread>
                                     <tbody>
-									    <td>PRZACQ1</td><td></td><td></td>
+									    <th>PRZACQ1</th><td></td><td></td>
                                     </tbody>
                                     <td></td><td></td><td></td>
                                     <tbody>     
-                                        <td>PRZVEN1</td><td></td><td></td>
+                                        <th>PRZVEN1</th><td></td><td></td>
                                     </tbody>
 							    </table>
                                 Esempio: <kbd>=FLASHBOOK_BIDASK_PX("FCA")</kbd>
@@ -828,12 +888,12 @@
                                             </tr>
                                       </thread>
                                     <tbody>
-									    <td>6,235</td>
+									    <th>6,235</th>
                                         <td></td><td></td>
                                     </tbody>
                                     <td></td><td></td><td></td>
                                     <tbody>     
-                                        <td>6,23</td>
+                                        <th>6,23</th>
                                         <td></td><td></td>
                                     </tbody>
 							    </table>
@@ -864,7 +924,7 @@
                             <tbody>
                             </tbody>
 							</table>     
-                            </li>      
+                            </li> 
                             </ul> 
                            </p>
                      </div>
@@ -931,52 +991,52 @@
                                 <table class="table table-bordered">
                                         <thread>
                                             <tr>
-                                                <td>TITOLO</td>
-                                                <td>LAST_PRICE</td>
-                                                <td>ORA</td>
+                                                <th>TITOLO</th>
+                                                <th>LAST_PRICE</th>
+                                                <th>ORA</th>
                                             </tr>
                                            </thread>
                                            <tbody>
                                                <tr>
-                                               <td>QTAACQ1</td>
-									            <td>NPACQ1</td>
-									            <td>PRZACQ1</td>
-                                                <td>QTAVEN1</td>
-                                                <td>NPVEN1</td>
-                                                <td>PRZVEN1</td>
+                                               <th>QTAACQ1</th>
+									            <th>NPACQ1</th>
+									            <th>PRZACQ1</th>
+                                                <th>QTAVEN1</th>
+                                                <th>NPVEN1</th>
+                                                <th>PRZVEN1</th>
                                                 </tr>
                                            </tbody>
                                            <tbody>
-                                               <td>QTAACQ2</td>
-									            <td>NPACQ2</td>
-									            <td>PRZACQ2</td>
-                                                <td>QTAVEN2</td>
-                                                <td>NPVEN2</td>
-                                                <td>PRZVEN2</td>
+                                               <th>QTAACQ2</th>
+									            <th>NPACQ2</th>
+									            <th>PRZACQ2</th>
+                                                <th>QTAVEN2</th>
+                                                <th>NPVEN2</th>
+                                                <th>PRZVEN2</th>
                                            </tbody> 
                                            <tbody>
-                                               <td>QTAACQ3</td>
-									            <td>NPACQ3</td>
-									            <td>PRZACQ3</td>
-                                                <td>QTAVEN3</td>
-                                                <td>NPVEN13</td>
-                                                <td>PRZVEN3</td>
+                                               <th>QTAACQ3</th>
+									            <th>NPACQ3</th>
+									            <th>PRZACQ3</th>
+                                                <th>QTAVEN3</th>
+                                                <th>NPVEN13</th>
+                                                <th>PRZVEN3</th>
                                            </tbody> 
                                            <tbody>
-                                               <td>QTAACQ4</td>
-									            <td>NPACQ4</td>
-									            <td>PRZACQ4</td>
-                                                <td>QTAVEN4</td>
-                                                <td>NPVEN4</td>
-                                                <td>PRZVEN4</td>
+                                               <th>QTAACQ4</th>
+									            <th>NPACQ4</th>
+									            <th>PRZACQ4</th>
+                                                <th>QTAVEN4</th>
+                                                <th>NPVEN4</th>
+                                                <th>PRZVEN4</th>
                                            </tbody> 
                                            <tbody>
-                                               <td>QTAACQ5</td>
-									            <td>NPACQ5</td>
-									            <td>PRZACQ5</td>
-                                                <td>QTAVEN5</td>
-                                                <td>NPVEN5</td>
-                                                <td>PRZVEN5</td>
+                                               <th>QTAACQ5</th>
+									            <th>NPACQ5</th>
+									            <th>PRZACQ5</th>
+                                                <th>QTAVEN5</th>
+                                                <th>NPVEN5</th>
+                                                <th>PRZVEN5</th>
                                            </tbody> 
                                             </tr>
                                       </thread>
@@ -986,55 +1046,55 @@
                                  <table class="table table-bordered">
                                         <thread>
                                             <tr>
-                                                <td>FCA</td>
-                                                <td>6,225</td>
-                                                <td>16:41:32</td>
+                                                <th>FCA</th>
+                                                <th>6,225</th>
+                                                <th>16:41:32</th>
                                             </tr>
                                            </thread>
                                            <tbody>
                                                <tr>
-                                               <td>9609</td>
-									            <td>8</td>
-									            <td>6,22</td>
-                                                <td>10474</td>
-                                                <td>8</td>
-                                                <td>6,225</td>
+                                               <th>9609</th>
+									            <th>8</th>
+									            <th>6,22</th>
+                                                <th>10474</th>
+                                                <th>8</th>
+                                                <th>6,225</th>
                                                 </tr>
                                            </tbody>
                                            <tbody>
                                                					
-                                               <td>26701</td>
-									            <td>18</td>
-									            <td>6,215</td>
-                                                <td>53330</td>
-                                                <td>26</td>
-                                                <td>6,23</td>
+                                               <th>26701</th>
+									            <th>18</th>
+									            <th>6,215</th>
+                                                <th>53330</th>
+                                                <th>26</th>
+                                                <th>6,23</th>
                                            </tbody> 
                                            <tbody>
                                                					
-                                               <td>45557</td>
-									            <td>23</td>
-									            <td>6,21</td>
-                                                <td>32604</td>
-                                                <td>19</td>
-                                                <td>6,235</td>
+                                               <th>45557</th>
+									            <th>23</th>
+									            <th>6,21</th>
+                                                <th>32604</th>
+                                                <th>19</th>
+                                                <th>6,235</th>
                                            </tbody> 
                                            <tbody>
                                                					
-                                               <td>111783</td>
-									            <td>25</td>
-									            <td>6,205</td>
-                                                <td>71744</td>
-                                                <td>24</td>
-                                                <td>6,24</td>
+                                               <th>111783</th>
+									            <th>25</th>
+									            <th>6,205</th>
+                                                <th>71744</th>
+                                                <th>24</th>
+                                                <th>6,24</th>
                                            </tbody> 
                                            <tbody>			
-                                               <td>79707</td>
-									            <td>39</td>
-									            <td>6,2</td>
-                                                <td>49387</td>
-                                                <td>24</td>
-                                                <td>6,245</td>
+                                               <th>79707</th>
+									            <th>39</th>
+									            <th>6,2</th>
+                                                <th>49387</th>
+                                                <th>24</th>
+                                                <th>6,245</th>
                                            </tbody> 
                                             </tr>
                                       </thread>
@@ -1045,37 +1105,37 @@
                                   <table class="table table-bordered">
                                         <thread>
                                             <tr>
-                                                <td>TITOLO</td>
-                                                <td>LAST_PRICE</td>
-                                                <td>ORA</td>
+                                                <th>TITOLO</th>
+                                                <th>LAST_PRICE</th>
+                                                <th>ORA</th>
                                             </tr>
                                            </thread>
                                            <tbody>
                                                <tr>
-                                                <td>QTAVEN1</td>
-                                                <td>NPVEN1</td>
-                                                <td>PRZVEN1</td>
+                                                <th>QTAVEN1</th>
+                                                <th>NPVEN1</th>
+                                                <th>PRZVEN1</th>
                                                 </tr>
                                            </tbody>
                                            <tbody>
-                                                <td>QTAVEN2</td>
-                                                <td>NPVEN2</td>
-                                                <td>PRZVEN2</td>
+                                                <th>QTAVEN2</th>
+                                                <th>NPVEN2</th>
+                                                <th>PRZVEN2</th>
                                            </tbody> 
                                            <tbody>
-                                                <td>QTAVEN3</td>
-                                                <td>NPVEN13</td>
-                                                <td>PRZVEN3</td>
+                                                <th>QTAVEN3</th>
+                                                <th>NPVEN13</th>
+                                                <th>PRZVEN3</th>
                                            </tbody> 
                                            <tbody>
-                                                <td>QTAVEN4</td>
-                                                <td>NPVEN4</td>
-                                                <td>PRZVEN4</td>
+                                                <th>QTAVEN4</th>
+                                                <th>NPVEN4</th>
+                                                <th>PRZVEN4</th>
                                            </tbody> 
                                            <tbody>
-                                                <td>QTAVEN5</td>
-                                                <td>NPVEN5</td>
-                                                <td>PRZVEN5</td>
+                                                <th>QTAVEN5</th>
+                                                <th>NPVEN5</th>
+                                                <th>PRZVEN5</th>
                                            </tbody>
                                            <tbody>
                                                <td></td>
@@ -1083,29 +1143,29 @@
                                                <td></td>
                                            </tbody>
                                            <tbody>
-                                               <td>QTAACQ1</td>
-									            <td>NPACQ1</td>
-									            <td>PRZACQ1</td>
+                                               <th>QTAACQ1</th>
+									            <th>NPACQ1</th>
+									            <th>PRZACQ1</th>
                                            </tbody> 
                                            <tbody>
-                                               <td>QTAACQ2</td>
-									            <td>NPACQ2</td>
-									            <td>PRZACQ2</td>
+                                               <th>QTAACQ2</th>
+									            <th>NPACQ2</th>
+									            <th>PRZACQ2</th>
                                            </tbody> 
                                            <tbody>
-                                               <td>QTAACQ3</td>
-									            <td>NPACQ3</td>
-									            <td>PRZACQ3</td>
+                                               <th>QTAACQ3</th>
+									            <th>NPACQ3</th>
+									            <th>PRZACQ3</th>
                                            </tbody> 
                                            <tbody>
-                                               <td>QTAACQ4</td>
-									            <td>NPACQ4</td>
-									            <td>PRZACQ4</td>
+                                               <th>QTAACQ4</th>
+									            <th>NPACQ4</th>
+									            <th>PRZACQ4</th>
                                            </tbody> 
                                            <tbody>
-                                               <td>QTAACQ5</td>
-									            <td>NPACQ5</td>
-									            <td>PRZACQ5</td>
+                                               <th>QTAACQ5</th>
+									            <th>NPACQ5</th>
+									            <th>PRZACQ5</th>
                                            </tbody>  
                                             </tr>
                                       </thread>
@@ -1116,37 +1176,37 @@
                                       <table class="table table-bordered">
                                         <thread>
                                             <tr>
-                                                <td>FCA</td>
-                                                <td>6,24</td>
-                                                <td>16:59:22</td>
+                                                <th>FCA</th>
+                                                <th>6,24</th>
+                                                <th>16:59:22</th>
                                             </tr>
                                            </thread>
                                            <tbody>
                                                <tr>
-                                                <td>48083</td>
-                                                <td>23</td>
-                                                <td>6,265</td>
+                                                <th>48083</th>
+                                                <th>23</th>
+                                                <th>6,265</th>
                                                 </tr>
                                            </tbody>
                                            <tbody>
-                                                <td>50267</td>
-                                                <td>23</td>
-                                                <td>6,26</td>
+                                                <th>50267</th>
+                                                <th>23</th>
+                                                <th>6,26</th>
                                            </tbody> 
                                            <tbody>
-                                                <td>85177</td>
-                                                <td>35</td>
-                                                <td>6,255</td>
+                                                <th>85177</th>
+                                                <th>35</th>
+                                                <th>6,255</th>
                                            </tbody> 
                                            <tbody>
-                                                <td>79627</td>
-                                                <td>32</td>
-                                                <td>6,25</td>
+                                                <th>79627</th>
+                                                <th>32</th>
+                                                <th>6,25</th>
                                            </tbody> 
                                            <tbody>
-                                                <td>18706</td>
-                                                <td>10</td>
-                                                <td>6,245</td>
+                                                <th>18706</th>
+                                                <th>10</th>
+                                                <th>6,245</th>
                                            </tbody>
                                            <tbody>
                                                <td></td>
@@ -1159,29 +1219,29 @@
 		
 		
 		
-                                               <td>31646</td>
-									            <td>16</td>
-									            <td>6,24</td>
+                                               <th>31646</th>
+									            <th>16</th>
+									            <th>6,24</th>
                                            </tbody> 
                                            <tbody>
-                                               <td>28772</td>
-									            <td>19</td>
-									            <td>6,235</td>
+                                               <th>28772</th>
+									            <th>19</th>
+									            <th>6,235</th>
                                            </tbody> 
                                            <tbody>
-                                               <td>43714</td>
-									            <td>23</td>
-									            <td>6,23</td>
+                                               <th>43714</th>
+									            <th>23</th>
+									            <th>6,23</th>
                                            </tbody> 
                                            <tbody>
-                                               <td>111246</td>
-									            <td>25</td>
-									            <td>6,225</td>
+                                               <th>111246</th>
+									            <th>25</th>
+									            <th>6,225</th>
                                            </tbody> 
                                            <tbody>
-                                               <td>87326</td>
-									            <td>20</td>
-									            <td>6,22</td>
+                                               <th>87326</th>
+									            <th>20</th>
+									            <th>6,22</th>
                                            </tbody>  
                                             </tr>
                                       </thread>
@@ -1191,35 +1251,35 @@
                                   <table class="table table-bordered">
                                         <thread>
                                             <tr>
-                                                <td>TITOLO</td>
-                                                <td>LAST_PRICE</td>
-                                                <td>ORA</td>
+                                                <th>TITOLO</th>
+                                                <th>LAST_PRICE</th>
+                                                <th>ORA</th>
                                             </tr>
                                            </thread>
                                            <tbody>
                                                <tr>
-                                                <td>PRZVEN1</td>
+                                                <th>PRZVEN1</th>
                                                 <td></td>
                                                 <td></td>
                                                 </tr>
                                            </tbody>
                                            <tbody>
-                                                <td>PRZVEN2</td>
+                                                <th>PRZVEN2</th>
                                                 <td></td>
                                                 <td></td>
                                            </tbody> 
                                            <tbody>
-                                                <td>PRZVEN3</td>
+                                                <th>PRZVEN3</th>
                                                 <td></td>
                                                 <td></td>
                                            </tbody> 
                                            <tbody>
-                                                <td>PRZVEN4</td>
+                                                <th>PRZVEN4</th>
                                                 <td></td>
                                                 <td></td>
                                            </tbody> 
                                            <tbody>
-                                                <td>PRZVEN5</td>
+                                                <th>PRZVEN5</th>
                                                 <td></td>
                                                 <td></td>
                                            </tbody>
@@ -1229,27 +1289,27 @@
                                                <td></td>
                                            </tbody>
                                            <tbody>
-                                               <td>PRZACQ1</td>
+                                               <th>PRZACQ1</th>
 									            <td></td>
 									            <td></td>
                                            </tbody> 
                                            <tbody>
-                                               <td>PRZACQ2</td>
+                                               <th>PRZACQ2</th>
 									            <td></td>
 									            <td></td>
                                            </tbody> 
                                            <tbody>
-                                               <td>PRZACQ3</td>
+                                               <th>PRZACQ3</th>
 									            <td></td>
 									            <td></td>
                                            </tbody> 
                                            <tbody>
-                                               <td>PRZACQ4</td>
+                                               <th>PRZACQ4</th>
 									            <td></td>
 									            <td></td>
                                            </tbody> 
                                            <tbody>
-                                               <td>PRZACQ5</td>
+                                               <th>PRZACQ5</th>
 									            <td></td>
 									            <td></td>
                                            </tbody>  
@@ -1261,35 +1321,35 @@
                                   <table class="table table-bordered">
                                         <thread>
                                             <tr>
-                                                <td>FCA</td>
-                                                <td>6,24</td>
-                                                <td>16:59:22</td>
+                                                <th>FCA</th>
+                                                <th>6,24</th>
+                                                <th>16:59:22</th>
                                             </tr>
                                            </thread>
                                            <tbody>
                                                <tr>
-                                                <td>6,265</td>
+                                                <th>6,265</th>
                                                 <td></td>
                                                 <td></td>
                                                 </tr>
                                            </tbody>
                                            <tbody>
-                                                <td>6,26</td>
+                                                <th>6,26</th>
                                                 <td></td>
                                                 <td></td>
                                            </tbody> 
                                            <tbody>
-                                                <td>6,255</td>
+                                                <th>6,255</th>
                                                 <td></td>
                                                 <td></td>
                                            </tbody> 
                                            <tbody>
-                                                <td>6,25</td>
+                                                <th>6,25</th>
                                                 <td></td>
                                                 <td></td>
                                            </tbody> 
                                            <tbody>
-                                                <td>6,245</td>
+                                                <th>6,245</th>
                                                 <td></td>
                                                 <td></td>
                                            </tbody>
@@ -1299,27 +1359,27 @@
                                                <td></td>
                                            </tbody>
                                            <tbody>
-                                               <td>6,24</td>
+                                               <th>6,24</th>
 									            <td></td>
 									            <td></td>
                                            </tbody> 
                                            <tbody>
-                                               <td>6,235</td>
+                                               <th>6,235</th>
 									            <td></td>
 									            <td></td>
                                            </tbody> 
                                            <tbody>
-                                               <td>6,23</td>
+                                               <th>6,23</th>
 									            <td></td>
 									            <td></td>
                                            </tbody> 
                                            <tbody>
-                                               <td>6,255</td>
+                                               <th>6,255</th>
 									            <td></td>
 									            <td></td>
                                            </tbody> 
                                            <tbody>
-                                               <td>6,22</td>
+                                               <th>6,22</th>
 									            <td></td>
 									            <td></td>
                                            </tbody>  
@@ -1334,13 +1394,13 @@
                                 <table class="table table-bordered">
                                         <thread>
                                             <tr>
-                                                <td>TITOLO</td>
-									            <td>QTAACQL?</td>
-									            <td>NPACQL?</td>
-									            <td>PRZACQL?</td>
-                                                <td>QTAVENL?</td>
-                                                <td>NPVENL?</td>
-                                                <td>PRZVENL?</td>
+                                                <th>TITOLO</th>
+									            <th>QTAACQL?</th>
+									            <th>NPACQL?</th>
+									            <th>PRZACQL?</th>
+                                                <th>QTAVENL?</th>
+                                                <th>NPVENL?</th>
+                                                <th>PRZVENL?</th>
                                             </tr>
                                       </thread>
 							    </table>
@@ -1348,13 +1408,13 @@
                                 <table class="table table-bordered">
                                         <thread>
                                             <tr>
-                                                <td>FCA</td>
-									            <td>33412</td>
-									            <td>21</td>
-									            <td>6,215</td>
-                                                <td>50471</td>
-                                                <td>23</td>
-                                                <td>6,24</td>
+                                                <th>FCA</th>
+									            <th>33412</th>
+									            <th>21</th>
+									            <th>6,215</th>
+                                                <th>50471</th>
+                                                <th>23</th>
+                                                <th>6,24</th>
                                             </tr>
                                       </thread>
 							    </table>
