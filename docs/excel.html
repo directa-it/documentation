@@ -318,6 +318,10 @@
                               </tr>
                                  </thread>
                               <tbody>
+                                <tr>
+                                    <td><kbd id="anag">=ANAG("Ticker")</kbd></td>
+                                    <td>Informazioni sul ticker</td>
+                                </tr>
                                  <tr>
                                     <td><kbd>=PX_PACK("Ticker")</kbd></td>
                                     <td>Tracciato pacchetto Price relativo al ticker</td>
@@ -611,6 +615,35 @@
                            <p class="text-justify">
                                Di seguito vengono descritti i tracciati in base alla formula inviata:
                                <ul>
+                                    <li><kbd>=ANAG("Ticker")</kbd><br>
+                                        <!--<TIPO_MESSAGGIO> ; <TICKER> ; <ORA HH:MM:SS> ; <CODICE ISIN> ; <DESCRIZIONE> ; <PREZZO RIFERIMENTO> ; <PREZZO APERTURA> ; <FLOTTANTE> -->
+                                   <table class="table table-bordered">
+                                   <thread>
+                                      <tr>
+                                         <th>TIPO</th>
+                                         <th>TIT</th>
+                                         <th>ORA</th>
+                                         <th>ISIN</th>
+                                         <th>DES</th>
+                                         <th>PRIF</th>
+                                         <th>PAPE</th>
+                                         <th>FLOT</th>
+                                      </tr>
+                                   </thread>
+                                   <tbody>
+                                   </tbody>
+                                 </table>
+                                 <ul>
+                                     <li><b>TIPO</b> - tipo pacchetto</li>
+                                     <li><b>TIT</b> - Ticker in questione</li>
+                                     <li><b>ORA</b> - Orario arrivo pacchetto</li>
+                                     <li><b>ISIN</b> - Codice Isin</li>
+                                     <li><b>DES</b> - descrizione del ticker</li>
+                                     <li><b>PRIF</b> - prezzo di riferimento</li>
+                                     <li><b>PAPE</b> - prezzo apertura</li>
+                                     <li><b>FLOT</b> - flottante</li>
+                                 </ul>
+                                 </li>
                                    <li><kbd>=PX_PACK("Ticker")</kbd><br>
                                    <!--<p>&lt;TIPO_MESSAGGIO&gt; ; &lt;TICKER&gt; ; &lt;ORA HH:MM:SS&gt; ; &lt;PREZZO&gt; ; &lt;QUANTIT&Agrave; AZIONI&gt; ; &lt;PROGRESSIVO AZIONI&gt; ; &lt;PROGRESSIVO CONTRATTI&gt; ; &lt;MINIMO DI GIORNATA&gt; ; &lt;MASSIMO DI GIORNATA&gt;</p>-->
                               <table class="table table-bordered">
@@ -2212,7 +2245,8 @@
                      </div>
                      <div class="panel-body panel-collapse collapse" id="collapseChange">
                         <ul>
-                            <li><p class="text-justify"><pre>17/04/2017<a href="#df_ricezione"> Aggiunto dettaglio per formule in modalit&agrave; SCROLL </a></pre></p></li>
+                            <p class="text-justify"><pre> 05/01/2018<a href="#anag"> Aggiunto formula anag</a></pre></p>
+                            <p class="text-justify"><pre> 17/04/2017 Aggiunto dettaglio per formule in modalit&agrave; SCROLL </a></pre></p>
                         </ul>
                      </div>
                   </div>
