@@ -540,6 +540,78 @@
 					</div>	 
 				</div>
 
+				<div class="panel panel-info" id="multiUtenza">
+						<div class="panel-heading">
+							<h4 class=panel-title>
+	
+								<b>Utilizzo utenze diverse sullo stesso PC</b>
+	
+							</h4>
+						</div>
+					  <div id="collapsethree" >
+							 <div class="panel-body">
+								&Egrave; possibile utilizzare le nostre API con pi&ugrave; utenze attive, questo perch&egrave; ogni utenza si piazzer&agrave; su porte diverse.<br>
+								<br>
+								Di default le nostre API su utenza singola si mettono in comunicazione su queste porte:<br>
+								<b>10001</b> <code><font color="#01796F">DATAFEED</font></code><br>
+								<b>10002</b> <code><font color="#CD5C5C">TRADING</font></code><br>
+								<b>10003</b> <code><font color="#5E86C1">CHIAMATE STORICHE</font></code><br>
+								<b>10004</b> porta di servizio (utilizzata esclusivamente per le nostre gestioni)<br>
+								<br>
+								Per fare in modo che pi&ugrave; utenze convivano insieme abbiamo dovuto utilizzare porte diverse per utenze diverse, quindi lanciando una seconda utenza questa sar&agrave; cos&igrave; formata:<br>
+								<b>10005</b> <code><font color="#01796F">DATAFEED</font></code><br>
+								<b>10006</b> <code><font color="#CD5C5C">TRADING</font></code><br> 
+								<b>10007</b> <code><font color="#5E86C1">CHIAMATE STORICHE</font></code><br>
+								<b>10008</b> porta di servizio (utilizzata esclusivamente per le nostre gestioni)<br>
+								<br>
+								Di conseguenza altre utenze lanciate si metteranno sempre nelle 4 porte successive.<br>
+								<br>
+								Facciamo qualche esempio di utilizzo:<br>
+								esempio 1:<br>
+								abbiamo 3 utenze attive A B e C, le porte saranno cos&igrave; composte:<br>
+								utenza A 10001,10002,10003,10004<br>
+								utenza B 10005,10006,10007,10008<br>
+								utenza C 10009,10010,10011,10012<br>
+								<br>
+								Se viene staccata l'utenza C, il risultato delle porte attive sar&agrave;:<br>
+								utenza A 10001,10002,10003,10004<br>
+								utenza B 10005,10006,10007,10008<br>
+								<br>
+								esempio2:<br>
+								abbiamo 3 utenze attive A B e C, le porte saranno cos&igrave; composte:<br>
+								utenza A 10001,10002,10003,10004<br>
+								utenza B 10005,10006,10007,10008<br>
+								utenza C 10009,10010,10011,10012<br>
+								<br>
+								Se viene staccata l'utenza A, il risultato delle porte attive sar&agrave;:<br>
+								utenza B 10005,10006,10007,10008<br>
+								utenza C 10009,10010,10011,10012<br>
+								Se viene attivata in questo momento un'utenza D il risultato delle porte sar&agrave;:<br>
+								utenza D 10001,10002,10003,10004<br>
+								utenza B 10005,10006,10007,10008<br>
+								utenza C 10009,10010,10011,10012<br>
+								<br><br>
+								La situazione delle porte sar&agrave; sempre aggiornata in un file che ver&agrave; creato in questo path: <b>cartellaUtente/.directa/engine/APIPortSettings.txt</b><br>
+								dove il contenuto del file sar&agrave; cos&igrave;:<br>
+								<b>55351;10001;10002;10003<br>
+								41000;10005;10006;10007</b><br>
+								il tracciato del file &egrave; : <b>codiceUtente;portaPrezzi;portaTrading;portaChiamatestoriche</b> (La porta di servizio non viene notificata in questo file, non essendo utile per gli sviluppi tramite API).<br>
+								<br>
+								Altro modo per avere il contenuto del file di settings delle porte &egrave; lanciare il comando <b>SETCONNECTION</b> nella connessione <code><font color="#01796F">DATAFEED</font></code>, la risposta sar&agrave; di questo tipo:<br>
+								<b><br>BEGIN PORT<br>
+								55351;10001;10002;10003<br>
+								41000;10005;10006;10007<br>
+								END PORT</b><br>
+								<br>
+								Il fatto di leggere direttamente il file o utilizzare il comando &egrave; a discrezione dell'utente sviluppatore.
+								<br>
+								<br>
+								<b><code><font size="3" color="#FF6347" >NB</font></code></b> questa funzionalit&agrave; &egrave; disposinibile sull'ultima versione di DarwinCommandLine e nella versione di Darwin2 attualmente in fase di test.
+								
+							</div>
+					  </div>	 
+				  </div>
+
 				   <div class="panel panel-info" id="comandi-informativi">
 				  	<div class="panel-heading">
 				  		<h4 class=panel-title>
@@ -1126,6 +1198,27 @@
 											<td>Prezzi e Bidask</td>
 											<td>Eseguiti + Bidask</td>
 										</tr>
+										<tr>
+												<td>SUB10</td>
+												<td><code><font color="#01796F">DATAFEED</font></td>
+												<td>10001</td>
+												<td>Tutti i flussi</td>
+												<td>Eseguiti + Book 5 livelli + Book 10 livelli + Bidask</td>	
+											</tr>
+											<tr>
+												<td>SUB15</td>
+												<td><code><font color="#01796F">DATAFEED</font></td>
+												<td>10001</td>
+												<td>Tutti i flussi</td>
+												<td>Eseguiti + Book 5 livelli + Book 10 livelli + Book 15 livelli + Bidask</td>	
+											</tr>
+											<tr>
+												<td>SUB20</td>
+												<td><code><font color="#01796F">DATAFEED</font></td>
+												<td>10001</td>
+												<td>Tutti i flussi</td>
+												<td>Eseguiti + Book 5 livelli + Book 10 livelli + Book 15 livelli + Book 20 livelli + Bidask</td>	
+											</tr>
 									</tbody>
 								</table>
 								<br>
@@ -1212,7 +1305,22 @@
 				        				<td>BOOK_5</td>
 				        				<td><code><font color="#01796F">DATAFEED</font></code></td>
 				        				<td> Book a 5 livelli</td>
-				        			</tr>
+									</tr>
+									<tr>
+											<td>BOOK_10</td>
+											<td><code><font color="#01796F">DATAFEED</font></code></td>
+											<td> Book livelli da 6 a 10</td>
+										</tr>
+										<tr>
+											<td>BOOK_15</td>
+											<td><code><font color="#01796F">DATAFEED</font></code></td>
+											<td> Book livelli da 11 a 15</td>
+										</tr>
+										<tr>
+											<td>BOOK_20</td>
+											<td><code><font color="#01796F">DATAFEED</font></code></td>
+											<td> Book livelli da 16 a 20</td>
+										</tr>
 				        			<tr>
 				        				<td>BIDASK</td>
 				        				<td><code><font color="#01796F">DATAFEED</font></code></td>
@@ -1267,6 +1375,51 @@
 							&lt;QUANTIT&Agrave; AZIONI VENDITA LIVELLO 5&gt; ; &lt;NUM PROPOSTE VENDITA LIVELLO 5&gt; ; &lt;PREZZO VENDITA LIVELLO 5&lt;\n<br>
 							<br>Esempio di record BOOK_5 per il titolo FIAT CHRYSLER AUTO:<br>
 							<b>BOOK_5;FCA;16:26:09;17743;6;6.755;31230;6;6.75;36723;11;6.745;48250;14;6.74;56771;11;6.735;7600;3;6.765;18795;8;6.77;15358;8;6.775;21212;10;6.78;12522;5;6.785\n</b><br>
+							<br>
+							<br>
+							<b>Formato messaggio BOOK_10</b><br>
+							<br>&lt;TIPO_MESSAGGIO&gt; ; &lt;TICKER&gt; ; &lt;ORA HH:MM:SS&gt; ; &lt;QUANTITA AZIONI ACQUISTO LIVELLO 6&gt; ; &lt;NUM PROPOSTE ACQUISTO LIVELLO 6&gt; ;
+							&lt;PREZZO ACQUISTO LIVELLO 6&gt; ; &lt;QUANTIT&Agrave; AZIONI ACQUISTO LIVELLO 7&gt; ; &lt;NUM PROPOSTE ACQUISTO LIVELLO 7&gt; ; &lt;PREZZO ACQUISTO LIVELLO 7&gt; ;
+							&lt;QUANTIT&Agrave; AZIONI ACQUISTO LIVELLO 8&gt; ; &lt;NUM PROPOSTE ACQUISTO LIVELLO 8&gt; ; &lt;PREZZO ACQUISTO LIVELLO 8&gt; ;
+							&lt;QUANTIT&Agrave; AZIONI ACQUISTO LIVELLO 9&gt; ; &lt;NUM PROPOSTE ACQUISTO LIVELLO 9&gt; ; &lt;PREZZO ACQUISTO LIVELLO 9&gt; ;
+							&lt;QUANTIT&Agrave; AZIONI ACQUISTO LIVELLO 10&gt; ; &lt;NUM PROPOSTE ACQUISTO LIVELLO 10&gt; ; &lt;PREZZO ACQUISTO LIVELLO 10&gt; ;
+							&lt;QUANTIT&Agrave; AZIONI VENDITA LIVELLO 6&gt; ; &lt;NUM PROPOSTE VENDITA LIVELLO 6&gt; ; &lt;PREZZO VENDITA LIVELLO 6&gt; ;
+							&lt;QUANTIT&Agrave; AZIONI VENDITA LIVELLO 7&gt; ; &lt;NUM PROPOSTE VENDITA LIVELLO 7&gt; ; &lt;PREZZO VENDITA LIVELLO 7&gt; ;
+							&lt;QUANTIT&Agrave; AZIONI VENDITA LIVELLO 8&gt; ; &lt;NUM PROPOSTE VENDITA LIVELLO 8&gt; ; &lt;PREZZO VENDITA LIVELLO 8&gt; ;
+							&lt;QUANTIT&Agrave; AZIONI VENDITA LIVELLO 9&gt; ; &lt;NUM PROPOSTE VENDITA LIVELLO 9&gt; ; &lt;PREZZO VENDITA LIVELLO 9&gt; ;
+							&lt;QUANTIT&Agrave; AZIONI VENDITA LIVELLO 10&gt; ; &lt;NUM PROPOSTE VENDITA LIVELLO 10&gt; ; &lt;PREZZO VENDITA LIVELLO 10&gt;\n<br>
+							<br>Esempio di record BOOK_10 per il titolo FIAT CHRYSLER AUTO:<br>
+							<b>BOOK_10;FCA;11:31:14;1445;2;18.456;3635;5;18.454;1045;2;18.452;2500;10;18.45;645;1;18.448;<br>2908;4;18.482;3215;4;18.484;2015;3;18.486;2839;3;18.488;4450;6;18.49\n</b><br>
+							<br>
+							<br>
+							<b>Formato messaggio BOOK_15</b><br>
+							<br>&lt;TIPO_MESSAGGIO&gt; ; &lt;TICKER&gt; ; &lt;ORA HH:MM:SS&gt; ; &lt;QUANTITA AZIONI ACQUISTO LIVELLO 11&gt; ; &lt;NUM PROPOSTE ACQUISTO LIVELLO 11&gt; ;
+							&lt;PREZZO ACQUISTO LIVELLO 11&gt; ; &lt;QUANTIT&Agrave; AZIONI ACQUISTO LIVELLO 12&gt; ; &lt;NUM PROPOSTE ACQUISTO LIVELLO 12&gt; ; &lt;PREZZO ACQUISTO LIVELLO 12&gt; ;
+							&lt;QUANTIT&Agrave; AZIONI ACQUISTO LIVELLO 13&gt; ; &lt;NUM PROPOSTE ACQUISTO LIVELLO 13&gt; ; &lt;PREZZO ACQUISTO LIVELLO 13&gt; ;
+							&lt;QUANTIT&Agrave; AZIONI ACQUISTO LIVELLO 14&gt; ; &lt;NUM PROPOSTE ACQUISTO LIVELLO 14&gt; ; &lt;PREZZO ACQUISTO LIVELLO 14&gt; ;
+							&lt;QUANTIT&Agrave; AZIONI ACQUISTO LIVELLO 15&gt; ; &lt;NUM PROPOSTE ACQUISTO LIVELLO 15&gt; ; &lt;PREZZO ACQUISTO LIVELLO 15&gt; ;
+							&lt;QUANTIT&Agrave; AZIONI VENDITA LIVELLO 11&gt; ; &lt;NUM PROPOSTE VENDITA LIVELLO 11&gt; ; &lt;PREZZO VENDITA LIVELLO 11&gt; ;
+							&lt;QUANTIT&Agrave; AZIONI VENDITA LIVELLO 12&gt; ; &lt;NUM PROPOSTE VENDITA LIVELLO 12&gt; ; &lt;PREZZO VENDITA LIVELLO 12&gt; ;
+							&lt;QUANTIT&Agrave; AZIONI VENDITA LIVELLO 13&gt; ; &lt;NUM PROPOSTE VENDITA LIVELLO 13&gt; ; &lt;PREZZO VENDITA LIVELLO 13&gt; ;
+							&lt;QUANTIT&Agrave; AZIONI VENDITA LIVELLO 14&gt; ; &lt;NUM PROPOSTE VENDITA LIVELLO 14&gt; ; &lt;PREZZO VENDITA LIVELLO 14&gt; ;
+							&lt;QUANTIT&Agrave; AZIONI VENDITA LIVELLO 15&gt; ; &lt;NUM PROPOSTE VENDITA LIVELLO 15&gt; ; &lt;PREZZO VENDITA LIVELLO 15&gt;\n<br>
+							<br>Esempio di record BOOK_15 per il titolo FIAT CHRYSLER AUTO:<br>
+							<b>BOOK_15;FCA;11:35:32;3172;5;18.48;1906;3;18.478;3993;5;18.476;34141;4;18.474;1901;2;18.472;<br>1506;2;18.524;651;1;18.526;5651;2;18.528;5851;3;18.53;7599;5;18.532\n</b><br>
+							<br>
+							<br>
+							<b>Formato messaggio BOOK_20</b><br>
+							<br>&lt;TIPO_MESSAGGIO&gt; ; &lt;TICKER&gt; ; &lt;ORA HH:MM:SS&gt; ; &lt;QUANTITA AZIONI ACQUISTO LIVELLO 16&gt; ; &lt;NUM PROPOSTE ACQUISTO LIVELLO 16&gt; ;
+							&lt;PREZZO ACQUISTO LIVELLO 16&gt; ; &lt;QUANTIT&Agrave; AZIONI ACQUISTO LIVELLO 17&gt; ; &lt;NUM PROPOSTE ACQUISTO LIVELLO 17&gt; ; &lt;PREZZO ACQUISTO LIVELLO 17&gt; ;
+							&lt;QUANTIT&Agrave; AZIONI ACQUISTO LIVELLO 18&gt; ; &lt;NUM PROPOSTE ACQUISTO LIVELLO 18&gt; ; &lt;PREZZO ACQUISTO LIVELLO 18&gt; ;
+							&lt;QUANTIT&Agrave; AZIONI ACQUISTO LIVELLO 19&gt; ; &lt;NUM PROPOSTE ACQUISTO LIVELLO 19&gt; ; &lt;PREZZO ACQUISTO LIVELLO 19&gt; ;
+							&lt;QUANTIT&Agrave; AZIONI ACQUISTO LIVELLO 20&gt; ; &lt;NUM PROPOSTE ACQUISTO LIVELLO 20&gt; ; &lt;PREZZO ACQUISTO LIVELLO 20&gt; ;
+							&lt;QUANTIT&Agrave; AZIONI VENDITA LIVELLO 16&gt; ; &lt;NUM PROPOSTE VENDITA LIVELLO 16&gt; ; &lt;PREZZO VENDITA LIVELLO 16&gt; ;
+							&lt;QUANTIT&Agrave; AZIONI VENDITA LIVELLO 17&gt; ; &lt;NUM PROPOSTE VENDITA LIVELLO 17&gt; ; &lt;PREZZO VENDITA LIVELLO 17&gt; ;
+							&lt;QUANTIT&Agrave; AZIONI VENDITA LIVELLO 18&gt; ; &lt;NUM PROPOSTE VENDITA LIVELLO 18&gt; ; &lt;PREZZO VENDITA LIVELLO 18&gt; ;
+							&lt;QUANTIT&Agrave; AZIONI VENDITA LIVELLO 19&gt; ; &lt;NUM PROPOSTE VENDITA LIVELLO 19&gt; ; &lt;PREZZO VENDITA LIVELLO 19&gt; ;
+							&lt;QUANTIT&Agrave; AZIONI VENDITA LIVELLO 20&gt; ; &lt;NUM PROPOSTE VENDITA LIVELLO 20&gt; ; &lt;PREZZO VENDITA LIVELLO 20&gt;\n<br>
+							<br>Esempio di record BOOK_20 per il titolo FIAT CHRYSLER AUTO:<br>
+							<b>BOOK_20;FCA;11:35:42;1766;3;18.47;1901;2;18.468;982;2;18.466;1291;2;18.464;4062;4;18.462;<br>16008;4;18.534;2040;3;18.536;1241;2;18.538;765;2;18.54;1285;2;18.542\n</b><br>
 							<br>
 							<br>
 							<b>Formato messaggio ERR</b><br>
@@ -2681,6 +2834,9 @@ La nuova versione di DarwinApp &egrave; stata pensata anche per gli utenti svilu
 									<li><b><a href="#tabellaDF">SUBPRZ</a></b> - Solo Prezzi</li>
 									<li><b><a href="#tabellaDF">SUBALL</a></b> - Tutti i flussi</li>
 									<li><b><a href="#tabellaDF">SUBPRZALL</a></b> - Prezzi e Bidask</li>
+									<li><b><a href="#tabellaDF">SUB10</a></b> - Tutti i flussi</li>
+									<li><b><a href="#tabellaDF">SUB15</a></b> - Tutti i flussi</li>
+									<li><b><a href="#tabellaDF">SUB20</a></b> - Tutti i flussi</li>
 									<li><b><a href="#tabellaDF">UNS</a></b> - Desottoscrizione</li>
 								</ul>
 							</div>
@@ -3429,7 +3585,8 @@ La nuova versione di DarwinApp &egrave; stata pensata anche per gli utenti svilu
 						<!--<b><font color="red">NB ancora in fase di test</font></b><br><br>-->
 						<div style="width: 820px; height: 350px ; overflow-y: scroll; border: 2px solid #191970; font-size: 13px;">
 				        	<ul class="nav nav-tabs">
-				    			<li class="active"><a href="#hJ" data-toggle="tab">JAVA</a></li>
+								<li class="active"><a href="#hJ" data-toggle="tab">JAVA</a></li>
+								<li><a href="#hP" data-toggle="tab">Phyton</a></li>
 				    			<li><a href="#hCS" data-toggle="tab">C#</a></li>
 				    			<li><a href="#hC" data-toggle="tab">C</a></li>
 							</ul>
@@ -3527,7 +3684,68 @@ La nuova versione di DarwinApp &egrave; stata pensata anche per gli utenti svilu
 				        		&nbsp;}<br>
 				        		} <code2>//end class</code2><br><br>
 				        	</code>
-				        	</div>
+							</div>
+							
+							<div class="tab-pane" id="hP">
+									<code>
+											<p>import socket<br>
+												import time<br>
+												import threading<br>
+												import Queue<br></p>
+												<br>	
+												def worker(socket, stopper, rx_queue):<br>
+												&nbsp;<code2>"""thread worker function"""</code2><br>
+												&nbsp;message = ""<br>
+												&nbsp;while not stopper.is_set():<br>
+												&nbsp;&nbsp;data = client_socket.recv(512)<br>
+												<br>
+												&nbsp;&nbsp;if data == "":<br>
+												&nbsp;&nbsp;&nbsp;time.sleep(1)<br>
+												&nbsp;&nbsp;else:<br>
+												&nbsp;&nbsp;&nbsp;message = message + (data)<br>
+												&nbsp;&nbsp;&nbsp;if "END " in data:<br>
+												&nbsp;&nbsp;&nbsp;print("Message Received");<br>
+												&nbsp;&nbsp;&nbsp;rx_queue.put(message)<br>
+												&nbsp;&nbsp;&nbsp;message = ""<br>
+												&nbsp;	return<br>
+												<br>
+												<codeJD>###########################################<br>
+												###########################################</codeJD><br>
+												<br>	
+												if __name__ == "__main__":<br>
+												&nbsp;rx_queue =Queue.Queue()     <code2># create a Thread Safe Queue</code2><br>
+												&nbsp;stopper = threading.Event() # <code2>create a Thread Safe Event</code2><br>
+												<br>
+												&nbsp;client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)<br>
+												&nbsp;client_socket.connect(('localhost', 10003)) <code2># connect to HISTORICAL DATA socket</code2><br>
+												<br>	
+												&nbsp; t = threading.Thread(target=worker, args=(client_socket, stopper, rx_queue ) )<br>
+												&nbsp; t.start()<br>
+												&nbsp; time.sleep( 5 )<br>
+													<br>
+												&nbsp; print("Extract 1 hour candles")<br>
+													<br>
+												&nbsp; print("Extract EOD pricesfor last 5 years")<br>
+												&nbsp; cmd="CANDLE MSE 1250 86400"<br>
+												&nbsp; client_socket.send(cmd+"\n")<br>
+												&nbsp; time.sleep( 5 )<br>
+													<br>
+												&nbsp; print("Wait for 15 seconds")<br>
+												&nbsp; time.sleep( 15 )<br>
+													<br>
+												&nbsp; stopper.set()   <code2># force thread stop</code2><br>
+												&nbsp; t.join();<br>
+												&nbsp; client_socket.close()<br>
+													<br>
+												&nbsp; f =  open("MSE.txt", 'w')<br>
+												&nbsp; while not rx_queue.empty():<br>
+												&nbsp;&nbsp; message = rx_queue.get()<br>
+												&nbsp;&nbsp; f.write(message)<br>
+													<br>
+												&nbsp;	f.close()<br>
+												print("Done!")<br>
+									</code>
+									</div>
 
 				        <div class="tab-pane" id="hCS">
 				        	<code>
@@ -3546,7 +3764,8 @@ La nuova versione di DarwinApp &egrave; stata pensata anche per gli utenti svilu
 					<br><br>
 					<span class="glyphicon glyphicon-cloud-download"></span><b>&nbsp;Download file:</b>
 				        <ul>
-				       		<li><a href="downfile.php?id=5">&nbsp;EsempioCh-Java</a></li>
+							<li><a href="downfile.php?id=5">&nbsp;EsempioCh-Java</a></li>
+							<li><a href="downfile.php?id=13">&nbsp;EsempioCh-Phyton</a></li>
 				       		<li>&nbsp;EsempioCh-C#</li>
 				       		<li>&nbsp;EsempioCh-C</li>
 						</ul>
@@ -3603,6 +3822,10 @@ La nuova versione di DarwinApp &egrave; stata pensata anche per gli utenti svilu
 					</div>
 					<div class="panel-body panel-collapse collapse" id="collapseChange">
 					<ul>
+						<p class="text-justify"><pre>05/02/2018 <a href="#fl_info"> Aggiunta dettaglio per ricevere book oltre al quinto livello</a></pre></p>
+						<p class="text-justify"><pre>05/02/2018 <a href="#multiUtenza"> Aggiunta sezione per utilizzo API con pi&ugrave; utenze</a></pre></p>
+						<p class="text-justify"><pre>05/02/2018 <a href="#esempi_codice"> Aggiornamento Tutorial - Esempi di codice (codice per chiamate storiche)</a></pre></p>
+						<p class="text-justify"><pre>05/01/2018<a href="#pldirecta"> Aggiornamento sezione plugin Directa</a></pre></p>
 						<p class="text-justify"><pre>05/01/2018<a href="#PluginDirecta"> Aggiornamento sezione plugin Directa - DarwinCommandLine</a></pre></p>
 						<p class="text-justify"><pre>10/11/2016 Aggiunta codice errore per mercato non abilitato per sottoscrizione strumento</pre></p>
 						<p class="text-justify"><pre>13/10/2016 Informazione sulla connessione della Darwin</pre></p>
@@ -3683,6 +3906,7 @@ La nuova versione di DarwinApp &egrave; stata pensata anche per gli utenti svilu
 						  		<li ><a href="#gestioneH">Gestione HeartBeat</a></li>
 						  		<li><a href="#closeDW">Chiusura Darwin</a></li>
 								<li><a href="#connDw">Connessione Darwin</a></li>
+								<li><a href="#multiUtenza">Utilizzo utenteze diverse su stesso PC</a></li>
 						  		<li ><a href="#comandi-informativi">Comandi Informativi</a></li>
 						  		<li > <a href="#messaggiClient">Formato messaggi verso il Client</a></li>
 						  		<li ><a href="#codici-errore">Codici Errore</a></li>

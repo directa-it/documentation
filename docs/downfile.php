@@ -53,6 +53,9 @@ else if($number == 11)
 else if($number == 12){
 	$percorso = 'MANUAL-LAST.pdf';
 }
+else if($number == 13){
+	$percorso = 'DirectaSocket.py'
+}
 
 // preparo gli header
 
