@@ -100,7 +100,7 @@
 
       <ul class="nav navbar-nav navbar-left">
 
-       	<h7><a href="#changelog" data-toggle="collapse" data-parent"#accordion" data-target="#collapseChange">Last Update: 05/01/2018</a></h7>
+       	<h7><a href="#changelog" data-toggle="collapse" data-parent"#accordion" data-target="#collapseChange">Last Update: 05/02/2018</a></h7>
        </ul>
 
       	<ul class="nav navbar-nav navbar-middle">
@@ -1222,6 +1222,27 @@
 											<td>Prices and bidask</td>
 											<td>Filled orders + Bidask</td>
 										</tr>
+										<tr>
+												<td>SUB10</td>
+												<td><code><font color="#01796F">DATAFEED</font></td>
+												<td>10001</td>
+												<td>All the flows</td>
+												<td>Filled orders + 5 levels Book + 10 levels Book + Bidask</td>	
+											</tr>
+											<tr>
+												<td>SUB15</td>
+												<td><code><font color="#01796F">DATAFEED</font></td>
+												<td>10001</td>
+												<td>All the flows</td>
+												<td>Filled orders + 5 levels Book + 10 levels Book + 15 levels Book + Bidask</td>	
+											</tr>
+											<tr>
+												<td>SUB20</td>
+												<td><code><font color="#01796F">DATAFEED</font></td>
+												<td>10001</td>
+												<td>All the flows</td>
+												<td>Filled orders + 5 levels Book + 10 levels Book + 15 levels Book + 20 levels Book +Bidask</td>	
+											</tr>
 									</tbody>
 								</table>
 								<br>
@@ -1302,10 +1323,25 @@
 				        				<td>Filled in auction (all the auctions)</td>
 				        			</tr>
 				        			<tr>
-				        				<td>BOOK_5</td>
-				        				<td><code><font color="#01796F">DATAFEED</font></code></td>
-				        				<td>5 levels book</td>
-				        			</tr>
+											<td>BOOK_5</td>
+											<td><code><font color="#01796F">DATAFEED</font></code></td>
+											<td> 1 - 5 levels book</td>
+										</tr>
+										<tr>
+											<td>BOOK_10</td>
+											<td><code><font color="#01796F">DATAFEED</font></code></td>
+											<td> 6 - 10 levels book </td>
+										</tr>
+										<tr>
+											<td>BOOK_15</td>
+											<td><code><font color="#01796F">DATAFEED</font></code></td>
+											<td> 11 - 15 levels book </td>
+										</tr>
+										<tr>
+											<td>BOOK_20</td>
+											<td><code><font color="#01796F">DATAFEED</font></code></td>
+											<td> 16 - 20 levels book</td>
+										</tr>s
 				        			<tr>
 				        				<td>BIDASK</td>
 				        				<td><code><font color="#01796F">DATAFEED</font></code></td>
@@ -1366,6 +1402,50 @@
 							<b>BOOK_5;FCA;16:26:09;17743;6;6.755;31230;6;6.75;36723;11;6.745;48250;14;6.74;56771;11;6.735;7600;3;6.765;18795;8;6.77;15358;8;6.775;21212;10;6.78;12522;5;6.785\n</b><br>
 							<br>
 							<br>
+							<b>BOOK_10 message format</b><br>
+							<br>&lt;MESSAGE TYPE&gt; ; &lt;TICKER&gt; ; &lt;TIME HH:MM:SS&gt; ; &lt;STOCKS QUANTITY BID LEVEL 6&gt; ; &lt;NUMBER OF OFFERS BID LEVEL 6&gt; ;
+							&lt;BID PRICE LEVEL 6&gt; ; &lt;STOCKS QUANTITY BID LEVEL 7&gt; ; &lt;NUMBER OF OFFERS BID LEVEL 7&gt; ; &lt;BID PRICE LEVEL 7&gt; ;
+							&lt;STOCKS QUANTITY BID LEVEL 8&gt; ; &lt;NUMBER OF OFFERS BID LEVEL 8&gt; ; &lt;BID PRICE LEVEL 8&gt; ;
+							&lt;STOCKS QUANTITY BID LEVEL 9&gt; ; &lt;NUMBER OF OFFERS BID LEVEL 9&gt; ; &lt;BID PRICE LEVEL 9&gt; ;
+							&lt;STOCKS QUANTITY BID LEVEL 10&gt; ; &lt;NUMBER OF OFFERS BID LEVEL 10&gt; ; &lt;BID PRICE LEVEL 10&gt; ;
+							&lt;STOCKS QUANTITY ASK LEVEL 6&gt; ; &lt;NUMBER OF OFFERS ASK LEVEL 6&gt; ; &lt;ASK PRICE LEVEL 6&gt; ;
+							&lt;STOCKS QUANTITY ASK LEVEL 7&gt; ; &lt;NUMBER OF OFFERS ASK LEVEL 7&gt; ; &lt;ASK PRICE LEVEL 7&gt; ;
+							&lt;STOCKS QUANTITY ASK LEVEL 8&gt; ; &lt;NUMBER OF OFFERS ASK LEVEL 8&gt; ; &lt;ASK PRICE LEVEL 8&gt; ;
+							&lt;STOCKS QUANTITY ASK LEVEL 9&gt; ; &lt;NUMBER OF OFFERS ASK LEVEL 9&gt; ; &lt;ASK PRICE LEVEL 9&gt; ;
+							&lt;STOCKS QUANTITY ASK LEVEL 10&gt; ; &lt;NUMBER OF OFFERS ASK LEVEL 10&gt; ; &lt;ASK PRICE LEVEL 10&gt;\n<br>
+							<br>BOOK_10 record example of the stock FIAT CHRYSLER AUTO:<br>
+							<b>BOOK_10;FCA;11:31:14;1445;2;18.456;3635;5;18.454;1045;2;18.452;2500;10;18.45;645;1;18.448;<br>2908;4;18.482;3215;4;18.484;2015;3;18.486;2839;3;18.488;4450;6;18.49\n</b><br>
+							<br>
+							<br>
+							<b>BOOK_15 message format</b><br>
+							<br>&lt;MESSAGE TYPE&gt; ; &lt;TICKER&gt; ; &lt;TIME HH:MM:SS&gt; ; &lt;STOCKS QUANTITY BID LEVEL 11&gt; ; &lt;NUMBER OF OFFERS BID LEVEL 11&gt; ;
+							&lt;BID PRICE LEVEL 11&gt; ; &lt;STOCKS QUANTITY BID LEVEL 12&gt; ; &lt;NUMBER OF OFFERS BID LEVEL 12&gt; ; &lt;BID PRICE LEVEL 12&gt; ;
+							&lt;STOCKS QUANTITY BID LEVEL 13&gt; ; &lt;NUMBER OF OFFERS BID LEVEL 13&gt; ; &lt;BID PRICE LEVEL 13&gt; ;
+							&lt;STOCKS QUANTITY BID LEVEL 14&gt; ; &lt;NUMBER OF OFFERS BID LEVEL 14&gt; ; &lt;BID PRICE LEVEL 14&gt; ;
+							&lt;STOCKS QUANTITY BID LEVEL 15&gt; ; &lt;NUMBER OF OFFERS BID LEVEL 15&gt; ; &lt;BID PRICE LEVEL 15&gt; ;
+							&lt;STOCKS QUANTITY ASK LEVEL 11&gt; ; &lt;NUMBER OF OFFERS ASK LEVEL 11&gt; ; &lt;ASK PRICE LEVEL 11&gt; ;
+							&lt;STOCKS QUANTITY ASK LEVEL 12&gt; ; &lt;NUMBER OF OFFERS ASK LEVEL 12&gt; ; &lt;ASK PRICE LEVEL 12&gt; ;
+							&lt;STOCKS QUANTITY ASK LEVEL 13&gt; ; &lt;NUMBER OF OFFERS ASK LEVEL 13&gt; ; &lt;ASK PRICE LEVEL 13&gt; ;
+							&lt;STOCKS QUANTITY ASK LEVEL 14&gt; ; &lt;NUMBER OF OFFERS ASK LEVEL 14&gt; ; &lt;ASK PRICE LEVEL 14&gt; ;
+							&lt;STOCKS QUANTITY ASK LEVEL 15&gt; ; &lt;NUMBER OF OFFERS ASK LEVEL 15&gt; ; &lt;ASK PRICE LEVEL 15&gt;\n<br>
+							<br>BOOK_15 record example of the stock FIAT CHRYSLER AUTO:<br>
+							<b>BOOK_15;FCA;11:35:32;3172;5;18.48;1906;3;18.478;3993;5;18.476;34141;4;18.474;1901;2;18.472;<br>1506;2;18.524;651;1;18.526;5651;2;18.528;5851;3;18.53;7599;5;18.532\n</b><br>
+							<br>
+							<br>
+							<b>BOOK_20 message format</b><br>
+							<br>&lt;MESSAGE TYPE&gt; ; &lt;TICKER&gt; ; &lt;TIME HH:MM:SS&gt; ; &lt;STOCKS QUANTITY BID LEVEL 16&gt; ; &lt;NUMBER OF OFFERS BID LEVEL 16&gt; ;
+							&lt;BID PRICE LEVEL 16&gt; ; &lt;STOCKS QUANTITY BID LEVEL 17&gt; ; &lt;NUMBER OF OFFERS BID LEVEL 17&gt; ; &lt;BID PRICE LEVEL 17&gt; ;
+							&lt;STOCKS QUANTITY BID LEVEL 18&gt; ; &lt;NUMBER OF OFFERS BID LEVEL 18&gt; ; &lt;BID PRICE LEVEL 18&gt; ;
+							&lt;STOCKS QUANTITY BID LEVEL 19&gt; ; &lt;NUMBER OF OFFERS BID LEVEL 19&gt; ; &lt;BID PRICE LEVEL 19&gt; ;
+							&lt;STOCKS QUANTITY BID LEVEL 20&gt; ; &lt;NUMBER OF OFFERS BID LEVEL 20&gt; ; &lt;BID PRICE LEVEL 20&gt; ;
+							&lt;STOCKS QUANTITY ASK LEVEL 16&gt; ; &lt;NUMBER OF OFFERS ASK LEVEL 16&gt; ; &lt;ASK PRICE LEVEL 16&gt; ;
+							&lt;STOCKS QUANTITY ASK LEVEL 17&gt; ; &lt;NUMBER OF OFFERS ASK LEVEL 17&gt; ; &lt;ASK PRICE LEVEL 17&gt; ;
+							&lt;STOCKS QUANTITY ASK LEVEL 18&gt; ; &lt;NUMBER OF OFFERS ASK LEVEL 18&gt; ; &lt;ASK PRICE LEVEL 18&gt; ;
+							&lt;STOCKS QUANTITY ASK LEVEL 19&gt; ; &lt;NUMBER OF OFFERS ASK LEVEL 19&gt; ; &lt;ASK PRICE LEVEL 19&gt; ;
+							&lt;STOCKS QUANTITY ASK LEVEL 20&gt; ; &lt;NUMBER OF OFFERS ASK LEVEL 20&gt; ; &lt;ASK PRICE LEVEL 20&gt;\n<br>
+							<br>BOOK_20 record example of the stock FIAT CHRYSLER AUTO:<br>
+							<b>BOOK_20;FCA;11:35:42;1766;3;18.47;1901;2;18.468;982;2;18.466;1291;2;18.464;4062;4;18.462;<br>16008;4;18.534;2040;3;18.536;1241;2;18.538;765;2;18.54;1285;2;18.542\n</b><br>
+							<br><br>
 							<b>ERR message format</b><br>
 							<br>&lt;MESSAGE_TYPE&gt; ; &lt;TICKER&gt; ; &lt;ERROR CODE&gt;\n<br>
 							<br>Generic ERR record example:<br>
@@ -3349,7 +3429,8 @@ The Darwin App's new version is designed for developer users
 						<b>EXAMPLE CALLS HISTORICAL</b><br><br>
 						<div style="width: 820px; height: 350px ; overflow-y: scroll; border: 2px solid #191970; font-size: 13px;">
 				        	<ul class="nav nav-tabs">
-				    			<li class="active"><a href="#hJ" data-toggle="tab">JAVA</a></li>
+								<li class="active"><a href="#hJ" data-toggle="tab">JAVA</a></li>
+								<li><a href="#hP" data-toggle="tab">Phyton</a></li>
 				    			<li><a href="#hCS" data-toggle="tab">C#</a></li>
 				    			<li><a href="#hC" data-toggle="tab">C</a></li>
 							</ul>
@@ -3447,7 +3528,68 @@ The Darwin App's new version is designed for developer users
 				        		&nbsp;}<br>
 				        		} //end class<br><br>
 				        	</code>
-				        	</div>
+							</div>
+						
+							<div class="tab-pane active" id="hP">
+									<code>
+										<p>import socket<br>
+										import time<br>
+										import threading<br>
+										import Queue<br></p>
+										<br>	
+										def worker(socket, stopper, rx_queue):<br>
+										&nbsp;<code2>"""thread worker function"""</code2><br>
+										&nbsp;message = ""<br>
+										&nbsp;while not stopper.is_set():<br>
+										&nbsp;&nbsp;data = client_socket.recv(512)<br>
+										<br>
+										&nbsp;&nbsp;if data == "":<br>
+										&nbsp;&nbsp;&nbsp;time.sleep(1)<br>
+										&nbsp;&nbsp;else:<br>
+										&nbsp;&nbsp;&nbsp;message = message + (data)<br>
+										&nbsp;&nbsp;&nbsp;if "END " in data:<br>
+										&nbsp;&nbsp;&nbsp;print("Message Received");<br>
+										&nbsp;&nbsp;&nbsp;rx_queue.put(message)<br>
+										&nbsp;&nbsp;&nbsp;message = ""<br>
+										&nbsp;	return<br>
+										<br>
+										<codeJD>###########################################<br>
+										###########################################</codeJD><br>
+										<br>	
+										if __name__ == "__main__":<br>
+										&nbsp;rx_queue =Queue.Queue()     <code2># create a Thread Safe Queue</code2><br>
+										&nbsp;stopper = threading.Event() # <code2>create a Thread Safe Event</code2><br>
+										<br>
+										&nbsp;client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)<br>
+										&nbsp;client_socket.connect(('localhost', 10003)) <code2># connect to HISTORICAL DATA socket</code2><br>
+										<br>	
+										&nbsp; t = threading.Thread(target=worker, args=(client_socket, stopper, rx_queue ) )<br>
+										&nbsp; t.start()<br>
+										&nbsp; time.sleep( 5 )<br>
+											<br>
+										&nbsp; print("Extract 1 hour candles")<br>
+											<br>
+										&nbsp; print("Extract EOD pricesfor last 5 years")<br>
+										&nbsp; cmd="CANDLE MSE 1250 86400"<br>
+										&nbsp; client_socket.send(cmd+"\n")<br>
+										&nbsp; time.sleep( 5 )<br>
+											<br>
+										&nbsp; print("Wait for 15 seconds")<br>
+										&nbsp; time.sleep( 15 )<br>
+											<br>
+										&nbsp; stopper.set()   <code2># force thread stop</code2><br>
+										&nbsp; t.join();<br>
+										&nbsp; client_socket.close()<br>
+											<br>
+										&nbsp; f =  open("MSE.txt", 'w')<br>
+										&nbsp; while not rx_queue.empty():<br>
+										&nbsp;&nbsp; message = rx_queue.get()<br>
+										&nbsp;&nbsp; f.write(message)<br>
+											<br>
+										&nbsp;	f.close()<br>
+										print("Done!")<br>
+									</code>
+									</div>
 
 				        <div class="tab-pane" id="hCS">
 				        	<code>
@@ -3494,6 +3636,8 @@ The Darwin App's new version is designed for developer users
 						<h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseChange"><b>Update</a></b></h3>
 					</div>
 						<div class="panel-body panel-collapse collapse" id="collapseChange">
+						<p class="text-justify"><pre>05/02/2018 <a href="#fl_info"> Add details abot book levels</a></pre></p>
+						<p class="text-justify"><pre>05/02/2018 <a href="#esempi_codice"> Aggiornamento Tutorial - Esempi di codice (codice per chiamate storiche)</a></pre></p>
 						<p class="text-justify"><pre>05/01/2018 <a href="#PluginDirecta"> Update Plugin Directa section</a></pre></p>
 						<p class="text-justify"><pre>13/10/2016 Information of Connection Darwin</pre></p>
 						<p class="text-justify"><pre>13/10/2016 Close Darwin with API command</pre></p>
