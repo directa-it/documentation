@@ -104,7 +104,7 @@
 
        <ul class="nav navbar-nav navbar-left">
 
-       	<h7><a href="#changelog" data-toggle="collapse" data-parent"#accordion" data-target="#collapseChange">Ultimo aggionamento: 08/06/2018</a></h7>
+       	<h7><a href="#changelog" data-toggle="collapse" data-parent"#accordion" data-target="#collapseChange">Ultimo aggionamento: 22/06/2018</a></h7>
        </ul>
 
 
@@ -2568,7 +2568,45 @@ TRADOK;FCA;ORD1;3002;ACQAZ;1;4.85;0.0<br>
 							Per procedere a scaricare le risorse necessarie per poter utilizzare questo componente sono disponibili a questo indirizzo:
 							<a href=https://directa2.directatrading.com/app/MUTE/DarwinCommandLine.zip> DarwinCommandLine.zip</a><br>
 							<b>Questo .zip sar&agrave; costantemente aggiornato, attualmente la versione disponibile &egrave; la: <code>1.1.14 del 08/06/2018</code></b>
-							<br>
+							<br><br>
+							<div class="panel panel-DCM" id="UtilsDCL">
+								
+									&nbsp;<b>Informazioni utilizzo Darwin CommandLine</b><br>
+									<p class="text-justify">
+									
+									&nbsp;Al momento, oltre alla DCL (Engine.jar), &egrave; necessaria la presenza nella stessa cartella della libreria
+									&nbsp;gson.jar che bisogna specificare in sede di avvio.<br> 
+									&nbsp;A seconda del sistema operativo la riga di comando sar&agrave;:<i>(ovvimente l'esempio di comando che riportiamo
+									dipender&agrave; da dove verranno salvati i sorgenti sul proprio pc)</i>:<br><br>
+									&nbsp;<code2><font size="4">Windows</font></code2><br>
+									<ol>
+									&nbsp;&nbsp;<li> con apertura nuovo terminale:<br> <code><b>cmd /C start java -classpath Engine.jar;gson.jar  directa.standalone.StartEngine codiceUtente password</b></code></li>
+									&nbsp;&nbsp;<li><code><b>java -classpath Engine.jar;gson.jar  directa.standalone.StartEngine codiceUtente password</b></code></li>
+									&nbsp;&nbsp;<li> Apertura con doppio click tramite file .bat:</li>
+									<ul>
+									&nbsp;&nbsp;&nbsp;<li> Creare un file di testo(.txt) ed inserire:</li>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code><b>@echo off</b><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>java -classpath Engine.jar;gson.jar  directa.standalone.StartEngine codiceUtente password</b></code><br>
+									&nbsp;&nbsp;&nbsp;<li> Cambiare l'estensione al file in .bat (fileProva.txt --> fileProva.bat)</li>
+									&nbsp;&nbsp;&nbsp;<li> Doppio click per avviare il file .bat </li><br>
+									</ul>
+									</ol>
+									&nbsp; <code><font size="4">Osx</font></code>
+									&nbsp;&nbsp;<b>java -classpath Engine.jar:gson.jar  directa.standalone.StartEngine codiceUtente password</b><br><br>
+	
+									&nbsp; <code2><font size="4">Linux</font></code2>
+										&nbsp;&nbsp;<b>java -classpath Engine.jar:gson.jar  directa.standalone.StartEngine codiceUtente password</b><br><br>
+	
+									&nbsp;Per attivare il log della DCL per pemetterci di verificare eventuali errori &egrave; necessario inserire il parametro   <b><code><font size="3" color="#FF6347" >-log</font></code></b><br>
+									&nbsp;&egrave; fondamentale inserirlo come ultimo parametro<br>
+									&nbsp;I file di log verranno salvati qui: <b>cartellaUtente/.directa/engine/logDCL</b><br>
+									&nbsp;Al momento non c'&egrave; un modo automatico di invio dei file di log, quindi &egrave; necessario inviarceli alla nostra mail in caso di problemi.<br>
+									&nbsp;I file rimangono salvati al massimo una settimana, quelli pi&ugrave; vecchi verranno automaticamente cancellati.<br><br>
+	
+									&nbsp;Per chi desidera utilizzare la DCL assime a Multicharts &egrave; necessario inserire come parametro <b><code><font size="3" color="#FF6347" >-mc</font></code></b><br>
+									&nbsp;Questo permette di aggiornare tutti i file utili al nostro plugin Multicharts all'avvio della DCL.
+									</p>
+								</div>
 						<div class="panel panel-DCM" id="AggiornamentiDCM">
 					<div class="panel-heading">
 						<h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseChange3"><b>Aggiornamenti</a></b></h3>
@@ -3825,7 +3863,7 @@ La nuova versione di DarwinApp &egrave; stata pensata anche per gli utenti svilu
 					</div>
 					<div class="panel-body panel-collapse collapse" id="collapseChange">
 					<ul>
-						<p class="text-justify"><pre>08/06/2018<a href="#PluginDirecta"> Aggiornamento sezione plugin Directa - Darwin Command Line</a></pre></p>
+						<p class="text-justify"><pre>22/06/2018<a href="#PluginDirecta"> Aggiornamento sezione plugin Directa - Darwin Command Line</a></pre></p>
 						<p class="text-justify"><pre>17/05/2018<a href="#PluginDirecta"> Aggiornamento sezione plugin Directa - Plugin Multicharts</a></pre></p>
 						<p class="text-justify"><pre>05/02/2018 <a href="#fl_info"> Aggiunta dettaglio per ricevere book oltre al quinto livello</a></pre></p>
 						<p class="text-justify"><pre>05/02/2018 <a href="#multiUtenza"> Aggiunta sezione per utilizzo API con pi&ugrave; utenze</a></pre></p>
