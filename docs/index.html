@@ -104,7 +104,7 @@
 
        <ul class="nav navbar-nav navbar-left">
 
-       	<h7><a href="#changelog" data-toggle="collapse" data-parent"#accordion" data-target="#collapseChange">Ultimo aggionamento: 26/07/2018</a></h7>
+       	<h7><a href="#changelog" data-toggle="collapse" data-parent"#accordion" data-target="#collapseChange">Ultimo aggionamento: 12/11/2018</a></h7>
        </ul>
 
 
@@ -1858,7 +1858,7 @@
 				    <div class="panel panel-my" id="newCmdTrading">
 				  		<div class="panel-heading">
 				  			<h4 class=panel-title>
-				  				<b>Nuovi Comandi <code><font color="#CD5C5C">TRADING</font></code></b>
+								<b>Comandi per ampliare le risposte flusso trading <code><font color="#CD5C5C">TRADING</font></code></b>
 				  			</h4>
 				  		</div>
 				  	
@@ -1868,7 +1868,7 @@
 				  			 A seguito di numeroso proposte abbiamo cercato di creare dei comandi per ampliare il set d'informazioni reperibili dalle API.<br>
 				  			 Al momento &egrave; stata data particolare attenzione all'ampliamento delle informazioni relative al trading.<br>
 				  			 E' stato scelto, per non intaccare Trading System attualmente in uso, di creare dei comandi attivabili e disattivabili per accedere alle nuove funzionabilit&agrave;.<br>
-				  			 Di seguito i nuovi comandi disponibili:<br><br>
+				  			 Di seguito i comandi disponibili:<br><br>
 				  			 
 				  			 <table class="table table-bordered">
 				        	<thread>
@@ -1894,7 +1894,7 @@
 				        		</tr>
 				        		<tr>
 				        			<td>PRICEEXE</td>
-				        			<td>Aggiunta campi relativi al prezzo eseguito, quantit&agrave; e id_ordine relativi ai pacchetti TRADOK e ORDER</td>
+				        			<td>Aggiunta campi relativi al prezzo eseguito, quantit&agrave; e id_ordine relativi ai pacchetti TRADOK e ORDER <br><b>Utile per avere informazioni maggiori sui vari ordini e soprattuto per la gestione degli ordini parzialmente eseguiti.</b></td>
 				        			<td> FALSE / TRUE</td>
 				        			<td>FALSE</td>
 				        		</tr>
@@ -2566,45 +2566,29 @@ TRADOK;FCA;ORD1;3002;ACQAZ;1;4.85;0.0<br>
 							eseguibile, appunto, tramite riga di comando e dovrebbe gi&agrave; essere completamente compatibile con quanto da Lei eventualmente sviluppato,
 							cos&igrave; come &egrave; stato possibile utilizzarla senza ulteriori modifiche anche con il nostro plugin Multicharts.
 							Per procedere a scaricare le risorse necessarie per poter utilizzare questo componente sono disponibili a questo indirizzo:
-							<a href=https://directa2.directatrading.com/app/MUTE/DarwinCommandLine.zip> DarwinCommandLine.zip</a><br>
-							<b>Questo .zip sar&agrave; costantemente aggiornato, attualmente la versione disponibile &egrave; la: <code>1.1.15 del 26/07/2018</code></b>
+							<a href="http://app1.directatrading.com/dcl/RilascioDCL/DCL.jar">DCL.jar</a><br>
+							<b>Attualmente la versione disponibile &egrave; la: <code>1.1.16 del 12/11/2018</code></b>
 							<br><br>
 							<div class="panel panel-DCM" id="UtilsDCL">
 								
 									&nbsp;<b>Informazioni utilizzo Darwin CommandLine</b><br>
 									<p class="text-justify">
-									
-									&nbsp;Al momento, oltre alla DCL (Engine.jar), &egrave; necessaria la presenza nella stessa cartella della libreria
-									&nbsp;gson.jar che bisogna specificare in sede di avvio.<br> 
-									&nbsp;A seconda del sistema operativo la riga di comando sar&agrave;:<i>(ovvimente l'esempio di comando che riportiamo
-									dipender&agrave; da dove verranno salvati i sorgenti sul proprio pc)</i>:<br><br>
-									&nbsp;<code2><font size="4">Windows</font></code2><br>
-									<ol>
-									&nbsp;&nbsp;<li> con apertura nuovo terminale:<br> <code><b>cmd /C start java -classpath Engine.jar;gson.jar  directa.standalone.StartEngine codiceUtente password</b></code></li>
-									&nbsp;&nbsp;<li><code><b>java -classpath Engine.jar;gson.jar  directa.standalone.StartEngine codiceUtente password</b></code></li>
-									&nbsp;&nbsp;<li> Apertura con doppio click tramite file .bat:</li>
-									<ul>
-									&nbsp;&nbsp;&nbsp;<li> Creare un file di testo(.txt) ed inserire:</li>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code><b>@echo off</b><br>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>java -classpath Engine.jar;gson.jar  directa.standalone.StartEngine codiceUtente password</b></code><br>
-									&nbsp;&nbsp;&nbsp;<li> Cambiare l'estensione al file in .bat (fileProva.txt --> fileProva.bat)</li>
-									&nbsp;&nbsp;&nbsp;<li> Doppio click per avviare il file .bat </li><br>
-									</ul>
-									</ol>
-									&nbsp; <code><font size="4">Osx</font></code>
-									&nbsp;&nbsp;<b>java -classpath Engine.jar:gson.jar  directa.standalone.StartEngine codiceUtente password</b><br><br>
-	
-									&nbsp; <code2><font size="4">Linux</font></code2>
-										&nbsp;&nbsp;<b>java -classpath Engine.jar:gson.jar  directa.standalone.StartEngine codiceUtente password</b><br><br>
-	
-									&nbsp;Per attivare il log della DCL per pemetterci di verificare eventuali errori &egrave; necessario inserire il parametro   <b><code><font size="3" color="#FF6347" >-log</font></code></b><br>
-									&nbsp;&egrave; fondamentale inserirlo come ultimo parametro<br>
-									&nbsp;I file di log verranno salvati qui: <b>cartellaUtente/.directa/engine/logDCL</b><br>
-									&nbsp;Al momento non c'&egrave; un modo automatico di invio dei file di log, quindi &egrave; necessario inviarceli alla nostra mail in caso di problemi.<br>
-									&nbsp;I file rimangono salvati al massimo una settimana, quelli pi&ugrave; vecchi verranno automaticamente cancellati.<br><br>
-	
-									&nbsp;Per chi desidera utilizzare la DCL assime a Multicharts &egrave; necessario inserire come parametro <b><code><font size="3" color="#FF6347" >-mc</font></code></b><br>
-									&nbsp;Questo permette di aggiornare tutti i file utili al nostro plugin Multicharts all'avvio della DCL.
+											<p class="text-justify">
+													Per utilizzare il nuovo DCL.jar serviranno pochissimi passaggi:<br>
+													1) Scaricare il file <a href="https://app1.directatrading.com/dcl/RilascioDCL/DCL.jar">DCL.jar</a><br>
+													2)Lanciarlo da riga di comando: <b>java -jar DCL.jar codiceUtente password</b><br>
+													3)Una volta lanciato il DCL.jar si occuperà ogni volta di aggiornare le risorse necessarie che verranno<br>
+													  salvate nella propria cartella Utente sotto la cartella <b>.directa/engine</b>.<br>
+													Il file DCL.jar può essere lanciato anche sul nostro ambiente di test richiamando il .jar in questo modo:<br>
+													<b>-jar DCL.jar codiceUtente password -test</b><br><br>
+													Il DCL.jar è stato già pensato per Multicharts, quindi non è necessario specificare nulla nei parametri per la compatibilità con il plugin Multicharts.<br>
+													Se vi è necessità di non mettere la password in chiaro come parametro, il DCL.jar può essere fatto partire<br>
+													da un file sul proprio pc, ovvero l'unico parametro sarà il percorso del file dove sarà necessario scrivere le credenziali,<br>
+													in questo modo: <b>codiceUtente;password</b> (questa modalità non supporta però la partenza in ambiente test).<br>
+													<br>
+													Consigliamo per tanto, per chi lo avesse ancora, di eliminare il vecchio Engine.jar e utilizzare il DCL.jar così da essere<br>
+													sempre aggiornati alle nuove modifiche.<br>	
+												</p>
 									</p>
 								</div>
 						<div class="panel panel-DCM" id="AggiornamentiDCM">
@@ -2613,6 +2597,7 @@ TRADOK;FCA;ORD1;3002;ACQAZ;1;4.85;0.0<br>
 					</div>
 					<div class="panel-body panel-collapse collapse" id="collapseChange3">
 					<ul>
+						<p class="text-justify"><pre>12/11/2018 IdOrdine viene salvato e mantenuto in tutte le sessioni.</pre></p>
 						<p class="text-justify"><pre>26/07/2018 Miglioramenti gestione file per utilizzo con Multicharts (info su file utils.txt)</pre></p>
 						<p class="text-justify"><pre>08/06/2018 IdOrdine valido per l'intera sessione della DCL</pre></p>
 						<p class="text-justify"><pre>17/05/2018 Aggiornamento generale</pre></p>
@@ -2739,6 +2724,29 @@ La nuova versione di dGO &egrave; stata pensata anche per gli utenti sviluppator
 				  	</div>
 				</div>
 
+				<div class="panel panel-default" id="dgoPlus">
+						<div class="panel-heading">
+							  <h4 class=panel-title>
+								  <b>dGO + DarwinCommandLine</b>
+							  </h4>
+						  </div>
+						  <div id="collapse30">
+							   <div class="panel-body">
+								<!-- descrizione dGo + dcl-->
+								La Darwin Command Line &egrave utilizzabile direttamente dal dGO.<br>
+								All'interno delle schede della dGO &egrave presente una sezione dedicata alla DCL:<br><br>
+								<p align="center"><img src="img/dAPI.png" height="300" width="250"></p>
+								Cliccando sulla scheda dAPI si verr&agrave; inviati alla scheda di Login:<br><br>
+								<p align="center"><img src="img/dAPIinterno.png" height="300" width="250"></p>
+								Dove &egrave; necessario inserire le proprie credenziali per fare partire la DCL, quindi in questo caso non &egrave; necessario scaricare nulla per utilizzare la DCL
+								ma la dGO provveder&agrave; a fare tutto quanto. E' possibile attivare il "Remember" per salvare utente e password, &egrave; possibile anche utilizzare l'autologin per far avviare immediatamente questa modalit&agrave;.<br>
+								Una volta fatta partire la DCL, oltre ad avviarsi la DCL la dGO rimarr&agrave; su una schermata che indicher&agrave; lo stato della connessione ai prezzi e al tradingi della DCL:<br><br>
+								<p align="center"><img src="img/dAPIConnessioni.png" height="300" width="250"></p><br>
+								Gli interruttori attivi indicano la connessione attiva mentre se spenti indicano che la connessione &egrave; stata persa.<br>
+							   </div>
+						  </div>
+					</div>
+	
 				<!-- fine pannello Darwinapp -->
 
 				<!--<hr class="style-eight" id="newCmd">
@@ -3860,7 +3868,8 @@ La nuova versione di dGO &egrave; stata pensata anche per gli utenti sviluppator
 					</div>
 					<div class="panel-body panel-collapse collapse" id="collapseChange">
 					<ul>
-						<p class="text-justify"><pre>26/07/2018<a href="#PluginDirecta"> Aggiornamento sezione plugin Directa - Darwin Command Line</a></pre></p>
+						<p class="text-justify"><pre>12/11/2018 <a href="#dgoPlus">Informazioni su utilizzo di dGO e DCL</a></pre></p>
+						<p class="text-justify"><pre>12/11/2018 <a href="#InfoMute"> Aggiornamento sezione Darwin Command Line</a></pre></p>
 						<p class="text-justify"><pre>17/05/2018<a href="#PluginDirecta"> Aggiornamento sezione plugin Directa - Plugin Multicharts</a></pre></p>
 						<p class="text-justify"><pre>05/02/2018 <a href="#fl_info"> Aggiunta dettaglio per ricevere book oltre al quinto livello</a></pre></p>
 						<p class="text-justify"><pre>05/02/2018 <a href="#multiUtenza"> Aggiunta sezione per utilizzo API con pi&ugrave; utenze</a></pre></p>
@@ -3973,7 +3982,7 @@ La nuova versione di dGO &egrave; stata pensata anche per gli utenti sviluppator
 							 <ul class="nav">
 								<li ><a href="#cmd_trading" >Comandi Trading verso il Server</a></li>
 								<li ><a href="#cmd_trading_client" >Formato messaggi trading per il client</a></li>
-								<li> <a href="#newCmdTrading" id="blink2">Nuovi Comandi Trading</a></li>
+								<li> <a href="#newCmdTrading">Comandi integrazione risposte Trading</a></li>
 							</ul>
 						</li>
 
@@ -4000,6 +4009,9 @@ La nuova versione di dGO &egrave; stata pensata anche per gli utenti sviluppator
 
 						<li>
 							<a href="#DarwinApp">dGO</a>
+							<ul class="nav">
+									<li><a href="#dgoPlus">dGO + DarwinCommandLine</a></li>
+							   </ul>
 						</li>
 
 
