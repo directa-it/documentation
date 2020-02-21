@@ -3,9 +3,10 @@
   <head>
     <!-- <meta charset="utf-8"> -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content=" L'API trading di Directa permette a chiunque voglia di collegare un software, Applicazione al flusso dati e al sistema di trading di Directa | vedi wiki qui ">
 
-    <title>API User Guide</title>
+    <title>Trading API di Directa | Collega le tue Applicazioni alla dAPI</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -104,15 +105,15 @@
 
        <ul class="nav navbar-nav navbar-left">
 
-       	<h7><a href="#changelog" data-toggle="collapse" data-parent"#accordion" data-target="#collapseChange">Ultimo aggionamento: 18/04/2019</a></h7>
+       	<h7><a href="#changelog" data-toggle="collapse" data-parent"#accordion" data-target="#collapseChange">Ultimo aggionamento: 20/02/2020</a></h7>
        </ul>
 
 
 
        <ul class="nav navbar-nav navbar-middle">
-
+		<a href="https://www.directa.com">
         <img src="img/logo-directa.png">
-
+		</a>
 
          </ul>
 
@@ -147,7 +148,24 @@
 
 
 
-		</br>
+		
+		<div class="header row"> 
+			<div class="col" style="
+			padding-top: 10px;
+			margin-bottom: 56px;
+			line-height: 1.8; 
+		"> 
+				 <h1 class="heading_one" style="
+			line-height: 1.4;
+			color: #154b71;
+			background-color: #f8f8f8;
+			padding: 10px 20px;
+    		text-align: center;
+
+		"> 
+		Trading API di Directa SIM | Collega le tue Applicazioni alla dAPI (Directa's Application Programming Interface) </h1>
+			</div>       
+			</div>
 		<!--class="jumbotron" -->
 
 		<!-- per l'esplosione dei titoli usati cosi -->
@@ -207,10 +225,9 @@
 				    <div id="collapseab" >
 				      <div class="panel-body">
 				        <p class="text-justify">
-				       		Questo pagina &egrave; pensata per mettere in condizione chiunque voglia collegare un software, sviluppato personalmente o da terze parti, al flusso informativo e al sistema di trading di Directa S.I.M.p.A. I servizi sono essenzialmente tre:<br>
-				       		<br>
-				       		<ul>
-				       		<li><h3>API</h3>
+				       		Questo pagina &egrave; pensata per mettere in condizione chiunque voglia collegare un software di trading, sviluppato personalmente o da terze parti, al flusso informativo e al piattaforma di trading di Directa S.I.M.p.A. 
+				       		
+				       		<h3>TRADING API (Application Programming Interface)</h3>
 				       			<p>Questo servizio utilizza il metodo classico dei server socket,
 				       			ovvero la connessione ad una porta tramite il proprio host locale (127.0.0.1).
 
@@ -262,7 +279,7 @@
 				       						       					</table>
 
 				       						       					<br>
-				       				Per avere la ricezione dei Socket &egrave; necessario aprire la Darwin ed essere abilitati al Servizio Prezzi.<br>
+				       				Per avere la ricezione dei Socket &egrave; necessario aprire la piattaforma trading Darwin2 ed essere abilitati al Servizio Prezzi.<br>
 				       				Nella sezione <a href="#htutorial">TUTORIAL</a> &egrave; presente un esempio per provare la connessione direttamente da riga di comando e esempi di connessione con linguaggi di programmazione differenti.
 				       				Ogni servizio ha dei suoi comandi specifici che genereranno una risposta o risposte.
 				       				Nella sezione <a href="#fcomuni">FUNZIONALIT&Agrave; COMUNI</a> &egrave; sono specificati gli usi che ogni servizio mette a disposizione.<br>
@@ -270,27 +287,7 @@
 									<b>Non &egrave; necessario attivare tutti e tre i canali insieme, ma ogni servizio &egrave; usufruibile anche singolarmente.</b>
 				       				
 				       				</p>
-				       		</li><br>
-				       		<li><h3>PROXIMITY</h3>
-				       			<p>	&Egrave; in fase di strutturazione l'offerta ai clienti retail di eseguire
-				       				 software propri o di terze parti in proximity, ovvero all&lsaquo;interno del network della stessa struttura in cui sono collocati i server Directa collegati ai mercati. Questo servizio, previe valutazioni di conformit&agrave; tecnica e legale atte a verificare il rispetto delle normative vigenti, &egrave; un servizio il cui costo e la cui tempisitca possono variare notevolmente a seconda delle richieste utente.<br>
-				       				 	 Si noti che, al netto del non trascurabile vantaggio di annullare i tempi internet di round trip legati alla distanza tra i server e la postazione utente, questa collocazione non fornisce canale alternativo e/o preferenziale nell&lsquo;immisione dell&lsquo;ordine.
-				       					 Per ulteriori informazioni su questa opzione fare riferimento ai seguenti contatti</p>
-				       			<p class="glyphicon glyphicon-phone-alt"> <code>011 53.01.01</code></p><br>
-				       		 <img src="img/imgmail.png" class="img-rounded img-responsive">
-				       		</li>
-
-				       		<li><h3>TESSERA DARWIN</h3>
-				       			<p>&Egrave; in fase di strutturazione la possibilit&agrave; di creazione di una tessera di Darwin.
-
-				       						       			L'utente in base al proprio sistema pu&ograve; interagire con l'interfaccia attuale della Darwin.
-
-				       						       			Per ulteriore informazione su questa opzione fare riferimento ai seguenti contatti<br></p>
-
-				       						       			<p class="glyphicon glyphicon-phone-alt"> <code>011 53.01.01</code> </p><br>
-
-				       						       			 <img src="img/imgmail.png" class="img-rounded img-responsive">
-				       		<br></li>
+				       		<br>
 				        </p>
 				        </ul>
 				      </div>
@@ -307,14 +304,8 @@
 				    <div id="collapsetestata">
 				      <div class="panel-body">
 				        <p class="text-justify">
-				        	Nel progetto della piattaforma di trading DARWIN di Directa  &egrave; prevista la possibilit&agrave; di integrare nuove funzioni, realizzate non solo dal gruppo di lavoro interno, ma anche da programmatori indipendenti.<br>
-				        	<b>Gli strumenti per estendere Darwin sono gratuiti.</b><br>
-				        	Sono attualmente in fase di realizzazione tre diverse possibilit&agrave; di interfacciamento con applicazioni software esterne, la cui la disponibilit&agrave; attuale o futura &egrave; indicata qui di seguito.
-				        </p>
-				        <p class="text-justify">
 				        	<h3>Accettazione delle norme del servizio API Darwin</h3>
 				        	Come consueto, Directa chiede alle persone interessate a realizzare programmi esterni di rispettare alcune norme e di sottoscrivere un accordo per fruire delle API e degli altri strumenti connessi.<br>
-				        	Per far questo, &egrave; sufficiente reinoltrare firmata a Directa l'email di consenso che viene inviata ai clienti che comunicano il loro interesse verso lo sviluppo API.
 				        </p>
 				      </div>
 				    </div>
@@ -331,7 +322,7 @@
 				      <div class="panel-body">
 
 				       <p class="text-justify">
-				        	<h3>Come accedere ai servizi API Darwin</h3>
+				        	<h3>Come accedere ai servizi API Directa</h3>
 				        		Il servizio &egrave; <b>totalmente gratuito</b>, ma sottoposto a controllo da parte di Directa.<br>
 				        		Per l'abilitazione &egrave; necessario passare dal conto nella pagina "Tabellone" e cliccare su info>5a>3h.
 				        		<ol>
@@ -341,7 +332,7 @@
 				        <p class="text-justify">
 				        	<h3>Servizi disponibili</h3>
 				        		<ul>
-				        			<li>Documentazione &ndash; Il programmatore ha accesso a un sito wiki con la documentazione tecnica delle API. Attualmente non pu&ograve; interagire con il contenuto della documentazione, possibilit&agrave; che verr&agrave; presa in considerazione solo in futuri aggiornamenti del sito e per specifiche necessit&agrave;.</li>
+				        			<li>Documentazione API Directa</li>
 				        		</ul>
 				        </p>
 				        <p class="text-justify">
@@ -355,7 +346,7 @@
 
 				        <p class="text-justify">
 				        	<h3>Distribuzione dei programmi realizzati</h3>
-				        	Come precedentemente indicato, la ridistribuzione del software realizzato tramite le API deve essere esplicitamente approvata da Directa. Directa non intende avvalersi di alcun vantaggio economico nella distribuzione di programmi e plugin sviluppati da terze parti, ma naturalmente non potr&agrave; permettere che un software di terze parti renda la piattaforma Darwin o i servizi dei server Directa inefficienti o insicuri, sia per i fruitori dei plugin in oggetto, sia di riflesso per gli altri utenti. Dall'accordo tra Directa e lo sviluppatore potrebbero inoltre nascere opportunit&agrave; di collaborazione tecnica o commerciale che dovranno essere valutate di volta in volta.
+				        	Come precedentemente indicato, la ridistribuzione del software realizzato tramite le API deve essere esplicitamente approvata da Directa. Directa non intende avvalersi di alcun vantaggio economico nella distribuzione di programmi e plugin sviluppati da terze parti, ma naturalmente non potr&agrave; permettere che un software di terze parti renda la piattaforma Darwin2 o i servizi dei trading Directa inefficienti o insicuri, sia per i fruitori dei plugin in oggetto, sia di riflesso per gli altri utenti. 
 				        </p>
 				      </div>
 				    </div>
@@ -387,13 +378,6 @@
 				        <p>
 				        Servizio <b>disponibile</b> in effettivo<br><br>
 				        Darwin consente a un programma esterno l'accesso a una seconda porta IP locale, distinta da quella utilizzabile per ricevere il flusso prezzi, attraverso la quale il programma pu&ograve; dare disposizioni operative ai server Directa (ordine, modifica ordine, revoca, etc.) e ricevere informazioni connesse (disponibilit&agrave;, portafoglio, etc.).
-				        </p>
-				        <br>
-				        <h3><code><font color="black">Creazione Tessera Darwin</font></code></h3>
-				        <p>
-				        Servizio <b>in fase di sviluppo</b><br><br>
-				        Il programmatore, utilizzando la documentazione delle API Darwin e il kit di sviluppo fornito da Directa, pu&ograve; realizzare una propria estensione (plugin) di Darwin, visibile come una tessera della piattaforma e integrata con la scrivania Darwin e le altre tessere native. Il kit di sviluppo e la documentazione saranno disponibili prossimamente.
-				        </p>
 				        </p>
 				      </div>
 				    </div>
@@ -428,21 +412,24 @@
 				    <div id="collapseOne" >
 				      <div class="panel-body">
 				        <p class="text-justify">
-				        	Il plugin Servizio Prezzi (SP) consente all'utente di esportare i dati dalla piattaforma Darwin verso l'esterno della piattaforma stessa.<br>
+				        	Il plugin Servizio Prezzi (SP) consente all'utente di esportare i dati dalla piattaforma Darwin2 verso l'esterno della piattaforma stessa.<br>
 							Il metodo utilizzato &egrave; quello classico classico del server socket in attesa su una o pi&ugrave; porte locali.<br>
 							Aprendo la Darwin ci saranno a disposizione 3 porte, nel dettaglio la porta 10001 per la ricezione DataFeed, la 10002 per il Trading
 							e la 10003 per le chiamate storiche, le porte sono aperte localmente(localhost o 127.0.0.1 a seconda del sistema operativo)
-							e sono a disposizione fino a che la Darwin rimarr&agrave; aperta, possono gestire una o pi&ugrave; connessioni da parte del client.<br>
+							e sono a disposizione fino a che la Darwin2 rimarr&agrave; aperta, possono gestire una o pi&ugrave; connessioni da parte del client.<br>
 							Nella sezione <a href="#tutorial">TUTORIAL</a> sono a disposizione degli esempi di connessione al servizio.<br>
 							Avvenuta la connessione alla porta/e, &egrave; possibile ricevere i dati richiesti tramite i comandi predisposti per il servizio.<br>
-							I messaggi, siano essi di sottoscrizione (client-->Darwin) o di ricezione (Darwin-->client) sono in formato
+							I messaggi, siano essi di sottoscrizione (clien t--> Darwin2) o di ricezione (Darwin2 --> client) sono in formato
 							stringa (UTF-8) e terminati dal carattere di NEWLINE (in funzione del sistema operativo).<br>
 							Per inviare/ricevere messaggi &egrave; sufficiente quindi rispettivamente utilizzare una writeline o una readline
 							(istruzione presente nella maggior parte dei linguaggi di programmazione).<br>
-							Il plugin sottoscrive in automatico sul sistema Darwin i titoli che vengono richiesti.<br>
+							Il plugin sottoscrive in automatico sul sistema Darwin2 i titoli che vengono richiesti.<br>
 							Qualora si tentasse di sottoscrivere pi&ugrave; volte lo stesso titolo verrebbe restituito un errore e in maniera analoga si ottiene un
 							errore se si tenta di desottoscrivere un titolo non sottoscritto.<br>
-							Il numero massimo di titoli sottoscrivibili &egrave; quello fissato dalla piattaforma Darwin.<br>
+							Il numero massimo di titoli sottoscrivibili &egrave; quello fissato dalla piattaforma Darwin2 (attualemente fissa a 100).<br>
+							<b><code><font size="3" color="#FF6347" >
+								NB</font></code></b>&Egrave; molto importante sottolineare come la connessione al server di trading &egrave; unica, se vengono utilizzare le stesse crendenziali
+								su un'altra postazione o dispositivo il modulo trading non sar&agrave; pi&ugrave; connesso.
 				        </p>
 				      </div>
 				    </div>
@@ -459,7 +446,7 @@
 				    <div id="collapsetwo" >
 				      <div class="panel-body">
 				        <p class="text-justify">
-				        	Se l'utente &egrave; abilitato al plugin, il servizio viene avviato automaticamente con la piattaforma Darwin; in caso contrario il servizio non sar&agrave; disponibile.<br>
+				        	Se l'utente &egrave; abilitato alle API, il servizio viene avviato automaticamente con la piattaforma trading Darwin2; in caso contrario il servizio non sar&agrave; disponibile.<br>
 				        	Il servizio apre tre Socket server TCP/IP (uno per l'informativa, uno per il trading e uno per le chiamate storiche) in ascolto sulle porte configurate (di default rispettivamente 10001, 10002 e 10003) e attende i messaggi provenienti dal client.<br>
 				        	&Egrave; possibile aprire pi&ugrave; connessioni sullo stesso socket. Il plugin gestir&agrave; in automatico l'inoltro dei messaggi al client che ne ha fatto richiesta.<br>
 				        </p>
@@ -480,7 +467,7 @@
 				        <p class="text-justify">
 				        	 Il segnale di vita &egrave; utilizzato per mantenere attiva la connessione. Infatti, in presenza di connessioni scadenti, il socket potrebbe essere chiuso inaspettatamente.<br>
 				        	 Per evitare questo comportamento il servizio prezzi prevede l'invio di un pacchetto <b>"Heartbeat"</b> costituito dal carattere H (codice Ascii 72).<br>
-				        	 Ovviamente &egrave; cura dello sviluppatore gestire in base alle esigenze il segnale HeartBeat.<br> Il servizio prezzi invia in automatico il segnale di vita ogni 10 secondi.<br>
+				        	 Ovviamente &egrave; cura dello sviluppatore gestire in base alle esigenze il segnale HeartBeat.<br> La connessione al socket invia in automatico il segnale di vita ogni 10 secondi.<br>
 				        	 Formato del Messaggio di Heartbeat:<br>
 				        	 <b>H\NEWLINE</b>
 				        </p>
@@ -493,15 +480,15 @@
 				  	<div class="panel-heading">
 				  		<h4 class=panel-title>
 
-				  			<b>Gestione Chiusura Darwin tramite API</b>
+				  			<b>Gestione Chiusura Darwin2 tramite API</b>
 
 				  		</h4>
 				  	</div>
 				  	<div id="collapsethree" >
 				  		 <div class="panel-body">
-				         &Egrave; disponibile un comando per poter chiudere la Darwin direttamente tramite un comando API.<br>
-				         Il comando oltre a chiudere la Darwin senza dover interagire con l'interfaccia grafica di Darwin od
-				         eventualmente killando il processo, garantisce anche il salvataggio della propria scrivania di Darwin.
+				         &Egrave; disponibile un comando per poter chiudere la Darwin2 direttamente tramite un comando dedicato.<br>
+				         Il comando oltre a chiudere la Darwin2 senza dover interagire con l'interfaccia grafica od
+				         eventualmente killando il processo, garantisce anche il salvataggio della propria scrivania di Darwin2.
 				         Il comando &egrave; disponibile in tutte e tre le connessioni socket ( datafeed, trading e chiamate storiche)
 				         Di seguito il funzionamento:
 				         <br>
@@ -511,11 +498,11 @@
 						<b>RUN close Darwin : save(true)</b><br>
 						Il <b>save(true)</b> sta ad indicare che la scrivania verr&agrave; salvata.
 						<br><br>
-						Nel caso non si voglia salvare la scrivania della Darwin &egrave; possibile chiudere in questo modo:<br>
+						Nel caso non si voglia salvare la scrivania della Darwin2 &egrave; possibile chiudere in questo modo:<br>
 						<b>CLOSEDARWIN FALSE</b><br>
 						e la risposta sar&agrave; questa:<br>
 						<b>RUN close Darwin : save(false)</b><br>
-						Il procedimento di chiusura &egrave; lo stesso ma non verranno presi in considerazione i cambiamenti alla scrivania di Darwin.
+						Il procedimento di chiusura &egrave; lo stesso ma non verranno presi in considerazione i cambiamenti alla scrivania.
 				      </div>
 				    </div>
 				  </div>
@@ -524,7 +511,7 @@
 					  <div class="panel-heading">
 				  		<h4 class=panel-title>
 
-				  			<b>Connessione Darwin Flusso Prezzi e Trading</b>
+				  			<b>Connessione Darwin2 Flusso Prezzi , Trading e dati storici</b>
 
 				  		</h4>
 				  	</div>
@@ -536,81 +523,78 @@
 						 Questo implica che la Darwin non permette un utilizzo H24 ma che deve essere riavviata una volta al giorno facendo riferimento alla disconessione della mezzanotte,
 						 in questa schedulazione pu&ograve; utile creare dei sistemi che utilizzano la <a href="#DarwinApp">dGO</a> <!--o la Darwin CommandLine--> cos&igrave; da potersi
 						 schedulare delle autoriconnessioni tramite degli script.
+						 Chi avesse necessit&agrave; di utilizzare delle connessione H24 &egrave pregato di contattarci alla mail api@directa.it.
 						  </div>
 					</div>	 
 				</div>
 
 				<div class="panel panel-info" id="multiUtenza">
-						<div class="panel-heading">
-							<h4 class=panel-title>
-	
-								<b>Utilizzo utenze diverse sullo stesso PC</b>
-	
-							</h4>
+					<div class="panel-heading">
+						<h4 class=panel-title>
+
+							<b>Utilizzo utenze diverse sullo stesso PC</b>
+
+						</h4>
+					</div>
+				  <div id="collapsethree" >
+						 <div class="panel-body">
+							&Egrave; possibile utilizzare le nostre piattaforma trading con pi&ugrave; utenze attive, questo perch&egrave; ogni utenza si piazzer&agrave; su porte diverse.<br>
+							<br>
+							Di default le nostre API su utenza singola si mettono in comunicazione su queste porte:<br>
+							<b>10001</b> <code><font color="#01796F">DATAFEED</font></code><br>
+							<b>10002</b> <code><font color="#CD5C5C">TRADING</font></code><br>
+							<b>10003</b> <code><font color="#5E86C1">CHIAMATE STORICHE</font></code><br>
+							<b>10004</b> porta di servizio (utilizzata esclusivamente per le nostre gestioni)<br>
+							<br>
+							Per fare in modo che pi&ugrave; utenze convivano insieme abbiamo dovuto utilizzare porte diverse per utenze diverse, quindi lanciando una seconda utenza questa sar&agrave; cos&igrave; formata:<br>
+							<b>10005</b> <code><font color="#01796F">DATAFEED</font></code><br>
+							<b>10006</b> <code><font color="#CD5C5C">TRADING</font></code><br> 
+							<b>10007</b> <code><font color="#5E86C1">CHIAMATE STORICHE</font></code><br>
+							<b>10008</b> porta di servizio (utilizzata esclusivamente per le nostre gestioni)<br>
+							<br>
+							Di conseguenza altre utenze lanciate si metteranno sempre nelle 4 porte successive.<br>
+							<br>
+							Facciamo qualche esempio di utilizzo:<br>
+							esempio 1:<br>
+							abbiamo 3 utenze attive A B e C, le porte saranno cos&igrave; composte:<br>
+							utenza A 10001,10002,10003,10004<br>
+							utenza B 10005,10006,10007,10008<br>
+							utenza C 10009,10010,10011,10012<br>
+							<br>
+							Se viene staccata l'utenza C, il risultato delle porte attive sar&agrave;:<br>
+							utenza A 10001,10002,10003,10004<br>
+							utenza B 10005,10006,10007,10008<br>
+							<br>
+							esempio2:<br>
+							abbiamo 3 utenze attive A B e C, le porte saranno cos&igrave; composte:<br>
+							utenza A 10001,10002,10003,10004<br>
+							utenza B 10005,10006,10007,10008<br>
+							utenza C 10009,10010,10011,10012<br>
+							<br>
+							Se viene staccata l'utenza A, il risultato delle porte attive sar&agrave;:<br>
+							utenza B 10005,10006,10007,10008<br>
+							utenza C 10009,10010,10011,10012<br>
+							Se viene attivata in questo momento un'utenza D il risultato delle porte sar&agrave;:<br>
+							utenza D 10001,10002,10003,10004<br>
+							utenza B 10005,10006,10007,10008<br>
+							utenza C 10009,10010,10011,10012<br>
+							<br><br>
+							La situazione delle porte sar&agrave; sempre aggiornata in un file che ver&agrave; creato in questo path: <b>cartellaUtente/.directa/engine/APIPortSettings.txt</b><br>
+							dove il contenuto del file sar&agrave; cos&igrave;:<br>
+							<b>55351;10001;10002;10003<br>
+							41000;10005;10006;10007</b><br>
+							il tracciato del file &egrave; : <b>codiceUtente;portaPrezzi;portaTrading;portaChiamatestoriche</b> (La porta di servizio non viene notificata in questo file, non essendo utile per gli sviluppi tramite API).<br>
+							<br>
+							Altro modo per avere il contenuto del file di settings delle porte &egrave; lanciare il comando <b>SETCONNECTION</b> nella connessione <code><font color="#01796F">DATAFEED</font></code>, la risposta sar&agrave; di questo tipo:<br>
+							<b><br>BEGIN PORT<br>
+							55351;10001;10002;10003<br>
+							41000;10005;10006;10007<br>
+							END PORT</b><br>
+							<br>
+							Il fatto di leggere direttamente il file o utilizzare il comando &egrave; a discrezione dell'utente sviluppatore.
 						</div>
-					  <div id="collapsethree" >
-							 <div class="panel-body">
-								&Egrave; possibile utilizzare le nostre API con pi&ugrave; utenze attive, questo perch&egrave; ogni utenza si piazzer&agrave; su porte diverse.<br>
-								<br>
-								Di default le nostre API su utenza singola si mettono in comunicazione su queste porte:<br>
-								<b>10001</b> <code><font color="#01796F">DATAFEED</font></code><br>
-								<b>10002</b> <code><font color="#CD5C5C">TRADING</font></code><br>
-								<b>10003</b> <code><font color="#5E86C1">CHIAMATE STORICHE</font></code><br>
-								<b>10004</b> porta di servizio (utilizzata esclusivamente per le nostre gestioni)<br>
-								<br>
-								Per fare in modo che pi&ugrave; utenze convivano insieme abbiamo dovuto utilizzare porte diverse per utenze diverse, quindi lanciando una seconda utenza questa sar&agrave; cos&igrave; formata:<br>
-								<b>10005</b> <code><font color="#01796F">DATAFEED</font></code><br>
-								<b>10006</b> <code><font color="#CD5C5C">TRADING</font></code><br> 
-								<b>10007</b> <code><font color="#5E86C1">CHIAMATE STORICHE</font></code><br>
-								<b>10008</b> porta di servizio (utilizzata esclusivamente per le nostre gestioni)<br>
-								<br>
-								Di conseguenza altre utenze lanciate si metteranno sempre nelle 4 porte successive.<br>
-								<br>
-								Facciamo qualche esempio di utilizzo:<br>
-								esempio 1:<br>
-								abbiamo 3 utenze attive A B e C, le porte saranno cos&igrave; composte:<br>
-								utenza A 10001,10002,10003,10004<br>
-								utenza B 10005,10006,10007,10008<br>
-								utenza C 10009,10010,10011,10012<br>
-								<br>
-								Se viene staccata l'utenza C, il risultato delle porte attive sar&agrave;:<br>
-								utenza A 10001,10002,10003,10004<br>
-								utenza B 10005,10006,10007,10008<br>
-								<br>
-								esempio2:<br>
-								abbiamo 3 utenze attive A B e C, le porte saranno cos&igrave; composte:<br>
-								utenza A 10001,10002,10003,10004<br>
-								utenza B 10005,10006,10007,10008<br>
-								utenza C 10009,10010,10011,10012<br>
-								<br>
-								Se viene staccata l'utenza A, il risultato delle porte attive sar&agrave;:<br>
-								utenza B 10005,10006,10007,10008<br>
-								utenza C 10009,10010,10011,10012<br>
-								Se viene attivata in questo momento un'utenza D il risultato delle porte sar&agrave;:<br>
-								utenza D 10001,10002,10003,10004<br>
-								utenza B 10005,10006,10007,10008<br>
-								utenza C 10009,10010,10011,10012<br>
-								<br><br>
-								La situazione delle porte sar&agrave; sempre aggiornata in un file che ver&agrave; creato in questo path: <b>cartellaUtente/.directa/engine/APIPortSettings.txt</b><br>
-								dove il contenuto del file sar&agrave; cos&igrave;:<br>
-								<b>55351;10001;10002;10003<br>
-								41000;10005;10006;10007</b><br>
-								il tracciato del file &egrave; : <b>codiceUtente;portaPrezzi;portaTrading;portaChiamatestoriche</b> (La porta di servizio non viene notificata in questo file, non essendo utile per gli sviluppi tramite API).<br>
-								<br>
-								Altro modo per avere il contenuto del file di settings delle porte &egrave; lanciare il comando <b>SETCONNECTION</b> nella connessione <code><font color="#01796F">DATAFEED</font></code>, la risposta sar&agrave; di questo tipo:<br>
-								<b><br>BEGIN PORT<br>
-								55351;10001;10002;10003<br>
-								41000;10005;10006;10007<br>
-								END PORT</b><br>
-								<br>
-								Il fatto di leggere direttamente il file o utilizzare il comando &egrave; a discrezione dell'utente sviluppatore.
-								<br>
-								<br>
-								<b><code><font size="3" color="#FF6347" >NB</font></code></b> questa funzionalit&agrave; &egrave; disposinibile sull'ultima versione di DarwinCommandLine e nella versione di Darwin2 attualmente in fase di test.
-								
-							</div>
-					  </div>	 
-				  </div>
+				  </div>	 
+			  </div>
 
 				   <div class="panel panel-info" id="comandi-informativi">
 				  	<div class="panel-heading">
@@ -623,7 +607,7 @@
 				  	<div id="collapsefour">
 				  		 <div class="panel-body">
 				        <p class="text-justify">
-				        	 &Egrave; possibile richiedere informazioni al Servizio Prezzi circa la situazione del portafoglio eseguendo alcuni comandi specifici sul <b>canale di trading</b>.<br>
+				        	 &Egrave; possibile richiedere informazioni attaverso le nostre API trading circa la situazione del portafoglio eseguendo alcuni comandi specifici sul <b>canale di trading</b>.<br>
 				        	  &lt;CODICE COMANDO&gt;\n<br>
 				        	 I possibili valori per  &lt;CODICE COMANDO&gt; sono i seguenti:
 				        	 <table class="table table-bordered" id="tabellaCom">
@@ -654,7 +638,12 @@
   										<td>GETPOSITION</td>
   										<td><code><font color="#CD5C5C">TRADING</font></code></td>
   										<td>Restituisce informazioni sulla posizione di un singolo strumento nello stesso formato del comando INFOSTOCKS</td>
-  									</tr>
+									  </tr>
+									  <tr>
+										<td>GETPOSITION</td>
+										<td><code><font color="#CD5C5C">TRADING</font></code></td>
+										<td>Restituisce informazioni sulla posizione di un singolo strumento nello stesso formato del comando INFOSTOCKS</td>
+									</tr>
   									<tr>
   										<td>INFOACCOUNT</td>
   										<td><code><font color="#CD5C5C">TRADING</font></code></td>
@@ -695,7 +684,8 @@
 								  filtrate. I due nuovi comandi a disposizione sono:</p><br>
 							  <ul>
 								  <li><b>ORDERLISTNOREV</b> - lista comprendente solamente gli ordini pending e eseguti</li>
-								  <li><b>ORDERLISTPENDING</b> - lista comprendente solamente gli ordini pending, verrano scartati i revocati e gli eseguiti</li>	
+								  <li><b>ORDERLISTPENDING</b> - lista comprendente solamente gli ordini pending, verrano scartati i revocati e gli eseguiti</li>
+								  <b><b>ORDERLIST 'TICKER'</b>ORDERLIST </b> - lista comprendente gli ordini per lo strumento specificato nel comando</li>
 							  </ul><br>
 							  <b><code><font size="3" color="#FF6347" >NB</font></code></b> nell'ambito della creazione di questi comandi abbiamo deciso, per non appesantire la connessione iniziale al trading, che se la lista ordini &egrave; maggiore o uguale a 100 
 							  la lista ordini sar&agrave; l'equivalente del comando ORDERLISTNOREV, cos&igrave; da avere come dettaglio iniziale gli ordini eseguiti ed eventuai pending, non ci fossero pending o eseguiti ma la lista revocati supera i 100 verr&agrave; mandato un codice errore 1019
@@ -839,9 +829,9 @@
 				        	<br><b>DARWIN_STATUS;CONN_OK;Release 1.00 20130101\n</b>
 				        	<br><br>
 				        	<b>Formato messaggio INFOACCOUNT</b>
-				        	<br>INFOACCOUNT; &lt;ORA HH:MM:SS&gt; ; &lt;CODICE CONTO DIRECTA&gt; ; &lt;LIQUIDITA'&gt; ; &lt;GAIN EURO&gt; ; &lt;OPEN PROFIT/LOSS&gt;\n
+				        	<br>INFOACCOUNT; &lt;ORA HH:MM:SS&gt; ; &lt;CODICE CONTO DIRECTA&gt; ; &lt;LIQUIDITA'&gt; ; &lt;GAIN EURO&gt; ; &lt;OPEN PROFIT/LOSS&gt; ; &lt;EQUITY&gt;\n
 				        	<br>Esempio di record INFOACCOUNT per il titolo Fiat (10 azioni in portafoglio e 10 azioni in negoziazione):
-				        	<br><b>INFOACCOUNT;12:49:11;40000;150000;1200;430</b>
+				        	<br><b>INFOACCOUNT;12:49:11;40000;150000;1200;430;2</b>
 				        	<br>
                   <p id="ora_esatta"></p>
 				        	<b>Formato messaggio ORDER</b>
@@ -1095,33 +1085,47 @@
 				        				<td>ERR_TRADING_PUSH_DISCONNECTED</td>
 				        				<td>Sengala la disconnessione del trading</td>
 				        				<td><code><font color="#CD5C5C">TRADING</font></code></td>
+									</tr>
+									<tr>
+				        				<td>1025</td>
+				        				<td>ERR_TRADING_PUSH_RECONNECTION_OK</td>
+				        				<td>Sengale di riconnessione</td>
+				        				<td><code><font color="#CD5C5C">TRADING</font></code></td>
 				        			</tr>
+				        			<tr>
+				        				<td>1026</td>
+				        				<td>ERR_TRADING_PUSH_RELOAD</td>
+				        				<td>Segnala il reload del trading</td>
+				        				<td><code><font color="#CD5C5C">TRADING</font></code></td>
+									</tr>
+									<tr>
+										<td>1027</td>
+										<td>ERR_DATAFEED_DISCONNECTED</td>
+										<td>Segnala la disconessione del datafeed</td>
+										<td><code><font color="#01796F">DATAFEED</font></td>
+									</tr> 
+									<tr>
+										<td>1028</td>
+										<td>ERR_DATAFEED_RELOAD</td>
+										<td>Segnala il reload del datafeed</td>
+										<td><code><font color="#01796F">DATAFEED</font></td>
+									</tr> 
+
 									<tr>
 				        				<td>1030</td>
 				        				<td>ERR_MARKET_UNAVAILABLE</td>
 				        				<td>Mercato non abilitato per il ticker richiesto</td>
 				        				<td><code><font color="#01796F">DATAFEED</font></code></td>
 									</tr>
+								</tr>>
 									<tr>
-				        				<td>1031</td>
-				        				<td>CONTATTO_NON_ATTIVO</td>
-				        				<td>Contatto verso il nostro server di trading scuduto, necessario riavviare l'applicazione per fare operazioni di trading</td>
-				        				<td><code><font color="#CD5C5C">TRADING</font></code></td>
+										<td>1031</td>
+										<td>CONTATTO_NON_ATTIVO</td>
+										<td>Contatto verso il nostro server di trading scuduto, necessario riavviare l'applicazione per fare operazioni di trading</td>
+										<td><code><font color="#CD5C5C">TRADING</font></code></td>
 									</tr>
-									
 
-				        			<!-- <tr>
-				        				<td>1025</td>
-				        				<td>ERR_TRADING_PUSH_RECONNECTION_OK</td>
-				        				<td>Sengale di riconnessione</td>
-				        				<td></td>
-				        			</tr>
-				        			<tr>
-				        				<td>1026</td>
-				        				<td>ERR_TRADING_PUSH_RELOAD</td>
-				        				<td>Segnala il reload del trading</td>
-				        				<td></td>
-				        			</tr> -->
+				        			 
 
 				        			<!-- imposta poi l'evento 1026 e 1025-->
 				        			<!-- per gestione della riconnessione automatica -->
@@ -1146,7 +1150,7 @@
 				<div class="panel panel-info" id="fl_info">
 				  	<div class="panel-heading">
 				  		<h4 class=panel-title>
-				  			<b>Comandi sottoscrizione/desottoscrizione verso il Server</b>
+				  			<b>Comandi sottoscrizione/desottoscrizione verso le quotazioni Directa</b>
 				  		</h4>
 				  	</div>
 				  	<div id="collapseseven"  >
@@ -1154,7 +1158,7 @@
 				        <p class="text-justify">
 				        	<pre>COMANDI DI SOTTOSCRIZIONE/DESOTTOSCRIZIONE</pre>
 
-								<b><code><font size="3" color="#FF6347" >NB</font></code></b> &Egrave; bene ricordare che, indipendentemente dal numero di connessioni che si stabiliscono con la porta 10001, il limite massimo di titoli sottoscrivibili da Darwin &egrave; al momento pari a 100.
+								<b><code><font size="3" color="#FF6347" >NB</font></code></b> &Egrave; bene ricordare che, indipendentemente dal numero di connessioni che si stabiliscono con la porta 10001, il limite massimo di titoli sottoscrivibili da Darwin2 &egrave; al momento pari a 100.
 								<br>Per sottoscrivere/desottoscrivere uno i pi&ugrave; strumenti &egrave; necessario inviare al servizio un messaggio nel seguente formato:<br>
 								<br>&lt;CODICE SOTTOSCRIZIONE&gt; &lt;ELENCO TICKER SEPARATO DA VIRGOLA&gt;\n<br>
 								<br>I possibili valori per &lt;CODICE SOTTOSCRIZIONE&gt; sono i seguenti:
@@ -1199,26 +1203,26 @@
 											<td>Eseguiti + Bidask</td>
 										</tr>
 										<tr>
-												<td>SUB10</td>
-												<td><code><font color="#01796F">DATAFEED</font></td>
-												<td>10001</td>
-												<td>Tutti i flussi</td>
-												<td>Eseguiti + Book 5 livelli + Book 10 livelli + Bidask</td>	
-											</tr>
-											<tr>
-												<td>SUB15</td>
-												<td><code><font color="#01796F">DATAFEED</font></td>
-												<td>10001</td>
-												<td>Tutti i flussi</td>
-												<td>Eseguiti + Book 5 livelli + Book 10 livelli + Book 15 livelli + Bidask</td>	
-											</tr>
-											<tr>
-												<td>SUB20</td>
-												<td><code><font color="#01796F">DATAFEED</font></td>
-												<td>10001</td>
-												<td>Tutti i flussi</td>
-												<td>Eseguiti + Book 5 livelli + Book 10 livelli + Book 15 livelli + Book 20 livelli + Bidask</td>	
-											</tr>
+											<td>SUB10</td>
+											<td><code><font color="#01796F">DATAFEED</font></td>
+											<td>10001</td>
+											<td>Tutti i flussi</td>
+											<td>Eseguiti + Book 5 livelli + Book 10 livelli + Bidask</td>	
+										</tr>
+										<tr>
+											<td>SUB15</td>
+											<td><code><font color="#01796F">DATAFEED</font></td>
+											<td>10001</td>
+											<td>Tutti i flussi</td>
+											<td>Eseguiti + Book 5 livelli + Book 10 livelli + Book 15 livelli + Bidask</td>	
+										</tr>
+										<tr>
+											<td>SUB20</td>
+											<td><code><font color="#01796F">DATAFEED</font></td>
+											<td>10001</td>
+											<td>Tutti i flussi</td>
+											<td>Eseguiti + Book 5 livelli + Book 10 livelli + Book 15 livelli + Book 20 livelli + Bidask</td>	
+										</tr>
 									</tbody>
 								</table>
 								<br>
@@ -1304,23 +1308,23 @@
 				        			<tr>
 				        				<td>BOOK_5</td>
 				        				<td><code><font color="#01796F">DATAFEED</font></code></td>
-				        				<td> Book a 5 livelli</td>
+				        				<td> Book livelli da 1 a 5</td>
 									</tr>
 									<tr>
-											<td>BOOK_10</td>
-											<td><code><font color="#01796F">DATAFEED</font></code></td>
-											<td> Book livelli da 6 a 10</td>
-										</tr>
-										<tr>
-											<td>BOOK_15</td>
-											<td><code><font color="#01796F">DATAFEED</font></code></td>
-											<td> Book livelli da 11 a 15</td>
-										</tr>
-										<tr>
-											<td>BOOK_20</td>
-											<td><code><font color="#01796F">DATAFEED</font></code></td>
-											<td> Book livelli da 16 a 20</td>
-										</tr>
+				        				<td>BOOK_10</td>
+				        				<td><code><font color="#01796F">DATAFEED</font></code></td>
+				        				<td> Book livelli da 6 a 10</td>
+									</tr>
+									<tr>
+				        				<td>BOOK_15</td>
+				        				<td><code><font color="#01796F">DATAFEED</font></code></td>
+				        				<td> Book livelli da 11 a 15</td>
+									</tr>
+									<tr>
+				        				<td>BOOK_20</td>
+				        				<td><code><font color="#01796F">DATAFEED</font></code></td>
+				        				<td> Book livelli da 16 a 20</td>
+				        			</tr>
 				        			<tr>
 				        				<td>BIDASK</td>
 				        				<td><code><font color="#01796F">DATAFEED</font></code></td>
@@ -1353,7 +1357,7 @@
 							<br>Esempio di record PRICE_AUCT per il titolo FIAT CHRYSLER AUTO:<br>
 							<b>PRICE_AUCT;FCA;16:28:56;7.8\n</b><br>
 							<br>
-							<b><p id="BidaskMessaggio">Formato messaggio BIDASK</p></b><br>
+							<b><p id="BidaskMessaggio">Formato messaggio BIDASK</p></b>
 							<br>&lt;TIPO_MESSAGGIO&gt; ; &lt;TICKER&gt; ; &lt;ORA HH:MM:SS&gt; ; &lt;QUANTIT&Agrave; AZIONI ACQUISTO LIVELLO 1&gt; ; &lt;NUM PROPOSTE ACQUISTO LIVELLO 1&gt; ; &lt;PREZZO ACQUISTO LIVELLO 1&gt; ; &lt;QUANTIT&Agrave; AZIONI VENDITA LIVELLO 1&gt; ; &lt;NUM PROPOSTE VENDITA LIVELLO 1&gt; ; &lt;PREZZO VENDITA LIVELLO 1&gt;\n<br>
 							<br>Esempio di record BIDASK per il titolo FIAT CHRYSLER AUTO:<br>
 							<b>BIDASK;FCA;16:41:21;14381;<font color="blue">0</font>;6.795;5458;<font color="blue">0</font>;6.805\n</b><br>
@@ -1372,9 +1376,9 @@
 							&lt;QUANTIT&Agrave; AZIONI VENDITA LIVELLO 2&gt; ; &lt;NUM PROPOSTE VENDITA LIVELLO 2&gt; ; &lt;PREZZO VENDITA LIVELLO 2&gt; ;
 							&lt;QUANTIT&Agrave; AZIONI VENDITA LIVELLO 3&gt; ; &lt;NUM PROPOSTE VENDITA LIVELLO 3&gt; ; &lt;PREZZO VENDITA LIVELLO 3&gt; ;
 							&lt;QUANTIT&Agrave; AZIONI VENDITA LIVELLO 4&gt; ; &lt;NUM PROPOSTE VENDITA LIVELLO 4&gt; ; &lt;PREZZO VENDITA LIVELLO 4&gt; ;
-							&lt;QUANTIT&Agrave; AZIONI VENDITA LIVELLO 5&gt; ; &lt;NUM PROPOSTE VENDITA LIVELLO 5&gt; ; &lt;PREZZO VENDITA LIVELLO 5&lt;\n<br>
+							&lt;QUANTIT&Agrave; AZIONI VENDITA LIVELLO 5&gt; ; &lt;NUM PROPOSTE VENDITA LIVELLO 5&gt; ; &lt;PREZZO VENDITA LIVELLO 5&gt;\n<br>
 							<br>Esempio di record BOOK_5 per il titolo FIAT CHRYSLER AUTO:<br>
-							<b>BOOK_5;FCA;16:26:09;17743;6;6.755;31230;6;6.75;36723;11;6.745;48250;14;6.74;56771;11;6.735;7600;3;6.765;18795;8;6.77;15358;8;6.775;21212;10;6.78;12522;5;6.785\n</b><br>
+							<b>BOOK_5;FCA;16:26:09;17743;6;6.755;31230;6;6.75;36723;11;6.745;48250;14;6.74;56771;11;6.735;7600;<br>3;6.765;18795;8;6.77;15358;8;6.775;21212;10;6.78;12522;5;6.785\n</b><br>
 							<br>
 							<br>
 							<b>Formato messaggio BOOK_10</b><br>
@@ -1483,7 +1487,7 @@
 						<b>UNS FMIDC</b> &nbsp;&nbsp;&nbsp;<-- comando desottoscrizione<br>
 						<br>
 						Per quanto riguarda le chiamate storiche fare riferimento alle istruzioni dei comandi dettagliati nella sezione <a href="#ch"><code><font color="#5E86C1">CHIAMATE STORICHE</font></code></a> e utilizzare i Ticker presenti nell'elenco indicato in precedenza.
-						<br><b><code><font size="3" color="#FF6347" >NB</font></code></b>Per le chiamate storiche &egrave; necessario utilizzare i ticker degli indici in Maiuscolo come riportati nella lista, inseriti in maniera diversa il ticker non verr&agrave; riconosciuto.
+						<br><b><code><font size="3" color="#FF6347" >NB</font></code></b>Per le chiamate storiche &egrave; necessario utilizzare i ticker degli indici in Maiuscolo digitato in maniera diversa il ticker non verr&agrave; riconosciuto.
 				      </div>
 				    </div>
 				  </div>
@@ -1569,17 +1573,10 @@
 				    </div>
 				  </div>
 
-				<div class="panel panel-danger" id="history_old">
-				  	<div class="panel-heading">
-				  		<h4 class=panel-title>
+				<!--<div class="panel panel-danger" id="history_old">
 
-				  			<b>Comandi dati storici -Funzione dismessa- utilizzare:<a href="#ch"><code><font color="#5E86C1">CHIAMATE STORICHE</font></code></a></b>
-
-				  	
-				  </div>
-
-				
-				  </div>
+				topperia
+				  </div> -->
 				<!-- fine pannello datafeed -->
 
 
@@ -1595,7 +1592,7 @@
 				<div class="panel panel-info" id="cmd_trading">
 				  	<div class="panel-heading">
 				  		<h4 class=panel-title>
-				  			<b>Comandi Trading verso il Server</b>
+				  			<b>Comandi verso il Server Trading Directa</b>
 				  		</h4>
 				  	</div>
 				  	<div id="collapse14">
@@ -1605,9 +1602,12 @@
 
 							&lt;CODICE COMANDO&gt; &nbsp;{&lt;ID_ORDINE&gt;},{&lt;TICKER&gt;,&lt;QUANTITA'&gt;},{&lt;PREZZO&gt;}\n<br>
 
-							<br>Il Servizio Prezzi pu&ograve; richiedere la conferma dell'ordine al client. In caso di richiesta conferma &egrave; necessario rispondere con apposito comando di conferma e &lt;ID_ORDINE&gt; corrispondente.<br>
+							<br>Il sistema trading pu&ograve; richiedere la conferma dell'ordine al client. In caso di richiesta conferma &egrave; necessario rispondere con apposito comando di conferma e &lt;ID_ORDINE&gt; corrispondente.<br>
 
 							<br><b>&lt;ID_ORDINE&gt;</b> deve essere generato dal client ed essere univoco per la sessione corrente di connessione al socket.<br>
+
+							<b><code><font size="3" color="#FF6347" >
+								NB</font></code></b> Tuttel le informazioni utili sui tipi di ordini possibli con Directa sono documentato sul nostro sito commerciale <a href="http://www.directa.it/pub/it/help/ordini.html">clicca qui<a></a>
 
 							<br>I possibili valori per <b>&lt;CODICE AZIONE&gt;</b> sono i seguenti:
 							<table class="table table-bordered">
@@ -1858,7 +1858,7 @@
 				    <div class="panel panel-my" id="newCmdTrading">
 				  		<div class="panel-heading">
 				  			<h4 class=panel-title>
-								<b>Comandi per ampliare le risposte flusso trading <code><font color="#CD5C5C">TRADING</font></code></b>
+				  				<b>Comandi per ampliare le risposte flusso trading <code><font color="#CD5C5C">TRADING</font></code></b>
 				  			</h4>
 				  		</div>
 				  	
@@ -1894,7 +1894,7 @@
 				        		</tr>
 				        		<tr>
 				        			<td>PRICEEXE</td>
-				        			<td>Aggiunta campi relativi al prezzo eseguito, quantit&agrave; e id_ordine relativi ai pacchetti TRADOK e ORDER <br><b>Utile per avere informazioni maggiori sui vari ordini e soprattuto per la gestione degli ordini parzialmente eseguiti.</b></td>
+				        			<td>Aggiunta campi relativi al prezzo eseguito, quantit&agrave; e id_ordine relativi ai pacchetti TRADOK e ORDER.<br><b>Utile per avere informazioni maggiori sui vari ordini e soprattuto per la gestione degli ordini parzialmente eseguiti.</b></td>
 				        			<td> FALSE / TRUE</td>
 				        			<td>FALSE</td>
 				        		</tr>
@@ -2226,11 +2226,12 @@ TRADOK;FCA;ORD1;3002;ACQAZ;1;4.85;0.0<br>
 				  	<div id="collapse18" >
 				  		 <div class="panel-body">
 				  	<b>Specifiche per i periodi storici disponibili</b>
-					<br>
-					<br>
-					<b>I limiti attualmente imposti sono 40 giorni per le chiamate intraday e 5 anni per le chiamate EnfOfDay, in caso
+				  	<br>
+				
+					<b>I limiti attualmente imposti sono 40 giorni per le chiamate intraday e 15 anni per le chiamate EnfOfDay, in caso
 					di chiamate oltre i limiti la risposta sar&agrave; composta della massima profondit&agrave; della nostra base dati, in caso di errore nei comandi o
-					nei limiti verranno inviati dei codici di errore.</b><br>	
+					nei limiti verranno inviati dei codici di errore.</b><br>
+					
 				  	<br>
 				        	<table class="table table-bordered">
 				        	<thread>
@@ -2273,7 +2274,7 @@ TRADOK;FCA;ORD1;3002;ACQAZ;1;4.85;0.0<br>
 				  		 <div class="panel-body">
 				        <p class="text-justify">
 				        	<!--<b><font color="red">NB: QUESTA FUNZIONALIT&Agrave; &Egrave; IN FASE DI TEST, PER QUALSIASI INFORMAZIONE O SEGNALAZIONE CONTATTARE IL SERVIZIO A.P.I. DI DIRECTA.</font></b><br>-->
-				        	<b>TBT Versione 1.0</b><br>
+				        	<b>TBT</b><br>
 				        	<br>Per abilitare la connessione &egrave; necessario usare una connessione tramite socket sulla porta 10003.<br>
 				        	<br>Si possono usare quattro comandi, <b>TBT</b>(Uso 1) <b>TBTRANGE</b>(Uso 2) <b>CANDLE</b>(Uso 3) e <b>CANDLERANGE</b>(Uso 4).<br>
 				        	<br>Per usare i comandi &egrave; necessario inserire uno spazio tra un argomento e l&lsquo;altro.<br>
@@ -2513,15 +2514,26 @@ TRADOK;FCA;ORD1;3002;ACQAZ;1;4.85;0.0<br>
 				        	CANDLE;REY;20140617;09:00:00;57.90000;57.75000;58.25000;58.25000;1089<br>
 				        	........<br>
 				        	CANDLE;REY;20140618;13:00:00;57.05000;57.00000;57.70000;57.45000;11966<br>
-				        </p>
+						</p>
+						Nel caso si abbia la necessita di avere il riferimento del ticker all'interno della risposta &egrave; possibile utilizzare questo comando:<br>
+						<br>TICKERMARKER</b>
+						per attivarlo &egrave; necessario utilizzare il comando cos&igrave; <b>TICKERMARKER TRUE</b>
+						La risposta sar&agrave; cos&igrave; composta:<br>
+						Comando inviato:<br>
+						CANDLERANGE FCA 20200220000000 20200221235959 86400
+						<br><br>Risposta:<br> 
+						BEGIN CANDLES FCA 
+						CANDLE;FCA;20200220;09:00:00;12.27600;12.20000;12.38400;12.27000;8464046 
+						CANDLE;FCA;20200221;09:00:00;12.20600;12.12600;12.27400;12.22000;3988101 
+						END CANDLES FCA 
 				      </div>
 				    </div>
 				  </div>
 
 
 
-				<hr class="style-eight" id="PluginDirecta">
-				<h2 id="hdwapp">Plugin Directa</h2>
+				<hr class="style-eight" >
+				<h2 id="pldirecta">Plugin Directa</h2> 
 
 				<div class="panel panel-Mc" id="InfoMC">
 					<div class="panel-heading">
@@ -2529,12 +2541,12 @@ TRADOK;FCA;ORD1;3002;ACQAZ;1;4.85;0.0<br>
 					</div>
 						<div id="collapse30">
 				  		 <div class="panel-body">
-					<b>L'attuale versione in linea del nostro pluginIN per la connessione con Multicharts &egrave; la <code>1.76 - 27/04/2018</b></code>.<br>
+					<b>L'attuale versione in linea del nostro pluginIN per la connessione con Multicharts &egrave; la <code>1.81 - 11/02/2020</b></code>.<br>
 					Per reperire l'installer necessario per il collegamento bisogna eseguire questi passaggi:<br>
 					a partire dal TABELLONE di directratrading.com,  cliccando su Info -> punto 5a   (ABILITAZIONI e VARIAZIONI CONTRATTUALI / Abilitazioni) -> punto 3i  (API).<br>
 					In cima saranno presenti i due installer, uno per i sistemi a 32bit l'altro per quelli a 64bit.<br>
 					Oltre agli installer del plugin &egrave; presente anche la guida all'installazione che mettiamo a disposizione anche qui:
-					<li><a href="MANUAL-LAST.pdf">&nbsp;ManualeInstallazioneMC</a></li> 
+					<li><a href="downfile.php?id=12">&nbsp;ManualeInstallazioneMC</a></li> 
 					<br>
 						<div class="panel panel-Mc" id="AggiornamentiMC">
 					<div class="panel-heading">
@@ -2542,10 +2554,12 @@ TRADOK;FCA;ORD1;3002;ACQAZ;1;4.85;0.0<br>
 					</div>
 					<div class="panel-body panel-collapse collapse" id="collapseChange2">
 					<ul>
+						<p class="text-justify"><pre>11/02/2020 uniformato aggregazione dati storici per composizione candele - allegerimento file di log</pre>11/02/2020 </p>
 						<p class="text-justify"><pre>27/04/2018 Corretto freeze momentaneo su revoca ordine</pre></p>
 						<p class="text-justify"><pre>21/07/2017 Migliorate le exit strategy,comandi per autoriconessione darwin, indicazione prezzo per ordini a mercato</pre></p>
-						<p class="text-justify"><pre>09/02/2017 Gestione chiamate storiche fuori range</pre></p>
+						<p class="text-justify"><pre>09/02/2017 Migliorata gestione chiamate storiche fuori range</pre></p>
 						<p class="text-justify"><pre>13/01/2017 Gestione lettura file migliorata per utilizzo con DarwinCommandLine</pre></p>
+						<p class="text-justify"><pre>14/11/2016 Risolta problematica volumi per grafici con compressione 1Day</pre></p>
 						<p class="text-justify"><pre>04/07/2016 Ultimo rilascio disponibile plugin Multicharts</pre></p>
 						</ul>
 					</div>
@@ -2560,53 +2574,52 @@ TRADOK;FCA;ORD1;3002;ACQAZ;1;4.85;0.0<br>
 					</div>
 					<div id="collapse30">
 				  		<div class="panel-body">
-							Versione Darwin standalone senza interfaccia grafica:
-							Su richiesta di alcuni utenti, abbiamo deciso di implementare una Darwin senza alcuna interfaccia grafica che eroga il set di dati
-							descritti nel protocollo API Darwin. Questa versione che abbiamo denominato Darwin Command Line, sar&agrave;
+							Versione Darwin2 standalone senza interfaccia grafica:
+							Su richiesta di alcuni utenti, abbiamo deciso di implementare una Darwin2 senza alcuna interfaccia grafica che eroga il set di dati
+							descritti nel protocollo Application Programming Interface Darwin2. Questa versione che abbiamo denominato Darwin Command Line, sar&agrave;
 							eseguibile, appunto, tramite riga di comando e dovrebbe gi&agrave; essere completamente compatibile con quanto da Lei eventualmente sviluppato,
 							cos&igrave; come &egrave; stato possibile utilizzarla senza ulteriori modifiche anche con il nostro plugin Multicharts.
 							Per procedere a scaricare le risorse necessarie per poter utilizzare questo componente sono disponibili a questo indirizzo:
-							<a href="http://app1.directatrading.com/dcl/RilascioDCL/DCL.jar">DCL.jar</a><br>
+							<a href="https://app1.directatrading.com/dcl/RilascioDCL/DCL.jar">DCL.jar</a><br>
 							<b>Attualmente la versione disponibile &egrave; la: <code>1.1.17 del 02/02/2019</code></b>
 							<br><br>
 							<div class="panel panel-DCM" id="UtilsDCL">
 								
-									&nbsp;<b>Informazioni utilizzo Darwin CommandLine</b><br>
-									<p class="text-justify">
-											<p class="text-justify">
-													Per utilizzare il nuovo DCL.jar serviranno pochissimi passaggi:<br>
-													1) Scaricare il file <a href="https://app1.directatrading.com/dcl/RilascioDCL/DCL.jar">DCL.jar</a><br>
-													2)Lanciarlo da riga di comando: <b>java -jar DCL.jar codiceUtente password</b><br>
-													3)Una volta lanciato il DCL.jar si occuperà ogni volta di aggiornare le risorse necessarie che verranno<br>
-													  salvate nella propria cartella Utente sotto la cartella <b>.directa/engine</b>.<br>
-													Il file DCL.jar può essere lanciato anche sul nostro ambiente di test richiamando il .jar in questo modo:<br>
-													<b>-jar DCL.jar codiceUtente password -test</b><br><br>
-													Il DCL.jar è stato già pensato per Multicharts, quindi non è necessario specificare nulla nei parametri per la compatibilità con il plugin Multicharts.<br>
-													Se vi è necessità di non mettere la password in chiaro come parametro, il DCL.jar può essere fatto partire<br>
-													da un file sul proprio pc, ovvero l'unico parametro sarà il percorso del file dove sarà necessario scrivere le credenziali,<br>
-													in questo modo: <b>codiceUtente;password</b> (questa modalità non supporta però la partenza in ambiente test).<br>
-													<br>
-													Consigliamo per tanto, per chi lo avesse ancora, di eliminare il vecchio Engine.jar e utilizzare il DCL.jar così da essere<br>
-													sempre aggiornati alle nuove modifiche.<br>	
-												</p>
-									</p>
-								</div>
+								&nbsp;<b>Informazioni utilizzo Darwin CommandLine</b><br>
+								<p class="text-justify">
+									Per utilizzare il nuovo DCL.jar serviranno pochissimi passaggi:<br>
+									1) Scaricare il file <a href="https://app1.directatrading.com/dcl/RilascioDCL/DCL.jar">DCL.jar</a><br>
+									2)Lanciarlo da riga di comando: <b>java -jar DCL.jar codiceUtente password</b><br>
+									3)Una volta lanciato il DCL.jar si occuperà ogni volta di aggiornare le risorse necessarie che verranno<br>
+									  salvate nella propria cartella Utente sotto la cartella <b>.directa/engine</b>.<br>
+									Il file DCL.jar può essere lanciato anche sul nostro ambiente di test richiamando il .jar in questo modo:<br>
+									<b>-jar DCL.jar codiceUtente password -test</b><br><br>
+									Il DCL.jar è stato già pensato per Multicharts, quindi non è necessario specificare nulla nei parametri per la compatibilità con il plugin Multicharts.<br>
+									Se vi è necessità di non mettere la password in chiaro come parametro, il DCL.jar può essere fatto partire<br>
+									da un file sul proprio pc, ovvero l'unico parametro sarà il percorso del file dove sarà necessario scrivere le credenziali,<br>
+									in questo modo: <b>codiceUtente;password</b> (questa modalità non supporta però la partenza in ambiente test).<br>
+									<br>
+								</p>
+							</div>
+
+							<br>
 						<div class="panel panel-DCM" id="AggiornamentiDCM">
 					<div class="panel-heading">
 						<h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseChange3"><b>Aggiornamenti</a></b></h3>
 					</div>
 					<div class="panel-body panel-collapse collapse" id="collapseChange3">
 					<ul>
+						<p class="text-justify"><pre>11/02/2020 IdOrdine mantenuto anche su socket diversi</pre></p>
 						<p class="text-justify"><pre>12/11/2018 IdOrdine viene salvato e mantenuto in tutte le sessioni.</pre></p>
-						<p class="text-justify"><pre>26/07/2018 Miglioramenti gestione file per utilizzo con Multicharts (info su file utils.txt)</pre></p>
-						<p class="text-justify"><pre>08/06/2018 IdOrdine valido per l'intera sessione della DCL</pre></p>
+						<p class="text-justify"><pre>26/07/2018 Miglioramenti gestione file per utilizzo con Multicharts</pre></p>
+						<p class="text-justify"><pre>08/06/2018 IdOrdine valido per un'intera sessione DCL</pre></p>
 						<p class="text-justify"><pre>17/05/2018 Aggiornamento generale</pre></p>
 						<p class="text-justify"><pre>05/01/2018 Inserimento codice errore 1031 per informazione contattatto non attivo</pre></p>
-						<p class="text-justify"><pre>21/07/2017 Aggiornamento autoriconessione relativa a sezione trading</pre></p>
-						<p class="text-justify"><pre>07/06/2017 Miglioramento gestione autorec ralativa alla connessione dei prezzi</pre></p>
-						<p class="text-justify"><pre>27/03/2017 Miglioramento allineamento bidask e book5 - prezzo modifica ordine - gestione timezone diverse sul datafeed</pre></p>
-						<p class="text-justify"><pre>09/09/2017 Aggiornato certificato - rivista gestione timezone per il flusso prezzi</pre></p>
-						<p class="text-justify"><pre>19/01/2017 Comando AUTOREC attivabile anche per il datafeed</pre></p>
+						<p class="text-justify"><pre>21/07/2017 Rivista gestione autoriconessione par il modulo trading</pre></p>
+						<p class="text-justify"><pre>07/06/2017 Migliorata gestione dell'autorec per la connessione ai prezzi</pre></p>
+						<p class="text-justify"><pre>27/03/2017 Allineamento migliorato tra BidAsk e Book5 - prezzo ordine modificato - gestione timezone</pre></p>
+						<p class="text-justify"><pre>09/03/2017 Aggiornamento certificato - gestione timezone flusso prezzi</pre></p>
+						<p class="text-justify"><pre>19/01/2017 (In fase di test) Comando AUTOREC attivabile anche per il datafeed</pre></p>
 						<p class="text-justify"><pre>04/07/2016 Primo rilascio della versione Beta</pre></p>
 						</ul>
 					</div>
@@ -2628,10 +2641,11 @@ TRADOK;FCA;ORD1;3002;ACQAZ;1;4.85;0.0<br>
 						<a href=http://213.92.13.32/pluginExcelSetup/setupDirectaXL.exe> SetupXL.exe</a><br>
 						Questo programma si occuper&agrave; di copiare tutti file necessari per poter utilizzare Excel con Darwin e aprir&agrave; un file d'esempio creato da noi,dopo aver fatto questa operazione
 						sar&agrave; sufficiente aprire il vostro eventuale file excel, tutte le caratteristiche di questo componente
-						sono spiegate nel dettaglio nella guida dedicata a questo link:<a href=https://app.directatrading.com/apiwiki/excel.html> GuidaExcel</a><br>
+						sono spiegate nel dettaglio nella guida dedicata a questo link:<a href=https://app1.directatrading.com/apiwiki/excel.html> GuidaExcel</a><br>
 						Per aggiornare i componenti aggiuntivi sar&agrave; necessario utilizzare il programma e cliccare sul bottone <b>ExcelPlugin</b> e verranno scaricati e sostituiti i file necessari per il collegamento senza dover 
 						effettuare nessuna operazione manuale.<br>
-						Di seguito un'immagine dell'applicativo che si installer&agrave; sul proprio pc <br><br> 
+						Di seguito un'immagine dell'applicativo che si installer&agrave; sul proprio pc <br><br>
+   
 						<img src="img/dGoXL.png" style="float: left" alt="ExcelPlugin" height="250" width="250">
 						<br>
 						<br>
@@ -2641,7 +2655,7 @@ TRADOK;FCA;ORD1;3002;ACQAZ;1;4.85;0.0<br>
 						<br>
 						<br>
 						
-						&nbsp;&nbsp;&nbsp;&nbsp;<b>Al momento la versione in linea &egrave; la: <code>1.0.0 del 17/04/2017</code></b>.
+						&nbsp;&nbsp;&nbsp;&nbsp;<b>Al momento la versione in linea &egrave; la: <code>1.0.2 del 13/02/2018</code></b>.
 						<br>
 						<br>
 						<br>
@@ -2654,7 +2668,8 @@ TRADOK;FCA;ORD1;3002;ACQAZ;1;4.85;0.0<br>
 					</div>
 					<div class="panel-body panel-collapse collapse" id="collapseChange4">
 					<ul>
-						<p class="text-justify"><pre>05/01/2018 Aggiunto formula per reperimento anagrafica titolo</pre></p>
+						<p class="text-justify"><pre>13/02/2018 Corretto gestione pacchetti in asta e aggiunto ribbon Directa (funzionalit&agrave; in fase di sviluppo)</pre></p>
+						<p class="text-justify"><pre>05/01/2018 Aggiunto formula anag per ricevere l'anagrafica del titolo</pre></p>
 						<p class="text-justify"><pre>17/04/2017  Cambiata la gestione dell'id ordine non pi&ugrave; progressivo ma tramite timestamp</pre></p>
 						<p class="text-justify"><pre>29/07/2016  Primo rilascio della versione Beta</pre></p>
 						</ul>
@@ -2663,6 +2678,7 @@ TRADOK;FCA;ORD1;3002;ACQAZ;1;4.85;0.0<br>
 					</div> 
 					</div> 
 				</div> 
+				
 
 
 
@@ -2671,7 +2687,8 @@ TRADOK;FCA;ORD1;3002;ACQAZ;1;4.85;0.0<br>
 
 				<!-- fine pannello chiamate storiche tbt&candle -->
 
-				<hr class="style-eight" id="DarwinApp">
+				<hr class="style-eight">
+				<p id="DarwinApp"></p>
 				<h2 id="hdwapp">dGO</h2>
 				<div class="panel panel-success" id="dwappPanel">
 					<div class="panel-heading">
@@ -2720,33 +2737,33 @@ La nuova versione di dGO &egrave; stata pensata anche per gli utenti sviluppator
 				  					<p align="center"><img src="img/DarwinAutoLogin.png" height="300" width="250">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="img/AdGO.png" height="300" width="250"></p>
 				  				</li><br>
 				  			</b>
-				  		 </div>
+						   </div>
 				  	</div>
 				</div>
 
 				<div class="panel panel-default" id="dgoPlus">
-						<div class="panel-heading">
-							  <h4 class=panel-title>
-								  <b>dGO + DarwinCommandLine</b>
-							  </h4>
-						  </div>
-						  <div id="collapse30">
-							   <div class="panel-body">
-								<!-- descrizione dGo + dcl-->
-								La Darwin Command Line &egrave utilizzabile direttamente dal dGO.<br>
-								All'interno delle schede della dGO &egrave presente una sezione dedicata alla DCL:<br><br>
-								<p align="center"><img src="img/dAPI.png" height="300" width="250"></p>
-								Cliccando sulla scheda dAPI si verr&agrave; inviati alla scheda di Login:<br><br>
-								<p align="center"><img src="img/dAPIinterno.png" height="300" width="250"></p>
-								Dove &egrave; necessario inserire le proprie credenziali per fare partire la DCL, quindi in questo caso non &egrave; necessario scaricare nulla per utilizzare la DCL
-								ma la dGO provveder&agrave; a fare tutto quanto. E' possibile attivare il "Remember" per salvare utente e password, &egrave; possibile anche utilizzare l'autologin per far avviare immediatamente questa modalit&agrave;.<br>
-								Una volta fatta partire la DCL, oltre ad avviarsi la DCL la dGO rimarr&agrave; su una schermata che indicher&agrave; lo stato della connessione ai prezzi e al tradingi della DCL:<br><br>
-								<p align="center"><img src="img/dAPIConnessioni.png" height="300" width="250"></p><br>
-								Gli interruttori attivi indicano la connessione attiva mentre se spenti indicano che la connessione &egrave; stata persa.<br>
-							   </div>
-						  </div>
-					</div>
-	
+					<div class="panel-heading">
+				  		<h4 class=panel-title>
+				  			<b>dGO + DarwinCommandLine</b>
+				  		</h4>
+				  	</div>
+				  	<div id="collapse30">
+				  		 <div class="panel-body">
+							<!-- descrizione dGo + dcl-->
+							La Darwin Command Line &egrave utilizzabile direttamente dal dGO.<br>
+							All'interno delle schede della dGO &egrave presente una sezione dedicata alla DCL:<br><br>
+							<p align="center"><img src="img/dAPI.png" height="300" width="250"></p>
+							Cliccando sulla scheda dAPI si verr&agrave; inviati alla scheda di Login:<br><br>
+							<p align="center"><img src="img/dAPIinterno.png" height="300" width="250"></p>
+							Dove &egrave; necessario inserire le proprie credenziali per fare partire la DCL, quindi in questo caso non &egrave; necessario scaricare nulla per utilizzare la DCL
+							ma la dGO provveder&agrave; a fare tutto quanto. E' possibile attivare il "Remember" per salvare utente e password, &egrave; possibile anche utilizzare l'autologin per far avviare immediatamente questa modalit&agrave;.<br>
+							Una volta fatta partire la DCL, oltre ad avviarsi la DCL la dGO rimarr&agrave; su una schermata che indicher&agrave; lo stato della connessione ai prezzi e al tradingi della DCL:<br><br>
+							<p align="center"><img src="img/dAPIConnessioni.png" height="300" width="250"></p><br>
+							Gli interruttori attivi indicano la connessione attiva mentre se spenti indicano che la connessione &egrave; stata persa.<br>
+						   </div>
+				  	</div>
+				</div>
+
 				<!-- fine pannello Darwinapp -->
 
 				<!--<hr class="style-eight" id="newCmd">
@@ -2766,7 +2783,8 @@ La nuova versione di dGO &egrave; stata pensata anche per gli utenti sviluppator
 
 				<!-- fine pannello cmd2.0 da sviluppare -->
 
-				<hr class="style-eight" id="devkit">
+				<hr class="style-eight">
+				<p id="devkit"></p>
 
 				 <!-- pannello documentazione Devkit -->
 
@@ -3024,8 +3042,8 @@ La nuova versione di dGO &egrave; stata pensata anche per gli utenti sviluppator
 				<!--fine pannello devkit -->
 
 
-				<hr class="style-eight" id="tutorial">
-
+				<hr class="style-eight">
+				<p id="tutorial"></p>
 				<div class="page-header" id="trading_tit">
 					<h2 id="htutorial">Tutorial</h2>
 				</div>
@@ -3467,9 +3485,9 @@ La nuova versione di dGO &egrave; stata pensata anche per gli utenti sviluppator
 				        <br><br>
 				        <span class="glyphicon glyphicon-cloud-download"></span><b>&nbsp;Download file:</b>
 				        <ul>
-				       		<li><a href="EsempioDataFeed-CS.cs">&nbsp;EsempioDataFeed-C#</a></li>
-				       		<li><a href="ConnectDataFeed.java">&nbsp;EsempioDataFeed-Java</a></li>
-				       		<li><a href="EsempioDataFeed-C.c">&nbsp;EsempioDataFeed-C</a></li>
+				       		<li><a href="downfile.php?id=1">&nbsp;EsempioDataFeed-C#</a></li>
+				       		<li><a href="downfile.php?id=2">&nbsp;EsempioDataFeed-Java</a></li>
+				       		<li><a href="downfile.php?id=3">&nbsp;EsempioDataFeed-C</a></li>
 						</ul>
 					</div>
 					<div class="tab-pane" id="connessioneTr">
@@ -3639,159 +3657,159 @@ La nuova versione di dGO &egrave; stata pensata anche per gli utenti sviluppator
 					<div class="tab-content">
 
 						<div class="tab-pane active" id="hJ">
-				        	<code>
-				        		import java.io.BufferedReader;<br>
-				        		import java.io.IOException;<br>
-				        		import java.io.InputStreamReader;<br>
-				        		import java.io.PrintWriter;<br>
-				        		import java.net.Socket;<br><br>
-				        		<codeJD>/**<br>
-				        		 * Classe esempio per le chiamate storiche connessione socket sulla porta 10003 <br>
-				        		 * Connessione sulla porta e messaggio di connessione avvenuta tramite riga Darwinstatus,<br>
-				        		 * Effettuata la connessione manda il comando tramite una send e stampa a video il contenuto richiesto.<br>
-				        		*/</codeJD><br>
-				        		public class TbtConnect{<br>
-				        		&nbsp;Socket s; <code2>//il socket che utilizziamo per la connessione</code2><br>
-				        		&nbsp;PrintWriter pW; <code2>//fornisce i metodi print e println, che permettono di scrivere qualunque dato Java, convertendolo automaticamente in stringa.</code2><br>
-				        		&nbsp;BufferedReader bfr; <code2>//usa un buffer (memoria tampone) per memorizzare temporaneamente i caratteri da leggere/scrivere</code2><br>
-				        		&nbsp;int porta; <code2>//porta sul quale fare l'accesso</code2><br>
-				        		&nbsp;String host; <code2>//host sul quale fare l'accesso</code2><br><br>
-				        		&nbsp;public TbtConnect(int porta,String host){<br>
-				        		&nbsp;&nbsp;this.porta=porta;<br>
-				        		&nbsp;&nbsp;this.host=host;<br>
-				        		&nbsp;}<br><br>
-				        		&nbsp;<codeJD>/**</codeJD><br>
-				        		&nbsp; <codeJD>*Connessione al socket.</codeJD><br>
-				        		&nbsp; <codeJD>*creo il socket il printwriter e il buffer.</codeJD><br>
-				        		&nbsp; <codeJD>*/</codeJD><br>
-				        		&nbsp;public void Connessione(){<br>
-				        		&nbsp;&nbsp;try {<br>
-				        		&nbsp;&nbsp;&nbsp;s = new Socket(host, porta);<br>
-				        		&nbsp;&nbsp;&nbsp;pW = new PrintWriter(s.getOutputStream(), true);<br>
-				        		&nbsp;&nbsp;&nbsp;bfr = new BufferedReader(new InputStreamReader(s.getInputStream()));<br>
-				        		&nbsp;&nbsp;&nbsp;System.out.println("Connessione avvenuta");<br>
-				        		&nbsp;&nbsp;&nbsp;System.out.println(RLine());<br>
-				        		&nbsp;&nbsp;} catch (Exception e) {<br>
-				        		&nbsp;&nbsp;&nbsp;System.err.println("Unable to connect to the DataFeed: " + e );<br>
-				        		&nbsp;&nbsp;}<br>
-				        		&nbsp;}<br><br>
-				        		&nbsp;<codeJD>/**</codeJD><br>
-				        		&nbsp; <codeJD>*Metodo per la chiusura della connessione.</codeJD><br>
-				        		&nbsp; <codeJD>*/</codeJD><br>
-				        		&nbsp; public void closeConnection(){<br>
-				        		&nbsp;&nbsp; try {<br>
-				        		&nbsp;&nbsp;&nbsp; System.out.println("Chiusura in corso.");<br>
-				        		&nbsp;&nbsp;&nbsp; pW.close();<br>
-				        		&nbsp;&nbsp;&nbsp; bfr.close();<br>
-				        		&nbsp;&nbsp;&nbsp; s.close();<br>
-				        		&nbsp;&nbsp;&nbsp; System.out.println("Chiusura effettuata!");<br>
-				        		&nbsp;&nbsp;} catch (Exception e){<br>
-				        		&nbsp;&nbsp;&nbsp;System.err.println("Error disconnecting from the DataFeed: " + e);<br>
-				        		&nbsp;&nbsp;}<br>
-				        		&nbsp;}<br><br>
-				        		&nbsp;<codeJD>/**</codeJD><br>
-				        		&nbsp; <codeJD>* Metodo per fare la send del comando dato in input</codeJD> <br>
-				        		&nbsp; <codeJD>* @param cmd il comando </codeJD><br>
-				        		&nbsp; <codeJD>*/</codeJD><br>
-				        		&nbsp;public void sendCommand(String cmd){<br>
-				        		&nbsp;&nbsp;pW.println(cmd);<br>
-				        		&nbsp;}<br><br>
-				        		&nbsp;<codeJD>/**</codeJD><br>
-				        		&nbsp; <codeJD>* Metodo per stampare il contenuto del buffer.</codeJD><br>
-				        		&nbsp; <codeJD>* @return stringa contente la stringa del buffer</codeJD><br>
-				        		&nbsp; <codeJD>*/</codeJD><br>
-				        		&nbsp; public String RLine(){<br>
-				        		&nbsp;&nbsp;String line = null;<br>
-				        		&nbsp;&nbsp;try {<br>
-				        		&nbsp;&nbsp;&nbsp;line = bfr.readLine();<br>
-				        		&nbsp;&nbsp;} catch (IOException e) {<br>
-				        		&nbsp;&nbsp;&nbsp;e.printStackTrace();<br>
-				        		&nbsp;&nbsp;}<br>
-				        		&nbsp;&nbsp;return line;<br>
-				        		&nbsp;}<br><br>
-				        		&nbsp;public static void main(String args[]){<br>
-				        		&nbsp;TbtConnect t=new TbtConnect(10003,"localhost");<br>
-				        		&nbsp;t.Connessione();<br>
-				        		&nbsp;String cmd="CANDLE FCA 1 60";<br>
-				        		&nbsp;<code2>//String cmd="TBT FCA 1"; comando commentato,se si vuole provare il tbt decommentare</code2><br>
-				        		&nbsp;<code2>//TBT &lt;tit&gt; &lt;ngiorni&gt;</code2><br>
-				        		&nbsp;t.sendCommand(cmd);<br>
-				        		&nbsp;boolean stato=true;<br>
-				        		&nbsp;while(stato){<br>
-				        		&nbsp;&nbsp;String line=t.RLine();<br>
-				        		&nbsp;&nbsp;if(line.equals("END TBT") || line.equals("END CANDLES")){<br>
-				        		&nbsp;&nbsp;&nbsp;System.out.println(line);
-				        		&nbsp;&nbsp;&nbsp;stato=false;<br>
-				        		&nbsp;&nbsp;}<br>
-				        		&nbsp;&nbsp;else<br>
-				        		&nbsp;&nbsp;&nbsp;System.out.println(line);<br>
-				        		&nbsp;&nbsp;}<br>
-				        		&nbsp;&nbsp;t.closeConnection();<br>
-				        		&nbsp;}<br>
-				        		} <code2>//end class</code2><br><br>
-				        	</code>
+							<code>
+								import java.io.BufferedReader;<br>
+								import java.io.IOException;<br>
+								import java.io.InputStreamReader;<br>
+								import java.io.PrintWriter;<br>
+								import java.net.Socket;<br><br>
+								<codeJD>/**<br>
+								 * Classe esempio per le chiamate storiche connessione socket sulla porta 10003 <br>
+								 * Connessione sulla porta e messaggio di connessione avvenuta tramite riga Darwinstatus,<br>
+								 * Effettuata la connessione manda il comando tramite una send e stampa a video il contenuto richiesto.<br>
+								*/</codeJD><br>
+								public class TbtConnect{<br>
+								&nbsp;Socket s; <code2>//il socket che utilizziamo per la connessione</code2><br>
+								&nbsp;PrintWriter pW; <code2>//fornisce i metodi print e println, che permettono di scrivere qualunque dato Java, convertendolo automaticamente in stringa.</code2><br>
+								&nbsp;BufferedReader bfr; <code2>//usa un buffer (memoria tampone) per memorizzare temporaneamente i caratteri da leggere/scrivere</code2><br>
+								&nbsp;int porta; <code2>//porta sul quale fare l'accesso</code2><br>
+								&nbsp;String host; <code2>//host sul quale fare l'accesso</code2><br><br>
+								&nbsp;public TbtConnect(int porta,String host){<br>
+								&nbsp;&nbsp;this.porta=porta;<br>
+								&nbsp;&nbsp;this.host=host;<br>
+								&nbsp;}<br><br>
+								&nbsp;<codeJD>/**</codeJD><br>
+								&nbsp; <codeJD>*Connessione al socket.</codeJD><br>
+								&nbsp; <codeJD>*creo il socket il printwriter e il buffer.</codeJD><br>
+								&nbsp; <codeJD>*/</codeJD><br>
+								&nbsp;public void Connessione(){<br>
+								&nbsp;&nbsp;try {<br>
+								&nbsp;&nbsp;&nbsp;s = new Socket(host, porta);<br>
+								&nbsp;&nbsp;&nbsp;pW = new PrintWriter(s.getOutputStream(), true);<br>
+								&nbsp;&nbsp;&nbsp;bfr = new BufferedReader(new InputStreamReader(s.getInputStream()));<br>
+								&nbsp;&nbsp;&nbsp;System.out.println("Connessione avvenuta");<br>
+								&nbsp;&nbsp;&nbsp;System.out.println(RLine());<br>
+								&nbsp;&nbsp;} catch (Exception e) {<br>
+								&nbsp;&nbsp;&nbsp;System.err.println("Unable to connect to the DataFeed: " + e );<br>
+								&nbsp;&nbsp;}<br>
+								&nbsp;}<br><br>
+								&nbsp;<codeJD>/**</codeJD><br>
+								&nbsp; <codeJD>*Metodo per la chiusura della connessione.</codeJD><br>
+								&nbsp; <codeJD>*/</codeJD><br>
+								&nbsp; public void closeConnection(){<br>
+								&nbsp;&nbsp; try {<br>
+								&nbsp;&nbsp;&nbsp; System.out.println("Chiusura in corso.");<br>
+								&nbsp;&nbsp;&nbsp; pW.close();<br>
+								&nbsp;&nbsp;&nbsp; bfr.close();<br>
+								&nbsp;&nbsp;&nbsp; s.close();<br>
+								&nbsp;&nbsp;&nbsp; System.out.println("Chiusura effettuata!");<br>
+								&nbsp;&nbsp;} catch (Exception e){<br>
+								&nbsp;&nbsp;&nbsp;System.err.println("Error disconnecting from the DataFeed: " + e);<br>
+								&nbsp;&nbsp;}<br>
+								&nbsp;}<br><br>
+								&nbsp;<codeJD>/**</codeJD><br>
+								&nbsp; <codeJD>* Metodo per fare la send del comando dato in input</codeJD> <br>
+								&nbsp; <codeJD>* @param cmd il comando </codeJD><br>
+								&nbsp; <codeJD>*/</codeJD><br>
+								&nbsp;public void sendCommand(String cmd){<br>
+								&nbsp;&nbsp;pW.println(cmd);<br>
+								&nbsp;}<br><br>
+								&nbsp;<codeJD>/**</codeJD><br>
+								&nbsp; <codeJD>* Metodo per stampare il contenuto del buffer.</codeJD><br>
+								&nbsp; <codeJD>* @return stringa contente la stringa del buffer</codeJD><br>
+								&nbsp; <codeJD>*/</codeJD><br>
+								&nbsp; public String RLine(){<br>
+								&nbsp;&nbsp;String line = null;<br>
+								&nbsp;&nbsp;try {<br>
+								&nbsp;&nbsp;&nbsp;line = bfr.readLine();<br>
+								&nbsp;&nbsp;} catch (IOException e) {<br>
+								&nbsp;&nbsp;&nbsp;e.printStackTrace();<br>
+								&nbsp;&nbsp;}<br>
+								&nbsp;&nbsp;return line;<br>
+								&nbsp;}<br><br>
+								&nbsp;public static void main(String args[]){<br>
+								&nbsp;TbtConnect t=new TbtConnect(10003,"localhost");<br>
+								&nbsp;t.Connessione();<br>
+								&nbsp;String cmd="CANDLE FCA 1 60";<br>
+								&nbsp;<code2>//String cmd="TBT FCA 1"; comando commentato,se si vuole provare il tbt decommentare</code2><br>
+								&nbsp;<code2>//TBT &lt;tit&gt; &lt;ngiorni&gt;</code2><br>
+								&nbsp;t.sendCommand(cmd);<br>
+								&nbsp;boolean stato=true;<br>
+								&nbsp;while(stato){<br>
+								&nbsp;&nbsp;String line=t.RLine();<br>
+								&nbsp;&nbsp;if(line.equals("END TBT") || line.equals("END CANDLES")){<br>
+								&nbsp;&nbsp;&nbsp;System.out.println(line);
+								&nbsp;&nbsp;&nbsp;stato=false;<br>
+								&nbsp;&nbsp;}<br>
+								&nbsp;&nbsp;else<br>
+								&nbsp;&nbsp;&nbsp;System.out.println(line);<br>
+								&nbsp;&nbsp;}<br>
+								&nbsp;&nbsp;t.closeConnection();<br>
+								&nbsp;}<br>
+								} <code2>//end class</code2><br><br>
+							</code>
 							</div>
 							
-							<div class="tab-pane" id="hP">
-									<code>
-											<p>import socket<br>
-												import time<br>
-												import threading<br>
-												import Queue<br></p>
-												<br>	
-												def worker(socket, stopper, rx_queue):<br>
-												&nbsp;<code2>"""thread worker function"""</code2><br>
-												&nbsp;message = ""<br>
-												&nbsp;while not stopper.is_set():<br>
-												&nbsp;&nbsp;data = client_socket.recv(512)<br>
-												<br>
-												&nbsp;&nbsp;if data == "":<br>
-												&nbsp;&nbsp;&nbsp;time.sleep(1)<br>
-												&nbsp;&nbsp;else:<br>
-												&nbsp;&nbsp;&nbsp;message = message + (data)<br>
-												&nbsp;&nbsp;&nbsp;if "END " in data:<br>
-												&nbsp;&nbsp;&nbsp;print("Message Received");<br>
-												&nbsp;&nbsp;&nbsp;rx_queue.put(message)<br>
-												&nbsp;&nbsp;&nbsp;message = ""<br>
-												&nbsp;	return<br>
-												<br>
-												<codeJD>###########################################<br>
-												###########################################</codeJD><br>
-												<br>	
-												if __name__ == "__main__":<br>
-												&nbsp;rx_queue =Queue.Queue()     <code2># create a Thread Safe Queue</code2><br>
-												&nbsp;stopper = threading.Event() # <code2>create a Thread Safe Event</code2><br>
-												<br>
-												&nbsp;client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)<br>
-												&nbsp;client_socket.connect(('localhost', 10003)) <code2># connect to HISTORICAL DATA socket</code2><br>
-												<br>	
-												&nbsp; t = threading.Thread(target=worker, args=(client_socket, stopper, rx_queue ) )<br>
-												&nbsp; t.start()<br>
-												&nbsp; time.sleep( 5 )<br>
-													<br>
-												&nbsp; print("Extract 1 hour candles")<br>
-													<br>
-												&nbsp; print("Extract EOD pricesfor last 5 years")<br>
-												&nbsp; cmd="CANDLE MSE 1250 86400"<br>
-												&nbsp; client_socket.send(cmd+"\n")<br>
-												&nbsp; time.sleep( 5 )<br>
-													<br>
-												&nbsp; print("Wait for 15 seconds")<br>
-												&nbsp; time.sleep( 15 )<br>
-													<br>
-												&nbsp; stopper.set()   <code2># force thread stop</code2><br>
-												&nbsp; t.join();<br>
-												&nbsp; client_socket.close()<br>
-													<br>
-												&nbsp; f =  open("MSE.txt", 'w')<br>
-												&nbsp; while not rx_queue.empty():<br>
-												&nbsp;&nbsp; message = rx_queue.get()<br>
-												&nbsp;&nbsp; f.write(message)<br>
-													<br>
-												&nbsp;	f.close()<br>
-												print("Done!")<br>
-									</code>
-									</div>
+							<div class="tab-pane active" id="hP">
+								<code>
+									<p>import socket<br>
+									import time<br>
+									import threading<br>
+									import Queue<br></p>
+									<br>	
+									def worker(socket, stopper, rx_queue):<br>
+									&nbsp;<code2>"""thread worker function"""</code2><br>
+									&nbsp;message = ""<br>
+									&nbsp;while not stopper.is_set():<br>
+									&nbsp;&nbsp;data = client_socket.recv(512)<br>
+									<br>
+									&nbsp;&nbsp;if data == "":<br>
+									&nbsp;&nbsp;&nbsp;time.sleep(1)<br>
+									&nbsp;&nbsp;else:<br>
+									&nbsp;&nbsp;&nbsp;message = message + (data)<br>
+									&nbsp;&nbsp;&nbsp;if "END " in data:<br>
+									&nbsp;&nbsp;&nbsp;print("Message Received");<br>
+									&nbsp;&nbsp;&nbsp;rx_queue.put(message)<br>
+									&nbsp;&nbsp;&nbsp;message = ""<br>
+									&nbsp;	return<br>
+									<br>
+									<codeJD>###########################################<br>
+									###########################################</codeJD><br>
+									<br>	
+									if __name__ == "__main__":<br>
+									&nbsp;rx_queue =Queue.Queue()     <code2># create a Thread Safe Queue</code2><br>
+									&nbsp;stopper = threading.Event() # <code2>create a Thread Safe Event</code2><br>
+									<br>
+									&nbsp;client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)<br>
+									&nbsp;client_socket.connect(('localhost', 10003)) <code2># connect to HISTORICAL DATA socket</code2><br>
+									<br>	
+									&nbsp; t = threading.Thread(target=worker, args=(client_socket, stopper, rx_queue ) )<br>
+									&nbsp; t.start()<br>
+									&nbsp; time.sleep( 5 )<br>
+										<br>
+									&nbsp; print("Extract 1 hour candles")<br>
+										<br>
+									&nbsp; print("Extract EOD pricesfor last 5 years")<br>
+									&nbsp; cmd="CANDLE MSE 1250 86400"<br>
+									&nbsp; client_socket.send(cmd+"\n")<br>
+									&nbsp; time.sleep( 5 )<br>
+										<br>
+									&nbsp; print("Wait for 15 seconds")<br>
+									&nbsp; time.sleep( 15 )<br>
+										<br>
+									&nbsp; stopper.set()   <code2># force thread stop</code2><br>
+									&nbsp; t.join();<br>
+									&nbsp; client_socket.close()<br>
+										<br>
+									&nbsp; f =  open("MSE.txt", 'w')<br>
+									&nbsp; while not rx_queue.empty():<br>
+									&nbsp;&nbsp; message = rx_queue.get()<br>
+									&nbsp;&nbsp; f.write(message)<br>
+										<br>
+									&nbsp;	f.close()<br>
+									print("Done!")<br>
+								</code>
+								</div>
 
 				        <div class="tab-pane" id="hCS">
 				        	<code>
@@ -3811,7 +3829,7 @@ La nuova versione di dGO &egrave; stata pensata anche per gli utenti sviluppator
 					<span class="glyphicon glyphicon-cloud-download"></span><b>&nbsp;Download file:</b>
 				        <ul>
 							<li><a href="downfile.php?id=5">&nbsp;EsempioCh-Java</a></li>
-							<li><a href="downfile.php?id=13">&nbsp;EsempioCh-Phyton</a></li>
+							<li><a href="downfile.php?id=13">&nbsp;EsempioCh-Phyton</a></li>   
 				       		<li>&nbsp;EsempioCh-C#</li>
 				       		<li>&nbsp;EsempioCh-C</li>
 						</ul>
@@ -3824,7 +3842,8 @@ La nuova versione di dGO &egrave; stata pensata anche per gli utenti sviluppator
 				<!--  fine pannello tutorial -->
 
 				<br>
-				<hr class="style-eight" id="comunicazioni">
+				<hr class="style-eight">
+				<p id="#comunicazioni"></p>
 				<!--<br>
 				link e comunicazioni
 				<div class="panel panel-info" id="remote-delete">
@@ -3868,23 +3887,23 @@ La nuova versione di dGO &egrave; stata pensata anche per gli utenti sviluppator
 					</div>
 					<div class="panel-body panel-collapse collapse" id="collapseChange">
 					<ul>
-						<p class="text-justify"><pre>12/11/2018 <a href="#dgoPlus">Informazioni su utilizzo di dGO e DCL</a></pre></p>
-						<p class="text-justify"><pre>12/11/2018 <a href="#InfoMute"> Aggiornamento sezione Darwin Command Line</a></pre></p>
-						<p class="text-justify"><pre>17/05/2018<a href="#PluginDirecta"> Aggiornamento sezione plugin Directa - Plugin Multicharts</a></pre></p>
-						<p class="text-justify"><pre>05/02/2018 <a href="#fl_info"> Aggiunta dettaglio per ricevere book oltre al quinto livello</a></pre></p>
-						<p class="text-justify"><pre>05/02/2018 <a href="#multiUtenza"> Aggiunta sezione per utilizzo API con pi&ugrave; utenze</a></pre></p>
-						<p class="text-justify"><pre>05/02/2018 <a href="#esempi_codice"> Aggiornamento Tutorial - Esempi di codice (codice per chiamate storiche)</a></pre></p>
-						<p class="text-justify"><pre>05/01/2018<a href="#pldirecta"> Aggiornamento sezione plugin Directa</a></pre></p>
-						<p class="text-justify"><pre>10/11/2016 Aggiunta codice errore per mercato non abilitato per sottoscrizione strumento</pre></p>
+						<p class="text-justify"><pre>11/02/2020 Aggiornamento contenuti generale</pre></p>
+						<p class="text-justify"><pre>12/11/2018 Informazioni su utilizzo di dGO e DCL</a></pre></p>
+					    <p class="text-justify"><pre>12/11/2018  Aggiornamento sezione Darwin Command Line</a></pre></p>
+						<p class="text-justify"><pre>13/02/2018 Aggiornamento librerie excel</a></pre></p>
+						<p class="text-justify"><pre>05/02/2018  Aggiunta dettaglio per ricevere book oltre al quinto livello</a></pre></p>
+						<p class="text-justify"><pre>05/02/2018  Aggiunta sezione per utilizzo API con pi&ugrave; utenze</a></pre></p>
+						<p class="text-justify"><pre>05/02/2018  Aggiornamento Tutorial - Esempi di codice (codice per chiamate storiche)</a></pre></p>
+						<p class="text-justify"><pre>14/11/2016 Aggiunta codice errore per mercato non abilitato per sottoscrizione strumento</pre></p>
 						<p class="text-justify"><pre>13/10/2016 Informazione sulla connessione della Darwin</pre></p>
 						<p class="text-justify"><pre>30/08/2016 Nuovo comando per autoriconessione trading - <b>AUTOREC</b></pre></p>
 						<p class="text-justify"><pre>30/08/2016 Nuovo comando attivabile per update - <b>POINTUPDATEORDER</b></pre></p>
 						<p class="text-justify"><pre>29/07/2016 Aggiunto comando a sezione nuovi comandi trading</pre></p>
 						<p class="text-justify"><pre>29/07/2016 Aggiunta Sezione Multicharts</pre></p>
 						<p class="text-justify"><pre>11/07/2016 Update comando ORDERLIST</pre></p>
-            			<p class="text-justify"><pre>25/04/216  Aggiunta comando chiusura Darwin tramite API. <br>Rimozione dettaglio chiamate storiche deprecate.</p></pre>
-            			<p class="text-justify"><pre>03/02/2016 Aggiornamento output comando UPDATEORDER </p></pre>
-            			<p class="text-justify"><pre>03/12/2015 Documentazione nuovi comandi trading e Nuove specifiche chiamate storiche</p></pre>
+            			<p class="text-justify"><pre>25/04/2016 Aggiunta comando chiusura Darwin tramite API. <br>Rimozione dettaglio chiamate storiche deprecate.</p></pre>
+            			<p class="text-justify"><pre>03/02/2016  Aggiornamento output comando UPDATEORDER </p></pre>
+            			<p class="text-justify"><pre>03/12/2015 Documentazione nuovi comandi trading e Nuove specifiche chiamate storiche</a></p></pre> 
             			<p class="text-justify"><pre>10/09/2015 Aggiornamento comando TABLELIST</pre></p>
             			<p class="text-justify"><pre>25/08/2015 Informazione ricezione orario flusso Order</pre></p>
 						<p class="text-justify"><pre>10/08/2015 Specifiche DarwinApp</pre></p>
@@ -3934,11 +3953,10 @@ La nuova versione di dGO &egrave; stata pensata anche per gli utenti sviluppator
 			<div  id="menu" class="col-md-3">
 				 <div class="navbar navbar-right bs-docs-sidebar hidden-print" role="complementary">
 
-						<ul>
-								<img src="img/api.png">
-								<br><br>
-							</ul>
-		
+					<ul>
+						<img src="img/api.png">
+						<br><br>
+					</ul>
 
 				 	<ul class="nav bs-docs-sidenav">
 
@@ -3961,7 +3979,7 @@ La nuova versione di dGO &egrave; stata pensata anche per gli utenti sviluppator
 						  		<li><a href="#closeDW">Chiusura Darwin</a></li>
 								<li><a href="#connDw">Connessione Darwin</a></li>
 								<li><a href="#multiUtenza">Utilizzo utenteze diverse su stesso PC</a></li>
-						  		<li ><a href="#comandi-informativi">Comandi Informativi</a></li>
+								<li ><a href="#comandi-informativi">Comandi Informativi</a></li>
 						  		<li > <a href="#messaggiClient">Formato messaggi verso il Client</a></li>
 						  		<li ><a href="#codici-errore">Codici Errore</a></li>
 							</ul>
@@ -3999,19 +4017,20 @@ La nuova versione di dGO &egrave; stata pensata anche per gli utenti sviluppator
 						</li> -->
 
 						<li>
-							<a href="#PluginDirecta" id="blink">PLUGIN Directa</a>
+							<a href="#pldirecta" id="blink">PLUGIN Directa</a>
 							<ul class="nav">
 							 	<li><a href="#InfoMC">Multicharts</a></li>
-								<li ><a href="#InfoMute">Darwin Command Line</a></li>
-								<li ><a href="#InfoExcel" >Componente Aggiuntivo per Microsoft Excel</a></li> 
+								<li><a href="#InfoMute">Darwin Command Line</a></li>
+								<li><a href="#InfoExcel" >Componente Aggiuntivo per Microsoft Excel</a></li>
+								<li><a href="https://github.com/directa-it">Collegamento GitHub</a></li>			
 							</ul>
 						</li>
 
 						<li>
 							<a href="#DarwinApp">dGO</a>
 							<ul class="nav">
-									<li><a href="#dgoPlus">dGO + DarwinCommandLine</a></li>
-							   </ul>
+								<li><a href="#dgoPlus">dGO + DarwinCommandLine</a></li>
+						   </ul>
 						</li>
 
 
@@ -4033,6 +4052,7 @@ La nuova versione di dGO &egrave; stata pensata anche per gli utenti sviluppator
 						<!-- torna in cima alla pagina -->
 						<li ><a href="#top">Back to top</a></li>
 					</ul>
+					
 			</div>
 		</div>
 
