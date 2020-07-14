@@ -64,12 +64,7 @@
 
         tr:hover {
             background-color: #efefef;
-		}
-	
-	#headDiv{
-		background-color: #1C2331;
-	}
-		
+        }
     </style>
 
 
@@ -115,18 +110,18 @@
 
       <div class="container">
 
-       <nav id="headDiv" class="navbar navbar-default" role="navigation">
+       <nav class="navbar navbar-default" role="navigation">
 
        <ul class="nav navbar-nav navbar-left">
 
-       	<h7><a href="#changelog" data-toggle="collapse" data-parent"#accordion" data-target="#collapseChange">Ultimo aggionamento: 13/07/2020</a></h7>
+       	<h7><a href="#changelog" data-toggle="collapse" data-parent"#accordion" data-target="#collapseChange">Ultimo aggionamento: 20/02/2020</a></h7>
        </ul>
 
 
 
        <ul class="nav navbar-nav navbar-middle">
 		<a href="https://www.directa.com">
-        <img src="https://www.directa.it/img/logo-directa-bianco.svg">
+        <img src="img/logo-directa.png">
 		</a>
 
          </ul>
@@ -171,8 +166,8 @@
 		"> 
 				 <h1 class="heading_one" style="
 			line-height: 1.4;
-			color: #efefef;
-			background-color: #1C2331;
+			color: #154b71;
+			background-color: #f8f8f8;
 			padding: 10px 20px;
     		text-align: center;
 
@@ -337,8 +332,8 @@
 
 				       <p class="text-justify">
 				        	<h3>Come accedere ai servizi API Directa</h3>
-				        		Il servizio &egrave; <b>gratuito</b> per quanto riguarda il <code><font color="#CD5C5C">TRADING</font></code> mentre &egrave; sottoposto a un <b>canone mensile di 20&euro;</b> per quanto riguarda il <code><font color="#01796F">DATAFEED</font></code>. Il servizio &egrave; sottoposto a controllo da parte di Directa.<br>
-				        		Per le abilitazioni &egrave; necessario passare dal conto nella pagina "Tabellone" e cliccare su info>5a>3h.
+				        		Il servizio &egrave; <b>totalmente gratuito</b>, ma sottoposto a controllo da parte di Directa.<br>
+				        		Per l'abilitazione &egrave; necessario passare dal conto nella pagina "Tabellone" e cliccare su info>5a>3h.
 				        		<ol>
 				        			
 				        		</ol>
@@ -810,29 +805,8 @@
 				        	<br><b>AVAILABILITY;14:47:04;1000;5000;0;0;5000\n</b>
 				        	<br><br>
 				        	<b>Formato messaggio DARWIN_STATUS</b>
-							<br>DARWIN_STATUS; &lt;STATO CONNESSIONE&gt;;&lt;ABILITAZIONE DATAFEED&gt; ;&lt;RELEASE&gt;\n
-
-							<br><br>Possibili valori per ABILITAZIONE DATAFEED :<br>
-				        	<table class="table table-bordered">
-				        		<thread>
-				        			<tr>
-				        				<th>VALORE</th>
-				        				<th>SIGNIFICATO</th>
-				        			</tr>
-				        		</thread>
-				        		<tbody>
-				        			<tr>
-				        				<td>TRUE</td>
-				        				<td>utenza abilitata al datafeed</td>
-				        			</tr>
-				        			<tr>
-				        				<td>FALSE</td>
-				        				<td>utenza non abilitata al datafeed</td>
-				        			</tr>
-				        		</tbody>
-				        	</table>
-							
-				        	<br>Possibili valori per STATO CONNESSIONE:<br>
+				        	<br>DARWIN_STATUS; &lt;STATO CONNESSIONE&gt; ;&lt;RELEASE&gt;\n
+				        	<br>Possibili valori per STATO CONNESSIONE-:<br>
 				        	<table class="table table-bordered">
 				        		<thread>
 				        			<tr>
@@ -861,7 +835,7 @@
 				        	</table>
 
 				        	<br>Esempio di record DARWIN_STATUS:
-				        	<br><b>DARWIN_STATUS;CONN_OK;TRUE;Release 1.2.1 build 01/08/2020 14:10:00 more info at http://app1.directatrading.com/trading-api-directa/index.html </b>
+				        	<br><b>DARWIN_STATUS;CONN_OK;Release 1.00 20130101\n</b>
 				        	<br><br>
 				        	<b>Formato messaggio INFOACCOUNT</b>
 				        	<br>INFOACCOUNT; &lt;ORA HH:MM:SS&gt; ; &lt;CODICE CONTO DIRECTA&gt; ; &lt;LIQUIDITA'&gt; ; &lt;GAIN EURO&gt; ; &lt;OPEN PROFIT/LOSS&gt; ; &lt;EQUITY&gt;\n
@@ -1152,18 +1126,12 @@
 				        				<td>Mercato non abilitato per il ticker richiesto</td>
 				        				<td><code><font color="#01796F">DATAFEED</font></code></td>
 									</tr>
-								</tr>
+								</tr>>
 									<tr>
 										<td>1031</td>
 										<td>CONTATTO_NON_ATTIVO</td>
 										<td>Contatto verso il nostro server di trading scuduto, necessario riavviare l'applicazione per fare operazioni di trading</td>
 										<td><code><font color="#CD5C5C">TRADING</font></code></td>
-									</tr>
-									<tr>
-										<td>1032</td>
-										<td>DATAFEDD NON ABILITATO</td>
-										<td>quotazioni non abilitate</td>
-										<td><code><font color="#01796F">DATAFEED</font></code></td>
 									</tr>
 
 				        			 
@@ -2226,7 +2194,7 @@ ERR;N/A;1024<br>
 <b>Trading Disconnesso;false;1024</b><br>  
 <b>Recconect Trading to 5 sec</b><br> 
 <b>TradingRiconesso;true;1025</b><br>  
-DARWIN_STATUS;CONN_OK;TRUE;Release 1.2.1 build 01/08/2020 14:10:00 more info...<br> 
+DARWIN_STATUS;RECONNTRADINGOK CONN_OK ;Release 1.2.179 build 24/11/2015 14:37:00 more info at http://213.92.13.32/directaapi/rss.php<br> 
 ERR;N/A;1018<br>
 ORDER;FCA;10:49:00;ORD1;ACQAZ;6.165;0.0;1;2004<br>  
 ORDER;FCA;10:36:11;ORD2;ACQAZ;6.15;0.0;1;2004<br>  
@@ -2269,7 +2237,7 @@ TRADOK;FCA;ORD1;3002;ACQAZ;1;4.85;0.0<br>
 				  	<b>Specifiche per i periodi storici disponibili</b>
 				  	<br>
 				
-					<b>I limiti attualmente imposti sono 100 giorni per le chiamate intraday e 15 anni per le chiamate EnfOfDay, in caso
+					<b>I limiti attualmente imposti sono 40 giorni per le chiamate intraday e 15 anni per le chiamate EnfOfDay, in caso
 					di chiamate oltre i limiti la risposta sar&agrave; composta della massima profondit&agrave; della nostra base dati, in caso di errore nei comandi o
 					nei limiti verranno inviati dei codici di errore.</b><br>
 					
@@ -2292,11 +2260,11 @@ TRADOK;FCA;ORD1;3002;ACQAZ;1;4.85;0.0<br>
 				        		<tr>
 				        		<tr>
 				        			<td>1, 2, 3 e 4 minuti</td>
-				        			<td>Limite massimo 100 giorni</td>
+				        			<td>Limite massimo 40 giorni</td>
 				        		<tr>
 				        		<tr>
 				        			<td>END OF DAY</td>
-				        			<td>Fino a 15 anni</td>
+				        			<td>Fino a 5 anni</td>
 				        		<tr>
 				        	</tbody>
 				        	</table>
@@ -2453,7 +2421,7 @@ TRADOK;FCA;ORD1;3002;ACQAZ;1;4.85;0.0<br>
   							<p>in questo esempio sono evidenziate con <b>TX</b> i comandi inviati mentre con <b>RX</b> le risposte.
   							<code>
   							17:58:50 TX Connection socket localhost port:100003<br>
-							17:58:52 RX DARWIN_STATUS;CONN_OK;TRUE;Release 1.2.1 build 01/08/2020 14:10:00 more info...<br>
+							17:58:52 RX DARWIN_STATUS;CONN_OK;Release 1.2.122 06/11/2014 16:51:50 more info...<br>
 							18:00:11 TX VOLUMEAFTERHOURS<br>
 							18:00:12 RX VOLUME_AFTERHOURS CNT+AH<br>
 							18:00:23 TX CANDLE FCA 1 86400<br>
@@ -2582,7 +2550,7 @@ TRADOK;FCA;ORD1;3002;ACQAZ;1;4.85;0.0<br>
 					</div>
 						<div id="collapse30">
 				  		 <div class="panel-body">
-					<b>L'attuale versione in linea del nostro pluginIN per la connessione con Multicharts &egrave; la <code>1.83 - 13/07/2020</b></code>.<br>
+					<b>L'attuale versione in linea del nostro pluginIN per la connessione con Multicharts &egrave; la <code>1.81 - 11/02/2020</b></code>.<br>
 					Per reperire l'installer necessario per il collegamento bisogna eseguire questi passaggi:<br>
 					a partire dal TABELLONE di directratrading.com,  cliccando su Info -> punto 5a   (ABILITAZIONI e VARIAZIONI CONTRATTUALI / Abilitazioni) -> punto 3i  (API).<br>
 					In cima saranno presenti i due installer, uno per i sistemi a 32bit l'altro per quelli a 64bit.<br>
@@ -2595,10 +2563,9 @@ TRADOK;FCA;ORD1;3002;ACQAZ;1;4.85;0.0<br>
 					</div>
 					<div class="panel-body panel-collapse collapse" id="collapseChange2">
 					<ul>
-						<p class="text-justify"><pre>13/07/2020 aggiornamento per acquisizione 100 giorni dati intraday</pre>
-						<p class="text-justify"><pre>11/02/2020 uniformato aggregazione dati storici per composizione candele - allegerimento file di log</pre></p>
+						<p class="text-justify"><pre>11/02/2020 uniformato aggregazione dati storici per composizione candele - allegerimento file di log</pre>11/02/2020 </p>
 						<p class="text-justify"><pre>27/04/2018 Corretto freeze momentaneo su revoca ordine</pre></p>
-						<p class="text-justify"><pre>21/07/2017 Migliorate le exit strategy, indicazione prezzo per ordini a mercato</pre></p>
+						<p class="text-justify"><pre>21/07/2017 Migliorate le exit strategy,comandi per autoriconessione darwin, indicazione prezzo per ordini a mercato</pre></p>
 						<p class="text-justify"><pre>09/02/2017 Migliorata gestione chiamate storiche fuori range</pre></p>
 						<p class="text-justify"><pre>13/01/2017 Gestione lettura file migliorata per utilizzo con DarwinCommandLine</pre></p>
 						<p class="text-justify"><pre>14/11/2016 Risolta problematica volumi per grafici con compressione 1Day</pre></p>
@@ -2898,7 +2865,7 @@ La nuova versione di dGO &egrave; stata pensata anche per gli utenti sviluppator
 								Partendo da un esempio di flusso dati andremo ad osservare nel dettaglio le caratteristiche del log:<br>
 								<code>
 								<font color="blue">17:02:11 TX Connection socket localhost port:10003</font><br>
-								<font color="black">17:02:12 RX DARWIN_STATUS;CONN_OK;TRUE;Release 1.2.1 build 01/08/2020... </font><br>
+								<font color="black">17:02:12 RX DARWIN_STATUS;CONN_OK;Release developVersion developDate </font><br>
 								<font color="blue">17:02:33 TX CANDLE FCA 1 3600</font> <br>
 								<font color="black">17:02:39 RX BEGIN CANDLES <br>
 								17:02:39 RX CANDLE;FCA;20150707;09:00:00;13.00000;12.77000;13.04000;12.94000;3574235 <br>
@@ -3929,7 +3896,6 @@ La nuova versione di dGO &egrave; stata pensata anche per gli utenti sviluppator
 					</div>
 					<div class="panel-body panel-collapse collapse" id="collapseChange">
 					<ul>
-						<p class="text-justify"><pre>01/08/2020 Aggiornamento servizo datafeed, multicharts</pre></p>
 						<p class="text-justify"><pre>11/02/2020 Aggiornamento contenuti generale</pre></p>
 						<p class="text-justify"><pre>12/11/2018 Informazioni su utilizzo di dGO e DCL</a></pre></p>
 					    <p class="text-justify"><pre>12/11/2018  Aggiornamento sezione Darwin Command Line</a></pre></p>

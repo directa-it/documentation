@@ -66,10 +66,6 @@ Directa's trading data flow and trading systems | see the wiki here ">
         tr:hover {
             background-color: #efefef;
         }
-
-		#headDiv{
-		background-color: #1C2331;
-	}
     </style>
 
 	<script type="text/javascript">
@@ -111,7 +107,7 @@ Directa's trading data flow and trading systems | see the wiki here ">
 
    <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
     <div class="container">
-      <nav id="headDiv" class="navbar navbar-default" role="navigation">
+      <nav class="navbar navbar-default" role="navigation">
 
       <ul class="nav navbar-nav navbar-left">
 
@@ -119,7 +115,7 @@ Directa's trading data flow and trading systems | see the wiki here ">
        </ul>
 
       	<ul class="nav navbar-nav navbar-middle">
-         <img src="https://www.directa.it/img/logo-directa-bianco.svg"><img src="img/uk.gif">
+         <img src="img/logo-directa.png"><img src="img/uk.gif">
 
                  </ul>
 
@@ -148,8 +144,8 @@ Directa's trading data flow and trading systems | see the wiki here ">
 			line-height: 1.8; "> 
 	 <h1 class="heading_one" style="
 			line-height: 1.4;
-			color: #efefef;
-			background-color: #1C2331;
+			color: #154b71;
+			background-color: #f8f8f8;
 			padding: 10px 20px;
     		text-align: center;
 		"> 
@@ -294,9 +290,16 @@ Directa's trading data flow and trading systems | see the wiki here ">
 				    </div>
 				    <div id="collapsetestata">
 				      <div class="panel-body">
-				        
-		<h3> Acceptance of the Darwin API service policy </h3>
-		As usual, Directa asks people interested in implementing external programs to comply with certain rules and to sign an agreement to use the APIs and other related tools. <br>
+				        <p class="text-justify">
+				        	 In Directa's Darwin trading platform project there is the possibility to integrate new functions, realized not only by the internal team of programmers, but also by independent programmers too.<br>
+				        	<b>The tools necessary to extend Darwin's functionality are completely free.</b><br>
+				        	At the moment Directa is developing three different possibilities for the interface with the external software applications, whose present or future availability is specified below.
+				        </p>
+				        <p class="text-justify">
+				        	<h3>Acceptance of the API services' Terms and Conditions</h3>
+				        	As usual, Directa requires those interested in realizing external programs to respect some terms and to underwrite an agreement in order to make use of the APIs and of the related tools.<br>
+				        	For this purpose, it is necessary to submit back to Directa the consensus email that is sent to those customers who show their interest in the API development.
+				        </p>
 				      </div>
 				    </div>
 			</div>
@@ -313,8 +316,8 @@ Directa's trading data flow and trading systems | see the wiki here ">
 
 				       <p class="text-justify">
 				        	<h3>How to access Darwin's API service</h3>
-							The service is free of charge for <code><font color="#CD5C5C">TRADING</font></code> while subject to a monthly fee of € 20 for <code><font color="#01796F">DATAFEED</font></code>. The service is controlled by Directa.
-							For qualifications it is necessary to switch from the account on the "Scoreboard" page and click on info> 5a> 3h.
+				        		The service is completely free, but it's subject to Directa's control and moderation.<br>
+				        		You can enable your account throgh Main Board > Info > 5a > 3h
 				        		
 				        </p>
 				        <p class="text-justify">
@@ -733,28 +736,7 @@ Directa's trading data flow and trading systems | see the wiki here ">
 				        	<br><b>AVAILABILITY;14:47:04;1000;5000:0;0;5000\n</b>
 				        	<br><br>
 				        	<b>DARWIN_STATUS message format</b>
-							<br>DARWIN_STATUS; &lt;CONNECTION STATUS&gt;;&lt;enable datafeed&gt; ;&lt;RELEASE&gt;\n
-							
-							<br><br>Possible values ​​for DATAFEED ENABLING:<br>
-				        	<table class="table table-bordered">
-				        		<thread>
-				        			<tr>
-				        				<th>VALUE</th>
-				        				<th>MEANING</th>
-				        			</tr>
-				        		</thread>
-				        		<tbody>
-				        			<tr>
-				        				<td>TRUE</td>
-				        				<td>user enabled for datafeed</td>
-				        			</tr>
-				        			<tr>
-				        				<td>FALSE</td>
-				        				<td>user not enabled for datafeed</td>
-				        			</tr>
-				        		</tbody>
-				        	</table>
-
+				        	<br>DARWIN_STATUS; &lt;CONNECTION STATUS&gt; ;&lt;RELEASE&gt;\n
 				        	<br>Possible values for CONNECTION STATUS:<br>
 				        	<table class="table table-bordered">
 				        		<thread>
@@ -784,7 +766,7 @@ Directa's trading data flow and trading systems | see the wiki here ">
 				        	</table>
 
 				        	<br>Example of the DARWIN_STATUS record:
-				        	<br><b>DARWIN_STATUS;CONN_OK;TRUE;Release 1.2.1 build 01/08/2020 14:10:00 more info at http://app1.directatrading.com/trading-api-directa/index.html </b>
+				        	<br><b>DARWIN_STATUS;CONN_OK;Release 1.00 20130101\n</b>
 				        	<br><br>
 				        	<b>INFOACCOUNT message format</b>
 				        	<br>INFOACCOUNT; &lt;TIME HH:MM:SS&gt; ; &lt;DIRECTA ACCOUNT CODE&gt; ; &lt;LIQUIDITY&gt; ; &lt;GAIN EURO&gt; ; &lt;OPEN PROFIT/LOSS&gt;\n
@@ -2317,7 +2299,7 @@ ERR;N/A;1024<br>
 <b>Trading Disconnesso;false;1024</b><br>  
 <b>Recconect Trading to 5 sec</b><br> 
 <b>TradingRiconesso;true;1025</b><br>  
-DARWIN_STATUS;RECONNTRADINGOK CONN_OK ;TRUE;Release 1.2.179 build 24/11/2015 14:37:00 more info at http://213.92.13.32/directaapi/rss.php<br> 
+DARWIN_STATUS;RECONNTRADINGOK CONN_OK ;Release 1.2.179 build 24/11/2015 14:37:00 more info at http://213.92.13.32/directaapi/rss.php<br> 
 ERR;N/A;1018<br>
 ORDER;FCA;10:49:00;ORD1;ACQAZ;6.165;0.0;1;2004<br>  
 ORDER;FCA;10:36:11;ORD2;ACQAZ;6.15;0.0;1;2004<br>  
@@ -2360,7 +2342,7 @@ TRADOK;FCA;ORD1;3002;ACQAZ;1;4.85;0.0<br>
 				  	<b>Specific historical periods available</b>
 				  	<br>
 					<br>
-					<b>The limit currently imposed are 100 days for intraday calls and five years for EnfOfDay calls when
+					<b>The limit currently imposed are 40 days for intraday calls and five years for EnfOfDay calls when
 						calls beyond the limits of the response will be composed of the maximum depth of our data base, in case of error in the controls or
 						within the limits of error codes they will be sent.</b><br><br>
 				        	<!--<table class="table table-bordered">
@@ -2412,11 +2394,11 @@ TRADOK;FCA;ORD1;3002;ACQAZ;1;4.85;0.0<br>
 				        		<tr>
 				        		<tr>
 				        			<td>1, 2, 3 and 4 minutes</td>
-				        			<td>Maximum 100 days</td>
+				        			<td>Maximum 40 days</td>
 				        		<tr>
 				        		<tr>
 				        			<td>END OF DAY</td>
-				        			<td>Maximum 15 years</td>
+				        			<td>Maximum 5 years</td>
 				        		<tr>
 				        	</tbody>
 				        	</table>
@@ -2575,7 +2557,7 @@ TRADOK;FCA;ORD1;3002;ACQAZ;1;4.85;0.0<br>
   							<p>in this example are shown with <b> TX </ b> commands sent while with </b> RX </ b> answers.
   							<code>
   							17:58:50 TX Connection socket localhost port:100003<br>
-							17:58:52 RX DARWIN_STATUS;CONN_OK;TRUE;Release 1.2.1 build 01/08/2020 14:10:00 more info..<br>
+							17:58:52 RX DARWIN_STATUS;CONN_OK;Release 1.2.122 06/11/2014 16:51:50 more info...<br>
 							18:00:11 TX VOLUMEAFTERHOURS<br>
 							18:00:12 RX VOLUME_AFTERHOURS CNT+AH<br>
 							18:00:23 TX CANDLE FCA 1 86400<br>
@@ -2685,7 +2667,7 @@ TRADOK;FCA;ORD1;3002;ACQAZ;1;4.85;0.0<br>
 					</div>
 						<div id="collapse30">
 				  		 <div class="panel-body">
-					<b>The current online version of our pluginIN to connect with Multicharts is <code>1.83 - 13/0/2020.</code><br></b>
+					<b>The current online version of our pluginIN to connect with Multicharts is <code>1.76 - 27/04/2018.</code><br></b>
 					To find the installer needed for the connection, you have to follow these steps:<br>
 
 					Starting from the Main Board of the Trading site at http://www1.directatrading.com/, click on Info -> point 5a (ADDITIONAL ACTIVATIONS AND VARIATIONS/Additional Activations) -> point 3i (API).
@@ -2698,7 +2680,6 @@ TRADOK;FCA;ORD1;3002;ACQAZ;1;4.85;0.0<br>
 					</div>
 					<div class="panel-body panel-collapse collapse" id="collapseChange2">
 					<ul>
-						<p class="text-justify"><pre>13/07/2020 Update about 100 days history datas</pre></p>
 						<p class="text-justify"><pre>27/04/2018 Fixed freeze on cancel order</pre></p>
 						<p class="text-justify"><pre>21/07/2017 Update market order, autorec, update exit strategy</pre></p>
 						<p class="text-justify"><pre>09/02/2017 Update history call out of range</pre></p>
@@ -3681,7 +3662,6 @@ The dGO's new version is designed for developer users
 						<h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseChange"><b>Update</a></b></h3>
 					</div>
 						<div class="panel-body panel-collapse collapse" id="collapseChange">
-						<p class="text-justify"><pre>01/08/2020 Update datafeed service, multicharts</pre></p>
 						<p class="text-justify"><pre>12/11/2018 <a href="#InfoMute">Update Darwin Command Line section</a></pre></p>
 						<p class="text-justify"><pre>26/07/2018 <a href="#PluginDirecta"> Update Plugin Directa section</a></pre></p>
 						<p class="text-justify"><pre>05/02/2018 <a href="#fl_info"> Add details abot book levels</a></pre></p>
