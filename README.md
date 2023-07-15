@@ -5,7 +5,7 @@
 
 **I REPOSITORY DEI PROGETTI** 
 
-I repository rappresentano il punto di riferimento per gli sviluppatori interessati ad utilizzare i servizi messi a disposizione da Directa [per i propri clienti] tramite la piattaforma <a href="http://www.directa.it/pub2/it/darwin/intro.html">Traing Online Darwin</a>. I *progetti* proposti sono:
+I repository rappresentano il punto di riferimento per gli sviluppatori interessati ad utilizzare i servizi messi a disposizione da Directa [per i propri clienti] tramite la piattaforma <a href="http://www.directa.it/pub2/it/darwin/intro.html">Trading Online Darwin</a>. I *progetti* proposti sono:
 
 - <a href="https://github.com/directa-it/darwinCommandLine">*Darwin CommandLine*</a>: e' una versione di Darwin senza interfaccia grafica che permette di utilizzare le API (dati storici, prezzi e scambi in tempo reale, funzioni per il trading) fornite da Directa
 - *<a href="https://github.com/directa-it/pluginExcel">Plugin Excel*</a>: e' la libreria che permette di utilizzare le API di Darwin in Excel
